@@ -1,4 +1,4 @@
-package by.nivkgrits.webapp;
+package by.novikgrits.webapp;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
