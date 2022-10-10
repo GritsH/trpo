@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class User {
     @Id
-    private Long id;
+    private Integer id;
     @Column("role")
     private String roleName;
     @Column("first_name")
@@ -34,6 +34,10 @@ public class User {
         this.password = password;
         this.phone = phone;
         this.passportNumber = passportNumber;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getRoleName() {

@@ -7,15 +7,15 @@ import java.util.Objects;
 
 public class LotStatus {
     @Id
-    private Long id;
-    @Column("lot_status")
+    private Integer id;
+    @Column("status_name")
     private final String lotStatus;
 
     public LotStatus(String lotStatus) {
         this.lotStatus = lotStatus;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

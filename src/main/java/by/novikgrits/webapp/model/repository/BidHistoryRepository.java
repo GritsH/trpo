@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BidHistoryRepository extends CrudRepository<BidHistory, Long> {
-    List<BidHistory> findAllByBidderEmailAndLotId(String bidderEmail, Long lotId);
+public interface BidHistoryRepository extends CrudRepository<BidHistory, Integer> {
+    List<BidHistory> findAllByBidderEmailAndLotId(String bidderEmail, Integer lotId);
     List<BidHistory> findAllByBidderEmail(String bidderEmail);
-    List<BidHistory> findAllByLotId(Long id);
+    List<BidHistory> findAllByLotId(Integer id);
 }

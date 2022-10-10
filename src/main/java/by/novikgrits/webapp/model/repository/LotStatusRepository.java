@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LotStatusRepository extends CrudRepository<LotStatus, Long> {
+public interface LotStatusRepository extends CrudRepository<LotStatus, Integer> {
 }

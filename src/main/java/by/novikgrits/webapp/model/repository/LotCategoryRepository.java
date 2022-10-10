@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LotCategoryRepository extends CrudRepository<LotCategory, Long> {
+public interface LotCategoryRepository extends CrudRepository<LotCategory, Integer> {
 }

@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Item {
     @Id
-    private Long id;
+    private Integer id;
     @Column("owner_email")
     private String ownerEmail;
     @Column("photo")

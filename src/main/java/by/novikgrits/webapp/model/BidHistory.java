@@ -10,11 +10,11 @@ import java.util.Objects;
 
 public class BidHistory implements Comparable<BidHistory> {
     @Id
-    private Long id;
+    private Integer id;
     @Column("bidder_email")
     private String bidderEmail;
     @Column("lot_id")
-    private Long lotId;
+    private Integer lotId;
     @Column("price")
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double price;
@@ -22,14 +22,14 @@ public class BidHistory implements Comparable<BidHistory> {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate biddingDate;
 
-    public BidHistory(String bidderEmail, Long lotId, Double price, LocalDate biddingDate) {
+    public BidHistory(String bidderEmail, Integer lotId, Double price, LocalDate biddingDate) {
         this.bidderEmail = bidderEmail;
         this.lotId = lotId;
         this.price = price;
         this.biddingDate = biddingDate;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -37,7 +37,7 @@ public class BidHistory implements Comparable<BidHistory> {
         return bidderEmail;
     }
 
-    public Long getLotId() {
+    public Integer getLotId() {
         return lotId;
     }
 
@@ -53,7 +53,7 @@ public class BidHistory implements Comparable<BidHistory> {
         this.bidderEmail = bidderEmail;
     }
 
-    public void setLotId(Long lotId) {
+    public void setLotId(Integer lotId) {
         this.lotId = lotId;
     }
 

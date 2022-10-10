@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class UserRole {
     @Id
-    private Long id;
+    private Integer id;
     @Column("role_name")
     private final String roleName;
 
@@ -15,7 +15,7 @@ public class UserRole {
         this.roleName = roleName;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

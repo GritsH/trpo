@@ -10,9 +10,9 @@ import java.util.Objects;
 
 public class Lot implements Comparable<Lot> {
     @Id
-    private Long id;
+    private Integer id;
     @Column("item_id")
-    private Long itemId;
+    private Integer itemId;
     @Column("starting_date")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate startingDate;
@@ -29,13 +29,13 @@ public class Lot implements Comparable<Lot> {
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double currentPrice;
     @Column("category_id")
-    private Long categoryId;
+    private Integer categoryId;
     @Column("status_id")
-    private Long statusId;
+    private Integer statusId;
 
-    public Lot(Long itemId, LocalDate startingDate,
+    public Lot(Integer itemId, LocalDate startingDate,
                LocalDate closingDate, Double startingPrice,
-               Double step, Long categoryId, Long statusId) {
+               Double step, Integer categoryId, Integer statusId) {
         this.itemId = itemId;
         this.startingDate = startingDate;
         this.closingDate = closingDate;
@@ -45,11 +45,11 @@ public class Lot implements Comparable<Lot> {
         this.statusId = statusId;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public Long getItemId() {
+    public Integer getItemId() {
         return itemId;
     }
 
@@ -77,11 +77,11 @@ public class Lot implements Comparable<Lot> {
         return step;
     }
 
-    public Long getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public Long getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
