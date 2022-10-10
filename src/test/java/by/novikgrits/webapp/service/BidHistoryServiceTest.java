@@ -54,7 +54,7 @@ class BidHistoryServiceTest {
     @DisplayName("should find all histories")
     @Test
     void findAll() {
-        List<BidHistory>  repositoryResponse = new ArrayList<>();
+        List<BidHistory> repositoryResponse = new ArrayList<>();
         BidHistory mockedHistory = mock(BidHistory.class);
         repositoryResponse.add(mockedHistory);
 

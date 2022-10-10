@@ -17,15 +17,15 @@ public class ItemService {
         itemRepository.save(item);
     }
 
-    public List<Item> getAllItems(){
+    public List<Item> getAllItems() {
         return (List<Item>) itemRepository.findAll();
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(Integer id) {
         itemRepository.deleteById(id);
     }
 
-    public Optional<Item> getById(Integer id){
+    public Optional<Item> getById(Integer id) {
         return itemRepository.findById(id);
     }
 }

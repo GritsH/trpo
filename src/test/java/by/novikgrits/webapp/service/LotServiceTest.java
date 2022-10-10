@@ -1,6 +1,5 @@
 package by.novikgrits.webapp.service;
 
-import by.novikgrits.webapp.model.Item;
 import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.repository.ItemRepository;
 import by.novikgrits.webapp.model.repository.LotRepository;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
