@@ -8,7 +8,7 @@ import org.springframework.format.annotation.NumberFormat;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class BidHistory {
+public class BidHistory implements Comparable<BidHistory> {
     @Id
     private Long id;
     @Column("bidder_email")
@@ -87,5 +87,10 @@ public class BidHistory {
                 ", price=" + price +
                 ", biddingDate=" + biddingDate +
                 '}';
+    }
+
+    @Override
+    public int compareTo(BidHistory history) {
+        return getBiddingDate().compareTo(history.getBiddingDate());
     }
 }

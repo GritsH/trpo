@@ -25,6 +25,9 @@ public class Lot implements Comparable<Lot> {
     @Column("step")
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double step;
+    @Column("current_price")
+    @NumberFormat(style = NumberFormat.Style.CURRENCY)
+    private Double currentPrice;
     @Column("category_id")
     private Long categoryId;
     @Column("status_id")
@@ -52,6 +55,14 @@ public class Lot implements Comparable<Lot> {
 
     public LocalDate getStartingDate() {
         return startingDate;
+    }
+
+    public Double getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public void setCurrentPrice(Double currentPrice) {
+        this.currentPrice = currentPrice;
     }
 
     public LocalDate getClosingDate() {
@@ -103,6 +114,6 @@ public class Lot implements Comparable<Lot> {
 
     @Override
     public int compareTo(Lot lot) {
-        return getStartingDate().compareTo(lot.getStartingDate());
+        return getCurrentPrice().compareTo(lot.getCurrentPrice());
     }
 }
