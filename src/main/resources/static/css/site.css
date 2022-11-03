@@ -1,0 +1,44 @@
+html{
+    height: 100%;
+}
+*{
+    margin: 0;
+}
+header{
+    background: #BBD25D;
+    display: flex;
+    width: 100%;
+    height: 20%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+body{
+    display: flex;
+    background: white;
+    flex-direction: column;
+}
+footer{
+    background: #BBD25D;
+    position: fixed;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 5%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+
+}
+.footer-text{
+    padding-top: 12px;
+    font-weight: normal;
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+    font-size: 14px;
+
+}
+.header-title-auth{
+    width: 70px;
+}
