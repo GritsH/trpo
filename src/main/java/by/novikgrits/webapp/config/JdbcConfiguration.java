@@ -2,6 +2,7 @@ package by.novikgrits.webapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration;
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableJdbcRepositories("by.novikgrits.webapp")
-public class JdbcConfiguration {
+public class JdbcConfiguration extends AbstractJdbcConfiguration {
     @Bean
     NamedParameterJdbcOperations operations() {
         return new NamedParameterJdbcTemplate(dataSource());
@@ -31,7 +32,7 @@ public class JdbcConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/auction");
         dataSource.setUsername("root"); //TODO change username if it differs
-        dataSource.setPassword("qw217746121"); //TODO change password if its differs
+        dataSource.setPassword("qw217746121"); //TODO change password if it differs
         return dataSource;
     }
 }
