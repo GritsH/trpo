@@ -1,10 +1,12 @@
-html{
+html {
     height: 100%;
 }
-*{
+
+* {
     margin: 0;
 }
-header{
+
+header {
     background: #BBD25D;
     display: flex;
     width: 100%;
@@ -13,15 +15,18 @@ header{
     justify-content: space-around;
     align-items: center;
 }
-body{
+
+body {
     display: flex;
     background: white;
     flex-direction: column;
 }
-footer{
+
+footer {
     background: #BBD25D;
     position: fixed;
-    left: 0; bottom: 0;
+    left: 0;
+    bottom: 0;
     width: 100%;
     height: 5%;
     flex-direction: row;
@@ -31,7 +36,8 @@ footer{
 
 
 }
-.footer-text{
+
+.footer-text {
     padding-top: 12px;
     font-weight: normal;
     font-family: 'Josefin Sans', sans-serif;
@@ -39,6 +45,7 @@ footer{
     font-size: 14px;
 
 }
-.header-title-auth{
+
+.header-title-auth {
     width: 70px;
 }

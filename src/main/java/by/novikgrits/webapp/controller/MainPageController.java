@@ -15,7 +15,7 @@ public class MainPageController {
     private LotCategoryService lotCategoryService;
 
     @GetMapping("/main")
-    public String getMain(Model model){
+    public String getMain(Model model) {
         List<LotCategory> allCategories = lotCategoryService.getAllCategories();
         model.addAttribute("categories", allCategories);
         return "main";

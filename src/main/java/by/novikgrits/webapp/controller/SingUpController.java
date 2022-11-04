@@ -15,14 +15,14 @@ public class SingUpController {
     private UserService userService;
 
     @GetMapping("/signup")
-    public String signUpForm(Model model){
+    public String signUpForm(Model model) {
         model.addAttribute("new_user", new User());
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String signUpPost(@ModelAttribute User user, Model model){
-        if(userService.findByEmail(user.getEmail()).isPresent()){
+    public String signUpPost(@ModelAttribute User user, Model model) {
+        if (userService.findByEmail(user.getEmail()).isPresent()) {
             model.addAttribute("user_exists", true);
             return "signup";
         }
