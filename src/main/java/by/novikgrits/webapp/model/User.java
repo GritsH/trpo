@@ -36,6 +36,9 @@ public class User {
         this.passportNumber = passportNumber;
     }
 
+    public User() {
+    }
+
     public Integer getId() {
         return id;
     }
