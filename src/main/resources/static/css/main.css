@@ -1,9 +1,10 @@
-.header-title{
+.header-title {
     display: flex;
     justify-content: center;
     margin-top: auto;
 }
-.header-title-text{
+
+.header-title-text {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +21,8 @@
     padding-bottom: 0;
     color: rgba(0, 0, 0, 0.64);
 }
-.header-title-select{
+
+.header-title-select {
     text-align: center;
     width: 350px;
     height: 45px;
@@ -32,14 +34,17 @@
 
 
 }
-.header-title-select:focus{
+
+.header-title-select:focus {
     border: 2px solid black;
     background-color: #D9D9D9;
 }
-.header-title-select:hover{
+
+.header-title-select:hover {
 
 }
-.header-title-logout{
+
+.header-title-logout {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 19px;
     font-weight: normal;
@@ -47,17 +52,20 @@
     color: black;
     text-decoration: none;
 }
-.header-title-logout:hover{
+
+.header-title-logout:hover {
     color: darkred;
     text-decoration: none;
 }
-.main{
+
+.main {
     display: flex;
     justify-content: center;
     /*margin-top: auto;*/
     flex-direction: row;
 }
-.left-container{
+
+.left-container {
     width: 22%;
     height: 100%;
     margin-top: 40px;
@@ -66,7 +74,7 @@
     display: block;
 }
 
-.right-container{
+.right-container {
     width: 78%;
     height: 100%;
     padding-left: 20px;
@@ -75,12 +83,14 @@
     flex-direction: column;
     margin-right: 40px;
 }
-.aside-list{
+
+.aside-list {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
-.aside-box{
+
+.aside-box {
     width: 240px;
     height: 50px;
     display: flex;
@@ -89,10 +99,12 @@
     background-color: #D9D9D9;
     margin: 3px;
 }
-.aside-box:hover{
+
+.aside-box:hover {
     background-color: #989898;
 }
-.aside-link{
+
+.aside-link {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -101,14 +113,16 @@
     text-decoration: none;
     padding: 12px;
 }
-.panel-for-title{
+
+.panel-for-title {
     height: 20%;
     width: 100%;
     display: flex;
     vertical-align: top;
 
 }
-.main-title{
+
+.main-title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -118,11 +132,13 @@
     margin-bottom: 80px;
 
 }
-.for-advertisement{
+
+.for-advertisement {
     height: 30%;
     width: 100%;
 }
-.image-for-advertisement{
+
+.image-for-advertisement {
     height: 70px;
     width: 95%;
     padding: 20px;
@@ -132,7 +148,8 @@
     justify-content: center;
 
 }
-.title-for-advertisement{
+
+.title-for-advertisement {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     font-weight: normal;
@@ -140,7 +157,8 @@
     color: rgba(0, 0, 0, 0.40);
 
 }
-.panel-auctions{
+
+.panel-auctions {
     height: 50%;
     width: 100%;
     display: flex;
@@ -150,7 +168,8 @@
     margin-right: 60px;
 
 }
-.box-for-categories{
+
+.box-for-categories {
     width: 200px;
     height: 250px;
     display: flex;
@@ -161,21 +180,24 @@
     padding: 10px;
     background-color: #D9D9D9;
 }
-.for-img-categories{
+
+.for-img-categories {
     width: 120px;
     height: 120px;
     border-radius: 20px;
     background-color: white;
 
 }
-.title-for-categories{
+
+.title-for-categories {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1px;
     color: black;
 }
-.more-detailed-button{
+
+.more-detailed-button {
     height: 40px;
     width: 150px;
     margin: 1em auto;
@@ -184,7 +206,7 @@
     border: none;
     border-radius: 7px;
     background-color: #BBD25D;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1) ;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
