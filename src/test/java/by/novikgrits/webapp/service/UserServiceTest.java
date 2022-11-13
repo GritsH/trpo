@@ -1,7 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.User;
-import by.novikgrits.webapp.model.repository.UserRepository;
+import by.novikgrits.webapp.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

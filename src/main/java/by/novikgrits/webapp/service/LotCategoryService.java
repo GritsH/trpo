@@ -1,7 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.LotCategory;
-import by.novikgrits.webapp.model.repository.LotCategoryRepository;
+import by.novikgrits.webapp.repository.LotCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

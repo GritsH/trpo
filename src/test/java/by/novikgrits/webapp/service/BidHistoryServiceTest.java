@@ -1,7 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.BidHistory;
-import by.novikgrits.webapp.model.repository.BidHistoryRepository;
+import by.novikgrits.webapp.repository.BidHistoryRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

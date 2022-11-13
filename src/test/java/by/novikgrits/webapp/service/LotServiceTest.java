@@ -1,8 +1,8 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.Lot;
-import by.novikgrits.webapp.model.repository.ItemRepository;
-import by.novikgrits.webapp.model.repository.LotRepository;
+import by.novikgrits.webapp.repository.ItemRepository;
+import by.novikgrits.webapp.repository.LotRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

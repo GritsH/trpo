@@ -1,7 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.BidHistory;
-import by.novikgrits.webapp.model.repository.BidHistoryRepository;
+import by.novikgrits.webapp.repository.BidHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
