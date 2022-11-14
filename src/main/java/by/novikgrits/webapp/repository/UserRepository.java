@@ -18,10 +18,13 @@ public class UserRepository {
     public UserRepository(){
     }
 
-    public int save(User user) throws SQLException {
-       return jdbcTemplate.update("insert into user(?,?,?,?,?,?,?,?)",
+    public int save(User user) {
+       return jdbcTemplate.update("insert into user(role_id, status_id, first_name, last_name, email," +
+                       " user_password, phone, passport_data) values(?,?,?,?,?,?,?,?)",
                user.getRoleId(),user.getStatusId(), user.getFirstName(), user.getLastName(),
                user.getEmail(), user.getPassword(), user.getPhone(), user.getPassword());
 
     }
+
+
 }
