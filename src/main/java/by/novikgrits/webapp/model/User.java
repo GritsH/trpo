@@ -1,37 +1,26 @@
 package by.novikgrits.webapp.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-
 import java.util.Objects;
 
 public class User {
-    @Id
     private Integer id;
-    @Column("role")
-    private String roleName;
-    @Column("first_name")
-    private String firstName;
-    @Column("last_name")
-    private String lastName;
-    @Column("email")
     private String email;
-    @Column("password")
     private String password;
-    @Column("phone")
+    private String firstName;
+    private String lastName;
+
+    private Integer roleId;
+    private Integer statusId;
     private Integer phone;
-    @Column("passport_number")
     private String passportNumber;
 
-    public User(String roleName,
-                String firstName, String lastName,
-                String email, String password,
-                Integer phone, String passportNumber) {
-        this.roleName = roleName;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String email, String password, String firstName, String lastName, Integer roleId, Integer statusId, Integer phone, String passportNumber) {
         this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.roleId = roleId;
+        this.statusId = statusId;
         this.phone = phone;
         this.passportNumber = passportNumber;
     }
@@ -39,16 +28,20 @@ public class User {
     public User() {
     }
 
-    public Integer getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -67,20 +60,20 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getStatusId() {
+        return statusId;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
     }
 
     public Integer getPhone() {
@@ -104,23 +97,24 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(roleName, user.roleName) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(passportNumber, user.passportNumber);
+        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(roleId, user.roleId) && Objects.equals(statusId, user.statusId) && Objects.equals(phone, user.phone) && Objects.equals(passportNumber, user.passportNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roleName, firstName, lastName, email, password, phone, passportNumber);
+        return Objects.hash(id, email, password, firstName, lastName, roleId, statusId, phone, passportNumber);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", role_id=" + roleId +
+                ", status_id=" + statusId +
                 ", phone=" + phone +
                 ", passportNumber='" + passportNumber + '\'' +
                 '}';
