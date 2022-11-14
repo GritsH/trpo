@@ -33,8 +33,6 @@ footer {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-
-
 }
 
 .footer-text {
@@ -48,4 +46,11 @@ footer {
 
 .header-title-auth {
     width: 70px;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    /*margin-top: auto;*/
+    flex-direction: row;
+    padding-bottom: 5%;
 }

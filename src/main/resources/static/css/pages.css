@@ -58,12 +58,7 @@
     text-decoration: none;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    /*margin-top: auto;*/
-    flex-direction: row;
-}
+
 
 .left-container {
     width: 22%;
