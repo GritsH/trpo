@@ -6,34 +6,37 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class BidHistory implements Comparable<BidHistory> {
     private Integer id;
-    private Integer bidderId;
     private Integer lotId;
+    private Integer bidderId;
+
     private Double price;
+
     private LocalDate biddingDate;
 
-    public BidHistory(Integer bidderId, Integer lotId, Double price, LocalDate biddingDate) {
-        this.bidderId = bidderId;
-        this.lotId = lotId;
-        this.price = price;
-        this.biddingDate = biddingDate;
+    public BidHistory() {
     }
 
-    public BidHistory() {
+    public BidHistory(Integer lotId, Integer bidderId, Double price, LocalDate biddingDate) {
+        this.lotId = lotId;
+        this.bidderId = bidderId;
+        this.price = price;
+        this.biddingDate = biddingDate;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public Integer getBidderId() {
-        return bidderId;
-    }
-
     public Integer getLotId() {
         return lotId;
+    }
+
+    public Integer getBidderId() {
+        return bidderId;
     }
 
     public Double getPrice() {
@@ -44,6 +47,21 @@ public class BidHistory implements Comparable<BidHistory> {
         return biddingDate;
     }
 
+    public void setLotId(Integer lotId) {
+        this.lotId = lotId;
+    }
+
+    public void setBidderId(Integer bidderId) {
+        this.bidderId = bidderId;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setBiddingDate(LocalDate biddingDate) {
+        this.biddingDate = biddingDate;
+    }
 
     @Override
     public int compareTo(BidHistory history) {

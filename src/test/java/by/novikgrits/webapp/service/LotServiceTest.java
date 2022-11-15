@@ -33,8 +33,7 @@ class LotServiceTest {
     @Test
     void addLot() {
         Lot lot = new Lot(1, LocalDate.now(), LocalDate.now(),
-                1.0, 1.0, 1.0, 1, 1, "info");
-
+                1.0, 1.0, 1.0, 1, 1, "info", "name");
         lotService.addLot(lot);
 
         verify(lotRepository).save(lot);
