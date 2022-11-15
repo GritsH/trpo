@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.controller;
 
-import by.novikgrits.webapp.model.LotCategory;
+import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.service.LotCategoryService;
 import by.novikgrits.webapp.service.UserService;
@@ -25,7 +25,7 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String getProfile(Model model) {
-        List<LotCategory> allCategories = lotCategoryService.getAllCategories();
+        List<ItemCategory> allCategories = lotCategoryService.getAllCategories();
         model.addAttribute("categories", allCategories);
         Optional<User> currentUser = userService.findByEmail(String.valueOf(session.getAttribute("current_user")));
         if (currentUser.isPresent()) {

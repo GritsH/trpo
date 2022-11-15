@@ -5,13 +5,11 @@ import org.springframework.data.relational.core.mapping.Column;
 
 import java.util.Objects;
 
-public class LotCategory {
-    @Id
+public class ItemCategory {
     private Integer id;
-    @Column("category_name")
     private final String categoryName;
 
-    public LotCategory(String categoryName) {
+    public ItemCategory(String categoryName) {
         this.categoryName = categoryName;
     }
 
@@ -27,7 +25,7 @@ public class LotCategory {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LotCategory that = (LotCategory) o;
+        ItemCategory that = (ItemCategory) o;
         return Objects.equals(id, that.id) && Objects.equals(categoryName, that.categoryName);
     }
 

@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.service;
 
-import by.novikgrits.webapp.model.LotCategory;
+import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.repository.LotCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +13,11 @@ public class LotCategoryService {
     @Autowired
     private LotCategoryRepository lotCategoryRepository;
 
-    public List<LotCategory> getAllCategories() {
-        return (List<LotCategory>) lotCategoryRepository.findAll();
+    public List<ItemCategory> getAllCategories() {
+        return (List<ItemCategory>) lotCategoryRepository.findAll();
     }
 
-    public Optional<LotCategory> getByName(String name) {
+    public Optional<ItemCategory> getByName(String name) {
         return lotCategoryRepository.findLotCategoryByCategoryName(name);
     }
 

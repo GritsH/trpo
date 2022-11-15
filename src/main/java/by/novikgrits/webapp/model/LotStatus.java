@@ -6,9 +6,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import java.util.Objects;
 
 public class LotStatus {
-    @Id
     private Integer id;
-    @Column("status_name")
     private final String lotStatus;
 
     public LotStatus(String lotStatus) {

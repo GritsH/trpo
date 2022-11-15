@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.controller;
 
-import by.novikgrits.webapp.model.LotCategory;
+import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.service.LotCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ public class CategoriesController {
 
     @GetMapping("/categories")
     public String getCategories(Model model){
-        List<LotCategory> allCategories = lotCategoryService.getAllCategories();
+        List<ItemCategory> allCategories = lotCategoryService.getAllCategories();
         model.addAttribute("all_categories", allCategories);
         return "categories";
     }
