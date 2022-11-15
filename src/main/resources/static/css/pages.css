@@ -31,8 +31,6 @@
     font-size: 24px;
     font-weight: normal;
     letter-spacing: 1px;
-
-
 }
 
 .header-title-select:focus {
@@ -175,7 +173,40 @@ button:hover {
     background-color: #91b02e;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     color: black;
+}
 
+.furniture-speciality-select {
+    text-align: left;
+    width: 45em;
+    height: 40px;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    background-color: #D9D9D9;
+}
+
+.furniture-speciality-select:focus {
+    border: 2px solid black;
+    background-color: whitesmoke;
+}
+
+.medical-speciality-select {
+    text-align: left;
+    width: 45em;
+    height: 40px;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    background-color: #D9D9D9;
+}
+
+.medical-speciality-select:focus {
+    border: 2px solid black;
+    background-color: whitesmoke;
 }
 
 

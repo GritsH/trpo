@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Create lot Furniture</title>
+    <title>Auction - Create lot Medical equipment</title>
     <link rel="stylesheet" type="text/css" href="../static/css/pages.css">
     <link rel="stylesheet" type="text/css" href="../static/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,20 +80,25 @@
                     <input class="all-lot-info" id="allLotInfo" type="text" required/>
                 </div>
                 <div class="create-lot-input">
-                    <label>furniture type: </label>
-                    <select class="furniture-speciality-select">
-                        <option>seating</option>
-                        <option>sleeping</option>
-                        <option>entertainment</option>
-                        <option>tables</option>
-                        <option>storage</option>
-                        <option>sets</option>
+                    <label>speciality: </label>
+                    <select class="medical-speciality-select">
+                        <option>storage and transport medical equipment</option>
+                        <option>durable medical equipment</option>
+                        <option>diagnostic medical equipment</option>
+                        <option>electronic medical equipment</option>
+                        <option>surgical medical equipment</option>
+                        <option>acute care</option>
+                        <option>procedural medical equipment</option>
                         <option>other</option>
                     </select>
                 </div>
                 <div class="create-lot-input">
-                    <label>material: </label>
-                    <input class="furniture-material" id="furnitureMaterial" type="text" required/>
+                    <label>brand: </label>
+                    <input class="medical-equipment-brand" id="medicalEquipmentBrand" type="text" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>manufacture year: </label>
+                    <input class="medical-equipment-manufacture-year" id="medicalEquipmentManufactureYear" type="number" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>location: </label>
