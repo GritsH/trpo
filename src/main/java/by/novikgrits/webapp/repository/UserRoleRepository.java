@@ -1,4 +1,4 @@
-package by.novikgrits.webapp.model.repository;
+package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.UserRole;
 import org.springframework.data.repository.CrudRepository;

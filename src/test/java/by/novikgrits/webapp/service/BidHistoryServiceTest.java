@@ -1,7 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.BidHistory;
-import by.novikgrits.webapp.model.repository.BidHistoryRepository;
+import by.novikgrits.webapp.repository.BidHistoryRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +28,7 @@ class BidHistoryServiceTest {
     @DisplayName("should add history")
     @Test
     void addHistory() {
-        BidHistory history = new BidHistory("email", 1, 1.0, LocalDate.now());
+        BidHistory history = new BidHistory(1, 1, 1.0, LocalDate.now());
 
         bidHistoryService.addHistory(history);
 

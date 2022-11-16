@@ -9,22 +9,20 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class BidHistory implements Comparable<BidHistory> {
-    @Id
     private Integer id;
-    @Column("bidder_email")
-    private String bidderEmail;
-    @Column("lot_id")
     private Integer lotId;
-    @Column("price")
-    @NumberFormat(style = NumberFormat.Style.CURRENCY)
+    private Integer bidderId;
+
     private Double price;
-    @Column("bidding_date")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+
     private LocalDate biddingDate;
 
-    public BidHistory(String bidderEmail, Integer lotId, Double price, LocalDate biddingDate) {
-        this.bidderEmail = bidderEmail;
+    public BidHistory() {
+    }
+
+    public BidHistory(Integer lotId, Integer bidderId, Double price, LocalDate biddingDate) {
         this.lotId = lotId;
+        this.bidderId = bidderId;
         this.price = price;
         this.biddingDate = biddingDate;
     }
@@ -33,12 +31,12 @@ public class BidHistory implements Comparable<BidHistory> {
         return id;
     }
 
-    public String getBidderEmail() {
-        return bidderEmail;
-    }
-
     public Integer getLotId() {
         return lotId;
+    }
+
+    public Integer getBidderId() {
+        return bidderId;
     }
 
     public Double getPrice() {
@@ -49,12 +47,12 @@ public class BidHistory implements Comparable<BidHistory> {
         return biddingDate;
     }
 
-    public void setBidderEmail(String bidderEmail) {
-        this.bidderEmail = bidderEmail;
-    }
-
     public void setLotId(Integer lotId) {
         this.lotId = lotId;
+    }
+
+    public void setBidderId(Integer bidderId) {
+        this.bidderId = bidderId;
     }
 
     public void setPrice(Double price) {
@@ -63,30 +61,6 @@ public class BidHistory implements Comparable<BidHistory> {
 
     public void setBiddingDate(LocalDate biddingDate) {
         this.biddingDate = biddingDate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BidHistory that = (BidHistory) o;
-        return Objects.equals(id, that.id) && Objects.equals(bidderEmail, that.bidderEmail) && Objects.equals(lotId, that.lotId) && Objects.equals(price, that.price) && Objects.equals(biddingDate, that.biddingDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, bidderEmail, lotId, price, biddingDate);
-    }
-
-    @Override
-    public String toString() {
-        return "BidHistory{" +
-                "id=" + id +
-                ", bidderEmail='" + bidderEmail + '\'' +
-                ", lotId=" + lotId +
-                ", price=" + price +
-                ", biddingDate=" + biddingDate +
-                '}';
     }
 
     @Override

@@ -9,60 +9,45 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Lot implements Comparable<Lot> {
-    @Id
     private Integer id;
-    @Column("item_id")
-    private Integer itemId;
-    @Column("starting_date")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private Integer ownerId;
     private LocalDate startingDate;
-    @Column("closing_date")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDate closingDate;
-    @Column("starting_price")
-    @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double startingPrice;
-    @Column("step")
-    @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double step;
-    @Column("current_price")
-    @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double currentPrice;
-    @Column("category_id")
-    private Integer categoryId;
-    @Column("status_id")
+    private Integer locationId;
     private Integer statusId;
+    private String briefInfo;
+    private String lotName;
 
-    public Lot(Integer itemId, LocalDate startingDate,
-               LocalDate closingDate, Double startingPrice,
-               Double step, Integer categoryId, Integer statusId) {
-        this.itemId = itemId;
+    public Lot(Integer ownerId, LocalDate startingDate, LocalDate closingDate, Double startingPrice,
+               Double step, Double currentPrice, Integer locationId, Integer statusId, String briefInfo, String lotName) {
+        this.ownerId = ownerId;
         this.startingDate = startingDate;
         this.closingDate = closingDate;
         this.startingPrice = startingPrice;
         this.step = step;
-        this.categoryId = categoryId;
+        this.currentPrice = currentPrice;
+        this.locationId = locationId;
         this.statusId = statusId;
+        this.briefInfo = briefInfo;
+        this.lotName = lotName;
+    }
+
+    public Lot() {
     }
 
     public Integer getId() {
         return id;
     }
 
-    public Integer getItemId() {
-        return itemId;
+    public Integer getOwnerId() {
+        return ownerId;
     }
 
     public LocalDate getStartingDate() {
         return startingDate;
-    }
-
-    public Double getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(Double currentPrice) {
-        this.currentPrice = currentPrice;
     }
 
     public LocalDate getClosingDate() {
@@ -77,12 +62,64 @@ public class Lot implements Comparable<Lot> {
         return step;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Double getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public Integer getLocationId() {
+        return locationId;
     }
 
     public Integer getStatusId() {
         return statusId;
+    }
+
+    public String getBriefInfo() {
+        return briefInfo;
+    }
+
+    public String getLotName() {
+        return lotName;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public void setStartingDate(LocalDate startingDate) {
+        this.startingDate = startingDate;
+    }
+
+    public void setClosingDate(LocalDate closingDate) {
+        this.closingDate = closingDate;
+    }
+
+    public void setStartingPrice(Double startingPrice) {
+        this.startingPrice = startingPrice;
+    }
+
+    public void setStep(Double step) {
+        this.step = step;
+    }
+
+    public void setCurrentPrice(Double currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+
+    public void setLocationId(Integer locationId) {
+        this.locationId = locationId;
+    }
+
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
+    }
+
+    public void setBriefInfo(String briefInfo) {
+        this.briefInfo = briefInfo;
+    }
+
+    public void setLotName(String lotName) {
+        this.lotName = lotName;
     }
 
     @Override
@@ -90,25 +127,28 @@ public class Lot implements Comparable<Lot> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lot lot = (Lot) o;
-        return Objects.equals(id, lot.id) && Objects.equals(itemId, lot.itemId) && Objects.equals(startingDate, lot.startingDate) && Objects.equals(closingDate, lot.closingDate) && Objects.equals(startingPrice, lot.startingPrice) && Objects.equals(step, lot.step) && Objects.equals(categoryId, lot.categoryId) && Objects.equals(statusId, lot.statusId);
+        return Objects.equals(id, lot.id) && Objects.equals(ownerId, lot.ownerId) && Objects.equals(startingDate, lot.startingDate) && Objects.equals(closingDate, lot.closingDate) && Objects.equals(startingPrice, lot.startingPrice) && Objects.equals(step, lot.step) && Objects.equals(currentPrice, lot.currentPrice) && Objects.equals(locationId, lot.locationId) && Objects.equals(statusId, lot.statusId) && Objects.equals(briefInfo, lot.briefInfo) && Objects.equals(lotName, lot.lotName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, itemId, startingDate, closingDate, startingPrice, step, categoryId, statusId);
+        return Objects.hash(id, ownerId, startingDate, closingDate, startingPrice, step, currentPrice, locationId, statusId, briefInfo, lotName);
     }
 
     @Override
     public String toString() {
         return "Lot{" +
                 "id=" + id +
-                ", itemId=" + itemId +
+                ", ownerId=" + ownerId +
                 ", startingDate=" + startingDate +
                 ", closingDate=" + closingDate +
                 ", startingPrice=" + startingPrice +
                 ", step=" + step +
-                ", categoryId=" + categoryId +
+                ", currentPrice=" + currentPrice +
+                ", locationId=" + locationId +
                 ", statusId=" + statusId +
+                ", briefInfo='" + briefInfo + '\'' +
+                ", lotName='" + lotName + '\'' +
                 '}';
     }
 
