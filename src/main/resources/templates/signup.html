@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auction - Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/signup.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -13,7 +14,7 @@
 <body>
 <header class="header">
     <div class="header-title">
-        <a class="header-title-text">auction</a>
+        <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
         <select class="header-title-select">
@@ -29,41 +30,44 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="login.html" class="header-title-login"> log in</a>
+        <a href="login.html" class="header-title-login" th:href="@{/login}"> log in</a>
     </div>
 
 </header>
 <main class="main">
     <p class="sign-title">SIGN UP</p>
-    <form class="sign-form">
+    <form class="sign-form" action="#" th:action="@{/signup}" th:object="${new_user}" method="post">
 
         <label>first name</label>
         <div class="sign-form-input">
             <input class="firstname-field" id="firstnameInput" type="text" placeholder="enter your first name"
-                   required/>
+                   th:field="*{firstName}" required/>
         </div>
         <label>last name</label>
         <div class="sign-form-input">
-            <input class="lastname-field" id="lastnameInput" type="text" placeholder="enter your last name" required/>
+            <input class="lastname-field" id="lastnameInput" type="text" placeholder="enter your last name"
+                   th:field="*{lastName}" required/>
         </div>
         <label>phone number</label>
         <div class="sign-form-input">
             <input class="phone-number-field" id="phone-numberInput" type="number" placeholder="enter your phone number"
-                   required/>
+                   th:field="*{phone}" required/>
         </div>
         <label>e-mail</label>
         <div class="sign-form-input">
-            <input class="email-field" id="emailInput" type="text" placeholder="enter your e-mail" required/>
+            <input class="email-field" id="emailInput" type="text" placeholder="enter your e-mail" th:field="*{email}"
+                   required/>
         </div>
         <label>password</label>
         <div class="sign-form-input">
             <input class="password-field" id="passwordInput" type="password" placeholder="enter your password"
-                   required/>
+                   th:field="*{password}" required/>
             <p class="error-signup" id="errorPassword" hidden="true">too short</p>
         </div>
         <label>passport id</label>
         <div class="sign-form-input">
-            <input class="id-field" id="idInput" type="text" placeholder="enter your id" required/>
+            <input class="id-field" id="idInput" type="text" placeholder="enter your id" th:field="*{passportData}"
+                   required/>
         </div>
         <div class="form-checkbox">
             <input id="checkbox-signup" type="checkbox" class="checkbox-signup" required>
