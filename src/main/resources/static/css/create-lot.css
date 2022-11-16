@@ -31,6 +31,8 @@
     font-size: 24px;
     font-weight: normal;
     letter-spacing: 1px;
+
+
 }
 
 .header-title-select:focus {
@@ -54,13 +56,6 @@
 .header-title-logout:hover {
     color: darkred;
     text-decoration: none;
-}
-
-.main {
-    display: flex;
-    justify-content: center;
-    /*margin-top: auto;*/
-    flex-direction: row;
 }
 
 .left-container {
@@ -112,107 +107,66 @@
     padding: 12px;
 }
 
-.panel-for-title {
-    height: 20%;
+.choose-category-title {
+    height: 40px;
     width: 100%;
     display: flex;
     vertical-align: top;
 
 }
 
-.main-title {
+.choose-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: rgba(0, 0, 0, 0.70);
+    padding: 10px;
+    margin-bottom: 80px;
+    margin-left: 20px;
+}
+
+.categories-list {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.categories-menu {
+    height: content-box;
+    width: border-box;
+    padding: 20px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    list-style-type: none;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     font-weight: normal;
     letter-spacing: 1.5px;
     color: rgba(0, 0, 0, 0.70);
-    padding: 10px;
-    margin-bottom: 80px;
+}
+
+.categories-menu li {
+    cursor: pointer;
 
 }
 
-.for-advertisement {
-    height: 30%;
-    width: 100%;
+.categories-menu li > a {
+    display: block;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.70);
 }
 
-.image-for-advertisement {
-    height: 70px;
-    width: 95%;
-    padding: 20px;
-    background-color: #989898;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-}
-
-.title-for-advertisement {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: rgba(0, 0, 0, 0.40);
-
-}
-
-.panel-auctions {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: white;
-    margin-right: 60px;
-
-}
-
-.box-for-categories {
-    width: 200px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 25px;
-    padding: 10px;
-    background-color: #D9D9D9;
-}
-
-.for-img-categories {
-    width: 120px;
-    height: 120px;
-    border-radius: 20px;
-    background-color: white;
-
-}
-
-.title-for-categories {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: black;
-}
-
-.more-detailed-button {
-    height: 40px;
-    width: 150px;
-    margin: 1em auto;
-    padding: 0.6em;
-    outline: none;
-    border: none;
-    border-radius: 7px;
-    background-color: #BBD25D;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
-    color: black;
-}
-.more-detailed-button:hover {
-    background-color: #91b02e;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-    color: black;
-}
 

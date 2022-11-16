@@ -1,0 +1,74 @@
+.title-bidders-table {
+    height: 30%;
+    width: 100%;
+    margin: 25px;
+}
+.box-for-lot {
+    width: border-box;
+    height: content-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 25px;
+    padding: 50px;
+    background-color: #D9D9D9;
+}
+
+.text-bidders-table {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+}
+.lot-name {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}
+
+.lot-info {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}
+
+.lot-closing-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}
+.lot-starting-date {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}
+.lot-category {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}
+.lot-auction-step {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 5px;
+}

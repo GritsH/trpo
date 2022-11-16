@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Add card</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/add_card.css">
+    <title>Auction - Create lot</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/pages.css">
     <link rel="stylesheet" type="text/css" href="../static/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,31 +57,51 @@
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-profile">
-            <div class="account-information">
-                <p class="first-name">first name</p>
-                <p class="last-name">last name</p>
-                <p class="e-mail-profile">e-mail</p>
-                <p class="profile-info">important information about the user</p>
+        <form class="create-lot-form">
+            <div class="create-lot-photo">
+                <div class="for-img-lot">
+
+                </div>
+                <button class="add-photo-button" type="button" id="addPhotoButton">
+                    add photo
+                </button>
             </div>
-        </div>
-        <form class="add-card-form">
-            <div class="card-information">
-                <div class="card-input">
-                    <label>card number</label>
-                    <input class="card-number" id="cardNumber" type="number" min="16" max="16" required/>
+            <div class="create-lot-information">
+                <div class="create-lot-input">
+                    <label>lot name: </label>
+                    <input class="lot-name-input" id="lotName" type="text" required/>
                 </div>
-                <div class="card-input">
-                    <label>validity period</label>
-                    <input class="validity-period" id="validityPeriod" type="number" min="4" max="4" required/>
+                <div class="create-lot-input">
+                    <label>lot category: </label>
+                    <input class="lot-category-input" id="lotCategory" type="text" required/>
                 </div>
-                <div class="card-input">
-                    <label>CV code</label>
-                    <input class="cv-code" id="cvCode" type="number" min="3" max="3" required/>
+                <div class="create-lot-input">
+                    <label>important information about the lot: </label>
+                    <input class="all-lot-info" id="allLotInfo" type="text" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>location: </label>
+                    <input class="lot-location" id="lotLocation" type="text" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>trading starting date: </label>
+                    <input class="start-date" id="startDate" type="date" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>trading closing date: </label>
+                    <input class="close-date" id="closeDate" type="date" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>starting price: </label>
+                    <input class="start-price" id="startPrice" type="number" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>auction step: </label>
+                    <input class="auction-step" id="auctionStep" type="number" required/>
                 </div>
             </div>
-            <button class="add-button" type="button" id="addButton">
-                add
+            <button class="create-lot-button" type="button" id="createLotButton">
+                create lot
             </button>
         </form>
     </div>

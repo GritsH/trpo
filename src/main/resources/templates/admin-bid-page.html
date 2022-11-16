@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Admin User Profile</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/admin_user_id.css">
+    <title>Auction - Admin bid page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/admin-main.css">
     <link rel="stylesheet" type="text/css" href="../static/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,18 +57,13 @@
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-profile">
-            <div class="account-information">
-                <p class="first-name">first name</p>
-                <p class="last-name">last name</p>
-                <p class="e-mail-profile">e-mail</p>
-                <p class="profile-info">important information about the user</p>
-            </div>
-            <button class="delete-profile-button" type="button">
-                delete profile
-            </button>
-            <button class="block-profile-button" type="button">
-                block profile
+        <div class="box-for-sort">
+            <select class="sort-select">
+                <option>by name</option>
+                <option>by price</option>
+            </select>
+            <button class="sort-button" type="button" id="sortButton">
+                sort
             </button>
         </div>
     </div>
