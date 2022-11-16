@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Create lot</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/create_lot.css">
+    <title>Auction - Create lot Real Estate</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/pages.css">
     <link rel="stylesheet" type="text/css" href="../static/css/site.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +17,14 @@
     </div>
     <div class="header-title-categories">
         <select class="header-title-select">
-            <option>passenger cars</option>
-            <option>antiques</option>
+            <option>cars</option>
+            <option>jewelry</option>
             <option>real estate</option>
-            <option>equipment</option>
-            <option>cargo equipment</option>
-            <option>tools</option>
+            <option>furniture</option>
+            <option>clothes</option>
+            <option>sport equipment</option>
+            <option>building equipment</option>
+            <option>medical equipment</option>
             <option>other property</option>
         </select>
     </div>
@@ -70,8 +72,20 @@
                     <input class="lot-name-input" id="lotName" type="text" required/>
                 </div>
                 <div class="create-lot-input">
+                    <label>lot category: </label>
+                    <input class="lot-category-input" id="lotCategory" type="text" required/>
+                </div>
+                <div class="create-lot-input">
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>room amount: </label>
+                    <input class="room-amount" id="roomAmount" type="number" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>living space: </label>
+                    <input class="living-space" id="livingSpace" type="number" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>location: </label>
