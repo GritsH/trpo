@@ -35,23 +35,23 @@ public class BidHistoryRepository {
     }
 
     public List<BidHistory> findAll() {
-        return jdbcTemplate.queryForList(SELECT_ALL, BidHistory.class);
+        return jdbcTemplate.query(SELECT_ALL, new BidHistoryRowMapper());
     }
 
     public List<BidHistory> findAllByLotId(Integer lotId) {
-        return jdbcTemplate.queryForList(SELECT_BY_LOT_ID, new Object[]{lotId}, BidHistory.class);
+        return jdbcTemplate.query(SELECT_BY_LOT_ID, new Object[]{lotId}, new BidHistoryRowMapper());
     }
 
     public List<BidHistory> findAllByBidderIdAndLotId(Integer bidderId, Integer lotId) {
-        return jdbcTemplate.queryForList(SELECT_BY_LOT_ID_BIDDER_ID, new Object[]{bidderId, lotId}, BidHistory.class);
+        return jdbcTemplate.query(SELECT_BY_LOT_ID_BIDDER_ID, new Object[]{bidderId, lotId}, new BidHistoryRowMapper());
     }
 
     public List<BidHistory> findAllByBidderId(Integer bidderId) {
-        return jdbcTemplate.queryForList(SELECT_BY_BIDDER_ID, new Object[]{bidderId}, BidHistory.class);
+        return jdbcTemplate.query(SELECT_BY_BIDDER_ID, new Object[]{bidderId}, new BidHistoryRowMapper());
     }
 
     public List<BidHistory> findAllByDate(Date biddingDate) {
-        return jdbcTemplate.queryForList(SELECT_BY_DATE, new Object[]{biddingDate}, BidHistory.class);
+        return jdbcTemplate.query(SELECT_BY_DATE, new Object[]{biddingDate}, new BidHistoryRowMapper());
     }
 
 }

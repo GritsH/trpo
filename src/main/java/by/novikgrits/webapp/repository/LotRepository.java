@@ -43,24 +43,24 @@ public class LotRepository {
     }
 
     public List<Lot> findAll(){
-        return jdbcTemplate.queryForList(SELECT_ALL, Lot.class);
+        return jdbcTemplate.query(SELECT_ALL,new LotRowMapper());
     }
 
     public List<Lot> findAllByOwnerId(Integer ownerId){
-        return jdbcTemplate.queryForList(SELECT_BY_OWNER_ID, new Object[]{ownerId}, Lot.class);
+        return jdbcTemplate.query(SELECT_BY_OWNER_ID, new Object[]{ownerId}, new LotRowMapper());
     }
 
 
     public List<Lot> findAllActive(){
-        return jdbcTemplate.queryForList(SELECT_ALL_ACTIVE, Lot.class);
+        return jdbcTemplate.query(SELECT_ALL_ACTIVE, new LotRowMapper());
     }
 
     public List<Lot> findAllClosed(){
-        return jdbcTemplate.queryForList(SELECT_ALL_CLOSED, Lot.class);
+        return jdbcTemplate.query(SELECT_ALL_CLOSED, new LotRowMapper());
     }
 
     public List<Lot> findAllSold(){
-        return jdbcTemplate.queryForList(SELECT_ALL_SOLD, Lot.class);
+        return jdbcTemplate.query(SELECT_ALL_SOLD, new LotRowMapper());
     }
 
     public void update (Lot lot){

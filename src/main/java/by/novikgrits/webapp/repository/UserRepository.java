@@ -18,8 +18,8 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public int save(User user) {
-        return jdbcTemplate.update(INSERT,
+    public void save(User user) {
+        jdbcTemplate.update(INSERT,
                 user.getRoleId(), user.getFirstName(), user.getLastName(),
                 user.getEmail(), user.getPassword(), user.getPhone(), user.getPassword());
 

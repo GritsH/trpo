@@ -2,7 +2,6 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.mapper.CategoryRowMapper;
 import by.novikgrits.webapp.model.ItemCategory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,14 +12,15 @@ import java.util.Optional;
 public class ItemCategoryRepository {
     private final static String SELECT_ALL = "select * from item_category";
     private final static String SELECT_BY_NAME = "select * from item_category where category_name = ?";
-    private final JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    private final JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    public ItemCategoryRepository() {
+    public ItemCategoryRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public List<ItemCategory> findAll() {
-        return jdbcTemplate.queryForList(SELECT_ALL, ItemCategory.class);
+        List<ItemCategory> allCategories = jdbcTemplate.query(SELECT_ALL, new CategoryRowMapper());
+        return allCategories;
     }
 
     public Optional<ItemCategory> findLotCategoryByCategoryName(String name) {
