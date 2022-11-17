@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public class UserRepository {
-    private final static String INSERT = "insert into user(role_id, first_name, last_name, email," +
-            " user_password, phone, passport_data) values(?,?,?,?,?,?,?)";
+    private final static String INSERT = "insert into user(first_name, last_name, email," +
+            " user_password, phone, passport_data, role_name) values(?,?,?,?,?,?,?)";
     private final static String SELECT_BY_EMAIL = "select * from user where email = ?";
     private final JdbcTemplate jdbcTemplate;
 
@@ -20,8 +20,9 @@ public class UserRepository {
 
     public void save(User user) {
         jdbcTemplate.update(INSERT,
-                user.getRoleId(), user.getFirstName(), user.getLastName(),
-                user.getEmail(), user.getPassword(), user.getPhone(), user.getPassword());
+                user.getFirstName(), user.getLastName(),
+                user.getEmail(), user.getPassword(), user.getPhone(),
+                user.getPassword(), user.getRoleName());
 
     }
 
