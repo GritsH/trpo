@@ -12,8 +12,11 @@ import java.util.List;
 
 @Controller
 public class ActiveAuctionsController {
-    @Autowired
-    private LotService lotService;
+    private final LotService lotService;
+
+    public ActiveAuctionsController(LotService lotService) {
+        this.lotService = lotService;
+    }
 
     @GetMapping("/active-auctions")
     public String getActiveAuctions(Model model) {

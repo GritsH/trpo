@@ -2,7 +2,7 @@ package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.model.User;
-import by.novikgrits.webapp.service.LotCategoryService;
+import by.novikgrits.webapp.service.ItemCategoryService;
 import by.novikgrits.webapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,16 +16,19 @@ import java.util.Optional;
 
 @Controller
 public class ProfileController {
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private LotCategoryService lotCategoryService;
-    @Autowired
-    private HttpSession session;
+    private final UserService userService;
+    private final ItemCategoryService itemCategoryService;
+    private final HttpSession session;
+
+    public ProfileController(UserService userService, ItemCategoryService itemCategoryService, HttpSession session) {
+        this.userService = userService;
+        this.itemCategoryService = itemCategoryService;
+        this.session = session;
+    }
 
     @GetMapping("/profile")
     public String getProfile(Model model) {
-        List<ItemCategory> allCategories = lotCategoryService.getAllCategories();
+        List<ItemCategory> allCategories = itemCategoryService.getAllCategories();
         model.addAttribute("categories", allCategories);
         Optional<User> currentUser = userService.findByEmail(String.valueOf(session.getAttribute("current_user")));
         if (currentUser.isPresent()) {

@@ -13,8 +13,11 @@ import java.sql.SQLException;
 
 @Controller
 public class SingUpController {
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public SingUpController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/signup")
     public String signUpForm(Model model) {

@@ -12,10 +12,13 @@ import java.util.Optional;
 
 @Service
 public class LotService {
-    @Autowired
-    private LotRepository lotRepository;
-    @Autowired
-    private ItemRepository itemRepository;
+    private final LotRepository lotRepository;
+    private final ItemRepository itemRepository;
+
+    public LotService(LotRepository lotRepository, ItemRepository itemRepository) {
+        this.lotRepository = lotRepository;
+        this.itemRepository = itemRepository;
+    }
 
     public void addLot(Lot lot) {
         lotRepository.save(lot);
