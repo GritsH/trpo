@@ -7,10 +7,13 @@ import java.util.Objects;
 
 public class ItemCategory {
     private Integer id;
-    private final String categoryName;
+    private String categoryName;
 
     public ItemCategory(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public ItemCategory() {
     }
 
     public Integer getId() {
@@ -19,6 +22,14 @@ public class ItemCategory {
 
     public String getCategoryName() {
         return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

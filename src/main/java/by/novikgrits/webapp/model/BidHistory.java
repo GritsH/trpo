@@ -63,6 +63,10 @@ public class BidHistory implements Comparable<BidHistory> {
         this.biddingDate = biddingDate;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public int compareTo(BidHistory history) {
         return getBiddingDate().compareTo(history.getBiddingDate());

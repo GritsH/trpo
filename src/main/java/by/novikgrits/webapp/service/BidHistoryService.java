@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class BidHistoryService {
-    @Autowired
-    private BidHistoryRepository bidHistoryRepository;
+    private final BidHistoryRepository bidHistoryRepository;
+
+    public BidHistoryService(BidHistoryRepository bidHistoryRepository) {
+        this.bidHistoryRepository = bidHistoryRepository;
+    }
 
     public void addHistory(BidHistory bidHistory) {
         bidHistoryRepository.save(bidHistory);
@@ -23,19 +27,19 @@ public class BidHistoryService {
     }
 
     public List<BidHistory> findAll() {
-        List<BidHistory> foundHistories = (List<BidHistory>) bidHistoryRepository.findAll();
+        List<BidHistory> foundHistories = bidHistoryRepository.findAll();
         Collections.sort(foundHistories);
         return foundHistories;
     }
 
-    public List<BidHistory> findByBidderEmailAndLotId(String email, Integer lotId) {
-        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderEmailAndLotId(email, lotId);
+    public List<BidHistory> findByBidderIdAndLotId(Integer bidderId, Integer lotId) {
+        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderIdAndLotId(bidderId, lotId);
         Collections.sort(foundHistories);
         return foundHistories;
     }
 
-    public List<BidHistory> findByBidderEmail(String email) {
-        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderEmail(email);
+    public List<BidHistory> findByBidderId(Integer bidderId) {
+        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderId(bidderId);
         Collections.sort(foundHistories);
         return foundHistories;
     }
@@ -44,5 +48,9 @@ public class BidHistoryService {
         List<BidHistory> foundHistories = bidHistoryRepository.findAllByLotId(id);
         Collections.sort(foundHistories);
         return foundHistories;
+    }
+
+    public List<BidHistory> findByDate(Date date){
+        return bidHistoryRepository.findAllByDate(date);
     }
 }

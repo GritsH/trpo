@@ -12,17 +12,15 @@ public class User {
     private String firstName;
     private String lastName;
     private Integer roleId;
-    private Integer statusId;
     private Integer phone;
     private String passportData;
 
-    public User(String email, String password, String firstName, String lastName, Integer roleId, Integer statusId, Integer phone, String passportData) {
+    public User(String email, String password, String firstName, String lastName, Integer roleId, Integer phone, String passportData) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.roleId = roleId;
-        this.statusId = statusId;
         this.phone = phone;
         this.passportData = passportData;
     }
@@ -54,9 +52,6 @@ public class User {
         return roleId;
     }
 
-    public Integer getStatusId() {
-        return statusId;
-    }
 
     public Integer getPhone() {
         return phone;
@@ -86,10 +81,6 @@ public class User {
         this.roleId = roleId;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
-    }
-
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
@@ -98,17 +89,21 @@ public class User {
         this.passportData = passportData;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(roleId, user.roleId) && Objects.equals(statusId, user.statusId) && Objects.equals(phone, user.phone) && Objects.equals(passportData, user.passportData);
+        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(roleId, user.roleId) && Objects.equals(phone, user.phone) && Objects.equals(passportData, user.passportData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, password, firstName, lastName, roleId, statusId, phone, passportData);
+        return Objects.hash(id, email, password, firstName, lastName, roleId, phone, passportData);
     }
 
     @Override
@@ -120,7 +115,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", roleId=" + roleId +
-                ", statusId=" + statusId +
                 ", phone=" + phone +
                 ", passportData='" + passportData + '\'' +
                 '}';
