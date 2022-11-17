@@ -1,10 +1,5 @@
 package by.novikgrits.webapp.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
-
 import java.time.LocalDate;
 import java.util.Objects;
 

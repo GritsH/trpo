@@ -4,7 +4,6 @@ import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.service.ItemCategoryService;
 import by.novikgrits.webapp.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

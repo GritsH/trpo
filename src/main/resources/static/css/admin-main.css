@@ -111,13 +111,15 @@
     text-decoration: none;
     padding: 12px;
 }
-.box-for-sort{
+
+.box-for-sort {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 160px;
 
 }
+
 .sort-button {
     height: 40px;
     width: 150px;
@@ -133,11 +135,13 @@
     font-size: 18px;
     color: black;
 }
+
 .sort-button:hover {
     background-color: #91b02e;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     color: black;
 }
+
 .sort-select {
     text-align: center;
     width: 150px;

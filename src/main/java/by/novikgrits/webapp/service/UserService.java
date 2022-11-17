@@ -2,7 +2,6 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

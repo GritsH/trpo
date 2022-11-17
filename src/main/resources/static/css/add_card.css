@@ -149,6 +149,7 @@
     color: black;
     margin: 10px;
 }
+
 .e-mail-profile {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
@@ -166,18 +167,21 @@
     color: black;
     margin: 10px;
 }
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .card-information {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
 }
-.card-input{
+
+.card-input {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -193,6 +197,7 @@ label {
     margin-right: 10px;
 
 }
+
 input {
     width: 27em;
     height: 33px;

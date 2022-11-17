@@ -2,7 +2,6 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.repository.ItemCategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

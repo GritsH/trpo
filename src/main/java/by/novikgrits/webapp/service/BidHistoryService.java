@@ -2,7 +2,6 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.BidHistory;
 import by.novikgrits.webapp.repository.BidHistoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -50,7 +49,7 @@ public class BidHistoryService {
         return foundHistories;
     }
 
-    public List<BidHistory> findByDate(Date date){
+    public List<BidHistory> findByDate(Date date) {
         return bidHistoryRepository.findAllByDate(date);
     }
 }

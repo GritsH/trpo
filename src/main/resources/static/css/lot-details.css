@@ -3,6 +3,7 @@
     width: 100%;
     margin: 25px;
 }
+
 .box-for-lot {
     width: border-box;
     height: content-box;
@@ -22,6 +23,7 @@
     letter-spacing: 1px;
     color: black;
 }
+
 .lot-name {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 28px;
@@ -48,6 +50,7 @@
     color: black;
     margin: 5px;
 }
+
 .lot-starting-date {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
@@ -56,6 +59,7 @@
     color: black;
     margin: 5px;
 }
+
 .lot-category {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
@@ -64,6 +68,7 @@
     color: black;
     margin: 5px;
 }
+
 .lot-auction-step {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;

@@ -3,7 +3,6 @@ package by.novikgrits.webapp.repository;
 import by.novikgrits.webapp.mapper.CategoryRowMapper;
 import by.novikgrits.webapp.model.ItemCategory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -20,10 +19,11 @@ public class ItemCategoryRepository {
     public ItemCategoryRepository() {
     }
 
-    public List<ItemCategory> findAll(){
+    public List<ItemCategory> findAll() {
         return jdbcTemplate.queryForList(SELECT_ALL, ItemCategory.class);
     }
-    public Optional<ItemCategory> findLotCategoryByCategoryName(String name){
+
+    public Optional<ItemCategory> findLotCategoryByCategoryName(String name) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_NAME,
                 new Object[]{name}, new CategoryRowMapper()));
     }

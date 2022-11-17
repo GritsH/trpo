@@ -14,18 +14,18 @@ public class UserRepository {
     private final static String SELECT_BY_EMAIL = "select * from user where email = ?";
     private final JdbcTemplate jdbcTemplate;
 
-    public UserRepository(JdbcTemplate jdbcTemplate){
-       this.jdbcTemplate = jdbcTemplate;
+    public UserRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     public int save(User user) {
-       return jdbcTemplate.update(INSERT,
-               user.getRoleId(), user.getFirstName(), user.getLastName(),
-               user.getEmail(), user.getPassword(), user.getPhone(), user.getPassword());
+        return jdbcTemplate.update(INSERT,
+                user.getRoleId(), user.getFirstName(), user.getLastName(),
+                user.getEmail(), user.getPassword(), user.getPhone(), user.getPassword());
 
     }
 
-    public Optional<User> findByEmail(String email){
+    public Optional<User> findByEmail(String email) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_EMAIL,
                 new Object[]{email}, new UserRowMapper()));
 
