@@ -117,6 +117,10 @@ public class Lot implements Comparable<Lot> {
         this.lotName = lotName;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

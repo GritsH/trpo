@@ -1,7 +1,6 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.Lot;
-import by.novikgrits.webapp.repository.ItemRepository;
 import by.novikgrits.webapp.repository.LotRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +11,9 @@ import java.util.Optional;
 @Service
 public class LotService {
     private final LotRepository lotRepository;
-    private final ItemRepository itemRepository;
 
-    public LotService(LotRepository lotRepository, ItemRepository itemRepository) {
+    public LotService(LotRepository lotRepository) {
         this.lotRepository = lotRepository;
-        this.itemRepository = itemRepository;
     }
 
     public void addLot(Lot lot) {
@@ -28,17 +25,33 @@ public class LotService {
     }
 
     public void deleteById(Integer id) {
-        Optional<Lot> lot = findById(id);
-        Integer itemId = lot.get().getId();
-        itemRepository.deleteById(itemId);
         lotRepository.deleteById(id);
     }
 
     public List<Lot> findAll() {
-        List<Lot> foundLots = (List<Lot>) lotRepository.findAll();
+        List<Lot> foundLots = lotRepository.findAll();
         Collections.sort(foundLots);
         return foundLots;
     }
 
+    public List<Lot> findAllActive(){
+        return lotRepository.findAllActive();
+    }
+
+    public List<Lot> findAllClosed(){
+        return lotRepository.findAllClosed();
+    }
+
+    public List<Lot> findAllSold(){
+        return lotRepository.findAllSold();
+    }
+
+    public List<Lot> findByOwnerId(Integer ownerId){
+        return lotRepository.findAllByOwnerId(ownerId);
+    }
+
+    public void updateLot(Lot lot){
+        lotRepository.update(lot);
+    }
 
 }
