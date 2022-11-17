@@ -34,8 +34,8 @@ public class LotRepository {
                 0.00, lot.getLocationId(), lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(), lot.getStatusId());
     }
 
-    public boolean deleteById(Integer id){
-        return jdbcTemplate.update(DELETE, id) == 1;
+    public void deleteById(Integer id){
+        jdbcTemplate.update(DELETE, id);
     }
 
     public Optional<Lot> findById(Integer id){

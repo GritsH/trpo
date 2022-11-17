@@ -6,9 +6,7 @@ public class BidHistory implements Comparable<BidHistory> {
     private Integer id;
     private Integer lotId;
     private Integer bidderId;
-
     private Double price;
-
     private LocalDate biddingDate;
 
     public BidHistory() {

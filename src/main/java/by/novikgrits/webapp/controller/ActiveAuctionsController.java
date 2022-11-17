@@ -19,13 +19,7 @@ public class ActiveAuctionsController {
 
     @GetMapping("/active-auctions")
     public String getActiveAuctions(Model model) {
-        List<Lot> allLots = lotService.findAll();
-        List<Lot> activeLots = new ArrayList<>();
-        for (Lot lot : allLots) {
-            if (lot.getStatusId() == 2) {
-                activeLots.add(lot);
-            }
-        }
+        List<Lot> activeLots = lotService.findAllActive();
         model.addAttribute("all_active_lots", activeLots);
         return "active_auctions";
     }
