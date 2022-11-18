@@ -1,8 +1,5 @@
 package by.novikgrits.webapp.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-
 import java.util.Objects;
 
 public class User {
@@ -11,18 +8,16 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    private Integer roleId;
-    private Integer statusId;
+    private String roleName;
     private Integer phone;
     private String passportData;
 
-    public User(String email, String password, String firstName, String lastName, Integer roleId, Integer statusId, Integer phone, String passportData) {
+    public User(String email, String password, String firstName, String lastName, String roleName, Integer phone, String passportData) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.roleId = roleId;
-        this.statusId = statusId;
+        this.roleName = roleName;
         this.phone = phone;
         this.passportData = passportData;
     }
@@ -50,13 +45,10 @@ public class User {
         return lastName;
     }
 
-    public Integer getRoleId() {
-        return roleId;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public Integer getStatusId() {
-        return statusId;
-    }
 
     public Integer getPhone() {
         return phone;
@@ -82,12 +74,8 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setRoleId(Integer roleId) {
-        this.roleId = roleId;
-    }
-
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public void setPhone(Integer phone) {
@@ -98,17 +86,21 @@ public class User {
         this.passportData = passportData;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(roleId, user.roleId) && Objects.equals(statusId, user.statusId) && Objects.equals(phone, user.phone) && Objects.equals(passportData, user.passportData);
+        return Objects.equals(id, user.id) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(roleName, user.roleName) && Objects.equals(phone, user.phone) && Objects.equals(passportData, user.passportData);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, password, firstName, lastName, roleId, statusId, phone, passportData);
+        return Objects.hash(id, email, password, firstName, lastName, roleName, phone, passportData);
     }
 
     @Override
@@ -119,8 +111,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", roleId=" + roleId +
-                ", statusId=" + statusId +
+                ", roleId=" + roleName +
                 ", phone=" + phone +
                 ", passportData='" + passportData + '\'' +
                 '}';

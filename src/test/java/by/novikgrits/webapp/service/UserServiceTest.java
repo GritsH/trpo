@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +19,6 @@ import static org.mockito.Mockito.*;
 class UserServiceTest {
     @InjectMocks
     private UserService userService;
-
     @Mock
     private UserRepository userRepository;
 
@@ -39,14 +39,14 @@ class UserServiceTest {
 
     @DisplayName("should add new user")
     @Test
-    void addUser() {
-//        User user = new User("role", "name",
-//                "surname", "email",
-//                "pass", 111, "passport data");
-//
-//        userService.addUser(user);
-//
-//        verify(userRepository).save(user);
-//        verifyNoMoreInteractions(userRepository);
+    void addUser() throws SQLException {
+        User user = new User("email", "password",
+                "firstname", "lastname",
+                "ROLE", 111, "passport data");
+
+        userService.addUser(user);
+
+        verify(userRepository).save(user);
+        verifyNoMoreInteractions(userRepository);
     }
 }

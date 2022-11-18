@@ -1,4 +1,4 @@
-.delete-lot-button{
+.delete-lot-button {
     height: 50px;
     width: 250px;
     margin: 20px;
@@ -11,6 +11,7 @@
     font-weight: bold;
     color: black;
 }
+
 button:hover {
     background-color: #91b02e;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);

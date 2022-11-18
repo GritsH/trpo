@@ -1,20 +1,12 @@
 package by.novikgrits.webapp.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat;
-
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class BidHistory implements Comparable<BidHistory> {
     private Integer id;
     private Integer lotId;
     private Integer bidderId;
-
     private Double price;
-
     private LocalDate biddingDate;
 
     public BidHistory() {
@@ -61,6 +53,10 @@ public class BidHistory implements Comparable<BidHistory> {
 
     public void setBiddingDate(LocalDate biddingDate) {
         this.biddingDate = biddingDate;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
