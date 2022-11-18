@@ -42,7 +42,7 @@ class UserServiceTest {
     void addUser() throws SQLException {
         User user = new User("email", "password",
                 "firstname", "lastname",
-                "ROLE", 111, "passport data");
+                "ROLE", "111", "passport data");
 
         userService.addUser(user);
 

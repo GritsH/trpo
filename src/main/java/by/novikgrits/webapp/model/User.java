@@ -9,10 +9,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String roleName;
-    private Integer phone;
+    private String phone;
     private String passportData;
 
-    public User(String email, String password, String firstName, String lastName, String roleName, Integer phone, String passportData) {
+    public User(String email, String password, String firstName, String lastName, String roleName, String phone, String passportData) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -50,7 +50,7 @@ public class User {
     }
 
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -78,7 +78,7 @@ public class User {
         this.roleName = roleName;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

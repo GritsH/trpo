@@ -2,6 +2,7 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.mapper.UserRowMapper;
 import by.novikgrits.webapp.model.User;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -22,13 +23,17 @@ public class UserRepository {
         jdbcTemplate.update(INSERT,
                 user.getFirstName(), user.getLastName(),
                 user.getEmail(), user.getPassword(), user.getPhone(),
-                user.getPassword(), user.getRoleName());
+                user.getPassportData(), user.getRoleName());
 
     }
 
     public Optional<User> findByEmail(String email) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_EMAIL,
-                new Object[]{email}, new UserRowMapper()));
+        try{
+            return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_EMAIL,
+                    new UserRowMapper(), email));
+        }catch (EmptyResultDataAccessException e){
+            return Optional.empty();
+        }
 
     }
 

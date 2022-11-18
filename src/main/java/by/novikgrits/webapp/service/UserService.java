@@ -26,6 +26,7 @@ public class UserService {
 
     public void addUser(User user) throws SQLException {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setRoleName("ROLE_USER");
         user.setPassword(encodedPassword);
         userRepository.save(user);
     }
