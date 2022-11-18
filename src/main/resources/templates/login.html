@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auction - Login</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -13,7 +14,7 @@
 <body>
 <header class="header">
     <div class="header-title">
-        <a class="header-title-text">auction</a>
+        <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
         <select class="header-title-select">
@@ -29,13 +30,17 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="signup.html" class="header-title-signup">sign up</a>
+        <a class="header-title-status" th:text="${session.current_user} ?  ${session.current_user}: 'Log in' "
+           th:href="@{/login}"></a>
+        <a class="header-title-status" th:text="${session.current_user} ?  'Log out': '' "
+           th:href="@{/logout}">log out</a>
+        <a class="header-title-status" th:href="@{/signup}">sign up</a>
     </div>
 
 </header>
 <main class="main">
     <p class="log-title">LOG IN</p>
-    <form class="log-form">
+    <form class="log-form" action="#" th:action="@{/login}" method="post">
         <label>e-mail</label>
         <div class="log-form-input">
             <input class="email-field" id="emailInput" type="text" placeholder="enter your e-mail" required/>
@@ -49,7 +54,7 @@
             <p class="error-login" id="noUser" hidden="true">No such user</p>
         </div>
         <div class="log-form-new-user">
-            <a href="signup.html" class="sign-up">register as a new user</a>
+            <a th:href="@{/signup}" class="sign-up">register as a new user</a>
         </div>
         <button class="login-button" type="button" id="loginButton">
             log in
