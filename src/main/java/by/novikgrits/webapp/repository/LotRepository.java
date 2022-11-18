@@ -3,8 +3,12 @@ package by.novikgrits.webapp.repository;
 import by.novikgrits.webapp.mapper.LotRowMapper;
 import by.novikgrits.webapp.model.Lot;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,9 +33,24 @@ public class LotRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Lot lot){
-        jdbcTemplate.update(INSERT, lot.getStartingDate(), lot.getClosingDate(), lot.getStartingPrice(), lot.getStep(),
-                0.00, lot.getLocationId(), lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(), lot.getStatusId());
+    public void save(Lot lot, GeneratedKeyHolder keyHolder){
+        jdbcTemplate.update(connection->{
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setDate(1, Date.valueOf(lot.getStartingDate()));
+            preparedStatement.setDate(2, Date.valueOf(lot.getClosingDate()));
+            preparedStatement.setDouble(3, lot.getStartingPrice());
+            preparedStatement.setDouble(4, lot.getStep());
+            preparedStatement.setDouble(5, lot.getCurrentPrice());
+            preparedStatement.setString(6, lot.getBriefInfo());
+            preparedStatement.setInt(7, lot.getOwnerId());
+            preparedStatement.setString(8, lot.getLotName());
+            preparedStatement.setInt(9, lot.getStatusId());
+
+            return preparedStatement;
+        }, keyHolder);
+
+//        jdbcTemplate.update(INSERT, lot.getStartingDate(), lot.getClosingDate(), lot.getStartingPrice(), lot.getStep(),
+//                0.00, lot.getLocationId(), lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(), lot.getStatusId(), keyHolder);
     }
 
     public void deleteById(Integer id){

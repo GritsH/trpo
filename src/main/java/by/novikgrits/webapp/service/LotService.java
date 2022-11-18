@@ -17,7 +17,7 @@ public class LotService {
     }
 
     public void addLot(Lot lot) {
-        lotRepository.save(lot);
+       // lotRepository.save(lot);
     }
 
     public Optional<Lot> findById(Integer id) {
