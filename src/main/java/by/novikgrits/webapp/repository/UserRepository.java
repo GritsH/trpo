@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Repository
 public class UserRepository {
-    private final static String INSERT = "insert into user(first_name, last_name, email," +
+    private static final String INSERT = "insert into user(first_name, last_name, email," +
             " user_password, phone, passport_data, role_name) values(?,?,?,?,?,?,?)";
-    private final static String SELECT_BY_EMAIL = "select * from user where email = ?";
+    private static final String SELECT_BY_EMAIL = "select * from user where email = ?";
     private final JdbcTemplate jdbcTemplate;
 
     public UserRepository(JdbcTemplate jdbcTemplate) {

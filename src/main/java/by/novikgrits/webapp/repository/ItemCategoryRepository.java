@@ -10,8 +10,8 @@ import java.util.Optional;
 
 @Repository
 public class ItemCategoryRepository {
-    private final static String SELECT_ALL = "select * from item_category";
-    private final static String SELECT_BY_NAME = "select * from item_category where category_name = ?";
+    private static final String SELECT_ALL = "select * from item_category";
+    private static final String SELECT_BY_NAME = "select * from item_category where category_name = ?";
     private final JdbcTemplate jdbcTemplate;
 
     public ItemCategoryRepository(JdbcTemplate jdbcTemplate) {

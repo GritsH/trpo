@@ -10,16 +10,16 @@ import java.util.Optional;
 
 @Repository
 public class LotRepository {
-    public final static String INSERT = "insert into lot (starting_date, closing_date, starting_price, step, " +
+    public static final String INSERT = "insert into lot (starting_date, closing_date, starting_price, step, " +
             "current_price, location_id, brief_info, owner_id, lot_name, status_id) values (?,?,?,?,?,?,?,?,?,?)";
-    public final static String DELETE = "delete from lot where id = ?";
-    public final static String SELECT_BY_ID = "select * from lot where id = ?";
-    public final static String SELECT_BY_OWNER_ID = "select * from lot where owner_id = ?";
-    public final static String SELECT_ALL = "select * from lot";
-    public final static String SELECT_ALL_ACTIVE = "select * from lot where status_id = 1";
-    public final static String SELECT_ALL_CLOSED = "select * from lot where status_id = 2";
-    public final static String SELECT_ALL_SOLD = "select * from lot where status_id = 3";
-    public final static String UPDATE = "update lot set starting_date = ?, closing_date = ?, " +
+    public static final String DELETE = "delete from lot where id = ?";
+    public static final String SELECT_BY_ID = "select * from lot where id = ?";
+    public static final String SELECT_BY_OWNER_ID = "select * from lot where owner_id = ?";
+    public static final String SELECT_ALL = "select * from lot";
+    public static final String SELECT_ALL_ACTIVE = "select * from lot where status_id = 1";
+    public static final String SELECT_ALL_CLOSED = "select * from lot where status_id = 2";
+    public static final String SELECT_ALL_SOLD = "select * from lot where status_id = 3";
+    public static final String UPDATE = "update lot set starting_date = ?, closing_date = ?, " +
             "starting_price = ?, step = ?, current_price = ?, " +
             "location_id = ?, brief_info = ?, " +
             "owner_id = ?, lot_name = ?, status_id = ? where id = ?";

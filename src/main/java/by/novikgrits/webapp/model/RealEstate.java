@@ -45,6 +45,10 @@ public class RealEstate {
         this.livingSpace = livingSpace;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
