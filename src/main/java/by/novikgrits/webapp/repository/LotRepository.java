@@ -33,8 +33,8 @@ public class LotRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Lot lot, GeneratedKeyHolder keyHolder){
-        jdbcTemplate.update(connection->{
+    public void save(Lot lot, GeneratedKeyHolder keyHolder) {
+        jdbcTemplate.update(connection -> {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setDate(1, Date.valueOf(lot.getStartingDate()));
             preparedStatement.setDate(2, Date.valueOf(lot.getClosingDate()));
@@ -53,36 +53,36 @@ public class LotRepository {
 //                0.00, lot.getLocationId(), lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(), lot.getStatusId(), keyHolder);
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(Integer id) {
         jdbcTemplate.update(DELETE, id);
     }
 
-    public Optional<Lot> findById(Integer id){
+    public Optional<Lot> findById(Integer id) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, new LotRowMapper()));
     }
 
-    public List<Lot> findAll(){
-        return jdbcTemplate.query(SELECT_ALL,new LotRowMapper());
+    public List<Lot> findAll() {
+        return jdbcTemplate.query(SELECT_ALL, new LotRowMapper());
     }
 
-    public List<Lot> findAllByOwnerId(Integer ownerId){
+    public List<Lot> findAllByOwnerId(Integer ownerId) {
         return jdbcTemplate.query(SELECT_BY_OWNER_ID, new Object[]{ownerId}, new LotRowMapper());
     }
 
 
-    public List<Lot> findAllActive(){
+    public List<Lot> findAllActive() {
         return jdbcTemplate.query(SELECT_ALL_ACTIVE, new LotRowMapper());
     }
 
-    public List<Lot> findAllClosed(){
+    public List<Lot> findAllClosed() {
         return jdbcTemplate.query(SELECT_ALL_CLOSED, new LotRowMapper());
     }
 
-    public List<Lot> findAllSold(){
+    public List<Lot> findAllSold() {
         return jdbcTemplate.query(SELECT_ALL_SOLD, new LotRowMapper());
     }
 
-    public void update (Lot lot){
+    public void update(Lot lot) {
         jdbcTemplate.update(UPDATE,
                 lot.getStartingDate(), lot.getClosingDate(), lot.getStartingPrice(),
                 lot.getStep(), lot.getCurrentPrice(), lot.getLocationId(),

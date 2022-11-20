@@ -2,6 +2,7 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.repository.UserRepository;
+import by.novikgrits.webapp.repository.UserRoleRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,13 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final UserRoleRepository userRoleRepository;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserRoleRepository userRoleRepository) {
         this.userRepository = userRepository;
+        this.userRoleRepository = userRoleRepository;
     }
 
     public Optional<User> findByEmail(String email) {
@@ -26,7 +29,7 @@ public class UserService {
 
     public void addUser(User user) throws SQLException {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setRoleName("ROLE_USER");
+        user.setRoleName(userRoleRepository.findByRoleId(1));
         user.setPassword(encodedPassword);
         userRepository.save(user);
     }

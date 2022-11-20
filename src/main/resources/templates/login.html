@@ -43,12 +43,14 @@
     <form class="log-form" action="#" th:action="@{/login}" method="post">
         <label>e-mail</label>
         <div class="log-form-input">
-            <input class="email-field" id="emailInput" type="email" name="username" placeholder="enter your e-mail" required/>
+            <input class="email-field" id="emailInput" type="email" name="username" placeholder="enter your e-mail"
+                   required/>
             <p class="error-login" id="errorEmail" hidden="true">wrong email</p>
         </div>
         <label>password</label>
         <div class="log-form-input">
-            <input class="password-field" id="passwordInput" name="password" type="password" placeholder="enter your password"
+            <input class="password-field" id="passwordInput" name="password" type="password"
+                   placeholder="enter your password"
                    required/>
             <p class="error-login" id="errorPassword" hidden="true">Wrong password</p>
             <p class="error-login" id="noUser" hidden="true">No such user</p>
