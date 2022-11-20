@@ -12,7 +12,7 @@ public class LotStatusRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Integer findStatusByName(String name){
+    public Integer findStatusByName(String name) {
         return jdbcTemplate.queryForObject(SELECT_BY_STATUS_NAME, new Object[]{name}, Integer.class);
     }
 }
