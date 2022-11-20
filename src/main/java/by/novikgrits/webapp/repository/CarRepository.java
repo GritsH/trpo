@@ -21,24 +21,24 @@ public class CarRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Car car){
+    public void save(Car car) {
         jdbcTemplate.update(INSERT,
                 car.getLotId(), car.getBrand(), car.getManufactureYear(), car.getMileage(), car.getEngineVolume());
     }
 
-    public Optional<Car> findByLotId(Integer lotId){
+    public Optional<Car> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new CarRowMapper()));
     }
 
-    public List<Car> findAll(){
+    public List<Car> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new CarRowMapper());
     }
 
-    public void deleteById(Integer carId){
+    public void deleteById(Integer carId) {
         jdbcTemplate.update(DELETE_BY_ID, carId);
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

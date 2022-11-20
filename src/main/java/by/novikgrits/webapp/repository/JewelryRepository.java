@@ -21,19 +21,19 @@ public class JewelryRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Jewelry jewelry){
+    public void save(Jewelry jewelry) {
         jdbcTemplate.update(INSERT, jewelry.getMaterial(), jewelry.getHasPreciousStones(), jewelry.getLotId());
     }
 
-    public Optional<Jewelry> findByLotId(Integer id){
-       return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{id}, new JewelryRowMapper()));
+    public Optional<Jewelry> findByLotId(Integer id) {
+        return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{id}, new JewelryRowMapper()));
     }
 
-    public List<Jewelry> findAll(){
+    public List<Jewelry> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new JewelryRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 

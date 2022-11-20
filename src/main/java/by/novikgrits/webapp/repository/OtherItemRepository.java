@@ -20,20 +20,20 @@ public class OtherItemRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(OtherItem otherItem){
+    public void save(OtherItem otherItem) {
         jdbcTemplate.update(INSERT, otherItem.getLotId());
     }
 
-    public Optional<OtherItem> findByLotId(Integer lotId){
+    public Optional<OtherItem> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID,
                 new Object[]{lotId}, new OtherRowMapper()));
     }
 
-    public List<OtherItem> findAll(){
+    public List<OtherItem> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new OtherRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

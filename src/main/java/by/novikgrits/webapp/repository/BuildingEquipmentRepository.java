@@ -20,20 +20,20 @@ public class BuildingEquipmentRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(BuildingEquipment buildingEquipment){
+    public void save(BuildingEquipment buildingEquipment) {
         jdbcTemplate.update(INSERT,
                 buildingEquipment.getLotId(), buildingEquipment.getBrand());
     }
 
-    public Optional<BuildingEquipment> findByLotId(Integer lotId){
+    public Optional<BuildingEquipment> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new BuildingEquipmentRowMapper()));
     }
 
-    public List<BuildingEquipment> findAll(){
+    public List<BuildingEquipment> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new BuildingEquipmentRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

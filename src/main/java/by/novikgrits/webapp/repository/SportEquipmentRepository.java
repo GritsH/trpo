@@ -20,20 +20,20 @@ public class SportEquipmentRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(SportEquipment sportEquipment){
+    public void save(SportEquipment sportEquipment) {
         jdbcTemplate.update(INSERT,
                 sportEquipment.getLotId(), sportEquipment.getWeight(), sportEquipment.getBrand());
     }
 
-    public Optional<SportEquipment> findByLotId(Integer lotId){
+    public Optional<SportEquipment> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new SportEquipmentRowMapper()));
     }
 
-    public List<SportEquipment> findAll(){
+    public List<SportEquipment> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new SportEquipmentRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
-        jdbcTemplate.update(DELETE_BY_LOT_ID,lotId);
+    public void deleteByLotId(Integer lotId) {
+        jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

@@ -1,7 +1,5 @@
 package by.novikgrits.webapp.model;
 
-import by.novikgrits.webapp.repository.SportEquipmentRepository;
-
 public class Auction {
     private Lot lot;
     private Car car;

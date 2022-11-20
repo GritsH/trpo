@@ -31,23 +31,23 @@ public class LotService {
         return foundLots;
     }
 
-    public List<Lot> findAllActive(){
+    public List<Lot> findAllActive() {
         return lotRepository.findAllActive();
     }
 
-    public List<Lot> findAllClosed(){
+    public List<Lot> findAllClosed() {
         return lotRepository.findAllClosed();
     }
 
-    public List<Lot> findAllSold(){
+    public List<Lot> findAllSold() {
         return lotRepository.findAllSold();
     }
 
-    public List<Lot> findByOwnerId(Integer ownerId){
+    public List<Lot> findByOwnerId(Integer ownerId) {
         return lotRepository.findAllByOwnerId(ownerId);
     }
 
-    public void updateLot(Lot lot){
+    public void updateLot(Lot lot) {
         lotRepository.update(lot);
     }
 

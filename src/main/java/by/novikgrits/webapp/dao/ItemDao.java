@@ -35,7 +35,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(Car car, Lot lot){
+    public void registerItem(Car car, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -46,7 +46,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(RealEstate realEstate, Lot lot){
+    public void registerItem(RealEstate realEstate, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -57,7 +57,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(Clothes clothes, Lot lot){
+    public void registerItem(Clothes clothes, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -68,7 +68,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(SportEquipment sportEquipment, Lot lot){
+    public void registerItem(SportEquipment sportEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -79,7 +79,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(BuildingEquipment buildingEquipment, Lot lot){
+    public void registerItem(BuildingEquipment buildingEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -90,7 +90,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(MedicalEquipment medicalEquipment, Lot lot){
+    public void registerItem(MedicalEquipment medicalEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -101,7 +101,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(OtherItem otherItem, Lot lot){
+    public void registerItem(OtherItem otherItem, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -112,7 +112,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(Furniture furniture, Lot lot){
+    public void registerItem(Furniture furniture, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -123,7 +123,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(Jewelry jewelry, Lot lot){
+    public void registerItem(Jewelry jewelry, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lotRepository.save(lot, generatedKeyHolder);
 
@@ -134,55 +134,55 @@ public class ItemDao {
     }
 
     @Transactional
-    public void removeCar(Integer lotId){
+    public void removeCar(Integer lotId) {
         carRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeRealEstate(Integer lotId){
+    public void removeRealEstate(Integer lotId) {
         realEstateRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeJewelry(Integer lotId){
+    public void removeJewelry(Integer lotId) {
         jewelryRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeFurniture(Integer lotId){
+    public void removeFurniture(Integer lotId) {
         furnitureRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeClothes(Integer lotId){
+    public void removeClothes(Integer lotId) {
         clothesRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeSportEquipment(Integer lotId){
+    public void removeSportEquipment(Integer lotId) {
         sportEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeBuildingEquipment(Integer lotId){
+    public void removeBuildingEquipment(Integer lotId) {
         buildingEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeMedicalEquipment(Integer lotId){
+    public void removeMedicalEquipment(Integer lotId) {
         medicalEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
-    public void removeOtherItem(Integer lotId){
+    public void removeOtherItem(Integer lotId) {
         otherItemRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }

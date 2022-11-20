@@ -28,10 +28,10 @@ public class UserRepository {
     }
 
     public Optional<User> findByEmail(String email) {
-        try{
+        try {
             return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_EMAIL,
                     new UserRowMapper(), email));
-        }catch (EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             return Optional.empty();
         }
 

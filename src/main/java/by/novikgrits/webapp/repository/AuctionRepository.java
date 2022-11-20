@@ -33,7 +33,7 @@ public class AuctionRepository {
         this.otherItemRepository = otherItemRepository;
     }
 
-    public List<Auction> findCarsForLots(List<Lot> lots){
+    public List<Auction> findCarsForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -45,7 +45,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findEstateForLots(List<Lot> lots){
+    public List<Auction> findEstateForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -57,7 +57,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findJewelryForLots(List<Lot> lots){
+    public List<Auction> findJewelryForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -69,7 +69,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findFurnitureForLots(List<Lot> lots){
+    public List<Auction> findFurnitureForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -81,7 +81,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findClothesForLots(List<Lot> lots){
+    public List<Auction> findClothesForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -93,7 +93,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findBuildingEquipmentForLots(List<Lot> lots){
+    public List<Auction> findBuildingEquipmentForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -105,7 +105,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findSportEquipmentForLots(List<Lot> lots){
+    public List<Auction> findSportEquipmentForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -117,7 +117,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findMedicalEquipmentForLots(List<Lot> lots){
+    public List<Auction> findMedicalEquipmentForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();
@@ -129,7 +129,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findOtherItemsForLots(List<Lot> lots){
+    public List<Auction> findOtherItemsForLots(List<Lot> lots) {
         List<Auction> auctions = new ArrayList<>();
         for (Lot lot : lots) {
             Auction auction = new Auction();

@@ -20,22 +20,22 @@ public class MedicalEquipmentRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(MedicalEquipment medicalEquipment){
+    public void save(MedicalEquipment medicalEquipment) {
         jdbcTemplate.update(INSERT,
-                medicalEquipment.getLotId(), medicalEquipment.getSpecialityId(),medicalEquipment.getBrand(),
+                medicalEquipment.getLotId(), medicalEquipment.getSpecialityId(), medicalEquipment.getBrand(),
                 medicalEquipment.getManufactureYear());
     }
 
-    public Optional<MedicalEquipment> findByLotId(Integer lotId){
+    public Optional<MedicalEquipment> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID,
                 new Object[]{lotId}, new MedicalEquipmentRowMapper()));
     }
 
-    public List<MedicalEquipment> findAll(){
+    public List<MedicalEquipment> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new MedicalEquipmentRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

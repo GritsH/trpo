@@ -2,7 +2,6 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.mapper.FurnitureRowMapper;
 import by.novikgrits.webapp.model.Furniture;
-import by.novikgrits.webapp.model.Jewelry;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,20 +20,20 @@ public class FurnitureRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Furniture furniture){
+    public void save(Furniture furniture) {
         jdbcTemplate.update(INSERT,
                 furniture.getLotId(), furniture.getFurnitureTypeId(), furniture.getMaterial());
     }
 
-    public Optional<Furniture> findByLotId(Integer lotId){
+    public Optional<Furniture> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new FurnitureRowMapper()));
     }
 
-    public List<Furniture> findAll(){
+    public List<Furniture> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new FurnitureRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }

@@ -20,20 +20,20 @@ public class ClothesRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(Clothes clothes){
+    public void save(Clothes clothes) {
         jdbcTemplate.update(INSERT,
                 clothes.getLotId(), clothes.getBrand(), clothes.getMaterial(), clothes.getSize());
     }
 
-    public Optional<Clothes> findByLotId(Integer lotId){
+    public Optional<Clothes> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new ClothesRowMapper()));
     }
 
-    public List<Clothes> findAll(){
+    public List<Clothes> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new ClothesRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 }
