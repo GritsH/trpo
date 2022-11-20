@@ -31,8 +31,7 @@ public class CarRepository {
     }
 
     public List<Car> findAll(){
-        List<Car> allCars = jdbcTemplate.query(SELECT_ALL, new CarRowMapper());
-        return allCars;
+        return jdbcTemplate.query(SELECT_ALL, new CarRowMapper());
     }
 
     public void deleteById(Integer carId){
