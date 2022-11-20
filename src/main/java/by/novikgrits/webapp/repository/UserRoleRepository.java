@@ -1,9 +1,19 @@
 package by.novikgrits.webapp.repository;
 
-import by.novikgrits.webapp.model.UserRole;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRoleRepository extends CrudRepository<UserRole, Integer> {
+public class UserRoleRepository  {
+    private static final String SELECT_BY_ID = "select role_name from user_role where id = ?";
+    private final JdbcTemplate jdbcTemplate;
+
+
+    public UserRoleRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public String findByRoleId(Integer id){
+        return jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, String.class);
+    }
 }
