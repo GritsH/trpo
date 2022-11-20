@@ -23,6 +23,10 @@ public class Clothes {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getLotId() {
         return lotId;
     }

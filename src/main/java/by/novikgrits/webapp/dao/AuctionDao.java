@@ -18,10 +18,16 @@ public class AuctionDao {
         this.auctionRepository = auctionRepository;
     }
 
-    public List<Auction> findAuctions(List<Lot> lots){
+    public List<Auction> findAuctions(List<Lot> lots) {
         return Stream.of(auctionRepository.findCarsForLots(lots),
-                auctionRepository.findJewelryForLots(lots),
-                auctionRepository.findEstateForLots(lots)).flatMap(Collection::stream)
+                        auctionRepository.findJewelryForLots(lots),
+                        auctionRepository.findEstateForLots(lots),
+                        auctionRepository.findBuildingEquipmentForLots(lots),
+                        auctionRepository.findMedicalEquipmentForLots(lots),
+                        auctionRepository.findOtherItemsForLots(lots),
+                        auctionRepository.findClothesForLots(lots),
+                        auctionRepository.findFurnitureForLots(lots),
+                        auctionRepository.findSportEquipmentForLots(lots)).flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }
 }
