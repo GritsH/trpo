@@ -23,4 +23,8 @@ public class ItemCategoryService {
         return itemCategoryRepository.findLotCategoryByCategoryName(name);
     }
 
+    public String getById(Integer id){
+        return itemCategoryRepository.findById(id);
+    }
+
 }

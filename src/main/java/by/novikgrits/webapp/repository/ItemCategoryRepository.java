@@ -12,6 +12,7 @@ import java.util.Optional;
 public class ItemCategoryRepository {
     private static final String SELECT_ALL = "select * from item_category";
     private static final String SELECT_BY_NAME = "select * from item_category where category_name = ?";
+    private static final String SELECT_BY_ID = "select category_name from item_category where id = ?";
     private final JdbcTemplate jdbcTemplate;
 
     public ItemCategoryRepository(JdbcTemplate jdbcTemplate) {
@@ -26,5 +27,9 @@ public class ItemCategoryRepository {
     public Optional<ItemCategory> findLotCategoryByCategoryName(String name) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_NAME,
                 new Object[]{name}, new CategoryRowMapper()));
+    }
+
+    public String findById(Integer id){
+        return jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, String.class);
     }
 }
