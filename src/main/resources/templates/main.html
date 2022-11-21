@@ -30,9 +30,9 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a class="header-title-status" th:text="${session.current_user} ?  ${session.current_user}: 'Log in' "
+        <a class="header-title-status" th:text="${session.current_user} ?  ${session.current_user}: 'log in' "
            th:href="@{/login}"></a>
-        <a class="header-title-status" th:text="${session.current_user} ?  'Log out': '' "
+        <a class="header-title-status" th:text="${session.current_user} ?  'log out': '' "
            th:href="@{/logout}">log out</a>
         <a class="header-title-status" th:href="@{/signup}">sign up</a>
     </div>
