@@ -1,8 +1,8 @@
 package by.novikgrits.webapp.dao;
 
-import by.novikgrits.webapp.repository.CarRepository;
+import by.novikgrits.webapp.repository.item.CarRepository;
 import by.novikgrits.webapp.repository.LotRepository;
-import by.novikgrits.webapp.repository.RealEstateRepository;
+import by.novikgrits.webapp.repository.item.RealEstateRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
