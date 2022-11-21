@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.mapper;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -22,6 +23,7 @@ public class LotRowMapper implements RowMapper<Lot> {
         lot.setOwnerId(rs.getInt("owner_id"));
         lot.setLocationId(rs.getInt("location_id"));
         lot.setStatusId(rs.getInt("status_id"));
+        lot.setItemType(ItemType.valueOf(rs.getString("item_type")));
 
         return lot;
     }

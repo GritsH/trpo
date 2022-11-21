@@ -2,6 +2,7 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.mapper.LotRowMapper;
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ import java.util.Optional;
 @Repository
 public class LotRepository {
     public static final String INSERT = "insert into lot (starting_date, closing_date, starting_price, step, " +
-            "current_price, location_id, brief_info, owner_id, lot_name, status_id) values (?,?,?,?,?,?,?,?,?,?)";
+            "current_price, location_id, brief_info, owner_id, lot_name, status_id, item_type) values (?,?,?,?,?,?,?,?,?,?,?)";
     public static final String DELETE = "delete from lot where id = ?";
     public static final String SELECT_BY_ID = "select * from lot where id = ?";
     public static final String SELECT_BY_OWNER_ID = "select * from lot where owner_id = ?";
@@ -27,6 +28,8 @@ public class LotRepository {
             "starting_price = ?, step = ?, current_price = ?, " +
             "location_id = ?, brief_info = ?, " +
             "owner_id = ?, lot_name = ?, status_id = ? where id = ?";
+
+    public static final String SELECT_ALL_BY_TYPE_AND_STATUS = "select * from lot where item_type = ? and status_id = ?";
     private final JdbcTemplate jdbcTemplate;
 
     public LotRepository(JdbcTemplate jdbcTemplate) {
@@ -45,12 +48,10 @@ public class LotRepository {
             preparedStatement.setInt(7, lot.getOwnerId());
             preparedStatement.setString(8, lot.getLotName());
             preparedStatement.setInt(9, lot.getStatusId());
+            preparedStatement.setString(10, lot.getItemType().toString());
 
             return preparedStatement;
         }, keyHolder);
-
-//        jdbcTemplate.update(INSERT, lot.getStartingDate(), lot.getClosingDate(), lot.getStartingPrice(), lot.getStep(),
-//                0.00, lot.getLocationId(), lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(), lot.getStatusId(), keyHolder);
     }
 
     public void deleteById(Integer id) {
@@ -88,6 +89,10 @@ public class LotRepository {
                 lot.getStep(), lot.getCurrentPrice(), lot.getLocationId(),
                 lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(),
                 lot.getStatusId(), lot.getId());
+    }
+
+    public List<Lot> findLotsByTypeAndStatus (String itemType, Integer statusId){
+        return jdbcTemplate.query(SELECT_ALL_BY_TYPE_AND_STATUS, new Object[]{itemType, statusId}, new LotRowMapper());
     }
 
 }
