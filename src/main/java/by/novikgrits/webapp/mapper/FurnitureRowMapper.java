@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.mapper;
 
-import by.novikgrits.webapp.model.Furniture;
+import by.novikgrits.webapp.model.item.Furniture;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
