@@ -1,30 +1,14 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class Car {
-    private Integer id;
+public class Car extends Item {
     private Integer lotId;
     private String brand;
     private Date manufactureYear;
     private Integer mileage;
     private Integer engineVolume;
-
-    public Car(Integer lotId, String brand, Date manufactureYear, Integer mileage, Integer engineVolume) {
-        this.lotId = lotId;
-        this.brand = brand;
-        this.manufactureYear = manufactureYear;
-        this.mileage = mileage;
-        this.engineVolume = engineVolume;
-    }
-
-    public Car() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
 
     public Integer getLotId() {
         return lotId;
@@ -64,10 +48,6 @@ public class Car {
 
     public void setEngineVolume(Integer engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override
