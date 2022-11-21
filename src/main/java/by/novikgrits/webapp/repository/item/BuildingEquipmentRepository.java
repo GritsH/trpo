@@ -1,7 +1,9 @@
-package by.novikgrits.webapp.repository;
+package by.novikgrits.webapp.repository.item;
 
 import by.novikgrits.webapp.mapper.BuildingEquipmentRowMapper;
-import by.novikgrits.webapp.model.BuildingEquipment;
+import by.novikgrits.webapp.model.item.BuildingEquipment;
+import by.novikgrits.webapp.model.item.Item;
+import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class BuildingEquipmentRepository {
+public class BuildingEquipmentRepository implements ItemRepository {
     private static final String INSERT = "insert into building_equipment (lot_id, brand) values(?,?)";
     private static final String SELECT_BY_LOT_ID = "select * from building_equipment where lot_id = ?";
     private static final String SELECT_ALL = "select * from building_equipment";
@@ -20,13 +22,16 @@ public class BuildingEquipmentRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(BuildingEquipment buildingEquipment) {
+    @Override
+    public void save(Item item) {
+        BuildingEquipment buildingEquipment = (BuildingEquipment) item;
         jdbcTemplate.update(INSERT,
                 buildingEquipment.getLotId(), buildingEquipment.getBrand());
     }
 
-    public Optional<BuildingEquipment> findByLotId(Integer lotId) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new BuildingEquipmentRowMapper()));
+    @Override
+    public Optional<Item> findByLotId(Integer id) {
+        return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{id}, new BuildingEquipmentRowMapper()));
     }
 
     public List<BuildingEquipment> findAll() {
@@ -35,5 +40,10 @@ public class BuildingEquipmentRepository {
 
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
+    }
+
+    @Override
+    public ItemType getType() {
+        return ItemType.BUILDING_EQUIPMENT;
     }
 }

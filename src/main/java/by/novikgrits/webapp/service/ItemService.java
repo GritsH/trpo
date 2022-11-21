@@ -2,6 +2,7 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.dao.ItemDao;
 import by.novikgrits.webapp.model.*;
+import by.novikgrits.webapp.model.item.*;
 import org.springframework.stereotype.Service;
 
 @Service

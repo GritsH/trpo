@@ -1,31 +1,12 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class Clothes {
-    private Integer id;
+public class Clothes extends Item {
     private Integer lotId;
     private String material;
     private String brand;
     private Integer size;
-
-    public Clothes(Integer lotId, String material, String brand, Integer size) {
-        this.lotId = lotId;
-        this.material = material;
-        this.brand = brand;
-        this.size = size;
-    }
-
-    public Clothes() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getLotId() {
         return lotId;

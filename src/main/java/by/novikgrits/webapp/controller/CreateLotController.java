@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.*;
+import by.novikgrits.webapp.model.item.*;
 import by.novikgrits.webapp.service.ItemCategoryService;
 import by.novikgrits.webapp.service.ItemService;
 import org.springframework.stereotype.Controller;
@@ -10,58 +11,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class CreateLotController {
-    private final ItemCategoryService itemCategoryService;
     private final ItemService itemService;
 
-    public CreateLotController(ItemCategoryService itemCategoryService, ItemService itemService) {
-        this.itemCategoryService = itemCategoryService;
+    public CreateLotController(ItemService itemService) {
         this.itemService = itemService;
     }
 
     @GetMapping("/create")
     public String getCreation(Model model) {
-        List<ItemCategory> allCategories = itemCategoryService.getAllCategories();
+        List<String> allCategories = new ArrayList<>();
+        ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));
         model.addAttribute("categories", allCategories);
-        return "create-lot";
-    }
-
-    @PostMapping("/create")
-    public String postCreation(HttpServletRequest request) {
-        String selectId = request.getParameter("select_id");
-        String categoryName = itemCategoryService.getById(Integer.parseInt(selectId));
-        switch (categoryName) {
-            case "PASSENGER CARS" -> {
-                return "redirect:/create/car";
-            }
-            case "REAL ESTATE" -> {
-                return "redirect:/create/real-estate";
-            }
-            case "JEWELRY" -> {
-                return "redirect:/create/jewelry";
-            }
-            case "CLOTHES" -> {
-                return "redirect:/create/clothes";
-            }
-            case "FURNITURE" -> {
-                return "redirect:/create/furniture";
-            }
-            case "BUILDING EQUIPMENT" -> {
-                return "redirect:/create/building-equipment";
-            }
-            case "SPORT EQUIPMENT" -> {
-                return "redirect:/create/sport-equipment";
-            }
-            case "MEDICAL EQUIPMENT" -> {
-                return "redirect:/create/medical-equipment";
-            }
-            case "OTHER" -> {
-                return "redirect:/create/other";
-            }
-        }
         return "create-lot";
     }
 

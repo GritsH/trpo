@@ -1,9 +1,11 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.ItemType;
 import by.novikgrits.webapp.repository.LotRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +51,11 @@ public class LotService {
 
     public void updateLot(Lot lot) {
         lotRepository.update(lot);
+    }
+
+
+    public List<Lot> findLotsByCategoryAndStatus(ItemType itemType, Integer statusId){
+        return lotRepository.findLotsByTypeAndStatus(itemType.toString(), statusId);
     }
 
 }
