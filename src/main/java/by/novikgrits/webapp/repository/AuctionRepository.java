@@ -2,7 +2,6 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.*;
 import by.novikgrits.webapp.model.item.*;
-import by.novikgrits.webapp.repository.item.ItemRepositoryProvider;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
