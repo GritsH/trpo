@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class LotController {
+public class DetailedLotController {
     private final AuctionsService auctionsService;
 
-    public LotController(AuctionsService auctionsService) {
+    public DetailedLotController(AuctionsService auctionsService) {
         this.auctionsService = auctionsService;
     }
 
@@ -27,6 +27,6 @@ public class LotController {
 
         Auction auction = auctionsService.getAuctionByLotId(Integer.parseInt(id));
         model.addAttribute("foundAuction", auction);
-        return "/lot";
+        return "/lot-details";
     }
 }
