@@ -1,4 +1,4 @@
-package by.novikgrits.webapp.repository;
+package by.novikgrits.webapp.repository.item;
 
 import by.novikgrits.webapp.model.item.Item;
 import by.novikgrits.webapp.model.item.ItemType;

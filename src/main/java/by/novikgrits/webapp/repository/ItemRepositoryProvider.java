@@ -1,7 +1,7 @@
-package by.novikgrits.webapp.repository.item;
+package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.item.ItemType;
-import by.novikgrits.webapp.repository.ItemRepository;
+import by.novikgrits.webapp.repository.item.ItemRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
