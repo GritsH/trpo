@@ -64,13 +64,13 @@
     </div>
     <div class="right-container">
         <div class="panel-auctions">
-            <div class="box-for-categories">
+            <div class="box-for-categories" th:each="">
                 <div class="for-img-categories">
                     <img class="image-category"
                          th:src="@{/img/car.jpg}">
                 </div>
                 <p class="title-for-categories">cars</p>
-                <button class="more-detailed-button" type="button">
+                <button class="more-detailed-button" type="button" th:href="@{/categories/{id}(id=${category.id})}">
                     more detailed
                 </button>
             </div>
