@@ -23,6 +23,7 @@ public class UserRepository {
     private final LotRepository lotRepository;
     private final BidHistoryRepository bidHistoryRepository;
     private final ItemRepositoryProvider itemRepositoryProvider;
+
     public UserRepository(JdbcTemplate jdbcTemplate, LotRepository lotRepository, BidHistoryRepository bidHistoryRepository, ItemRepositoryProvider itemRepositoryProvider) {
         this.jdbcTemplate = jdbcTemplate;
         this.lotRepository = lotRepository;
@@ -38,7 +39,7 @@ public class UserRepository {
 
     }
 
-    public List<User> findAll(){
+    public List<User> findAll() {
         return jdbcTemplate.query(SELECT_ALL, new UserRowMapper());
     }
 
@@ -57,9 +58,9 @@ public class UserRepository {
     }
 
     @Transactional
-    public void deleteUser(Integer userId){
+    public void deleteUser(Integer userId) {
         List<Lot> allUserLots = lotRepository.findAllByOwnerId(userId);
-        for (Lot lot: allUserLots) {
+        for (Lot lot : allUserLots) {
             bidHistoryRepository.deleteByLotId(lot.getId());
 
             ItemType itemType = lot.getItemType();

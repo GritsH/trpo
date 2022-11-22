@@ -60,7 +60,7 @@ public class BidHistoryRepository {
         return jdbcTemplate.query(SELECT_LAST_HISTORIES, new BidHistoryRowMapper());
     }
 
-    public void deleteByLotId(Integer lotId){
+    public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
 

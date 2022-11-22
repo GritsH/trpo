@@ -19,7 +19,7 @@ public class AdminUserPage {
     }
 
     @GetMapping("/admin/users")
-    public String getUsers(Model model){
+    public String getUsers(Model model) {
         List<User> allUsers = userService.findAll();
 
         model.addAttribute("allUsers", allUsers);
@@ -27,7 +27,7 @@ public class AdminUserPage {
     }
 
     @PostMapping("/admin/users/{id}/delete")
-    public String postDeleteUser(@PathVariable String id){
+    public String postDeleteUser(@PathVariable String id) {
         Integer userId = Integer.parseInt(id);
         userService.deleteUser(userId);
 
