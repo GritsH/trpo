@@ -38,6 +38,7 @@ public class ClothesRepository implements ItemRepository {
         return jdbcTemplate.query(SELECT_ALL, new ClothesRowMapper());
     }
 
+    @Override
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }

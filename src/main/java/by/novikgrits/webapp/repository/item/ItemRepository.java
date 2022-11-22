@@ -12,4 +12,6 @@ public interface ItemRepository {
     Optional<Item> findByLotId(Integer id);
 
     ItemType getType();
+
+    void deleteByLotId(Integer lotId);
 }

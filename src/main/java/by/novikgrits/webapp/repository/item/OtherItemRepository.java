@@ -38,6 +38,7 @@ public class OtherItemRepository implements ItemRepository {
         return jdbcTemplate.query(SELECT_ALL, new OtherRowMapper());
     }
 
+    @Override
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
