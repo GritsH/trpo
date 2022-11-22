@@ -2,7 +2,7 @@ package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class SportEquipment extends Item{
+public class SportEquipment extends Item {
     private Integer lotId;
     private Float weight;
     private String brand;

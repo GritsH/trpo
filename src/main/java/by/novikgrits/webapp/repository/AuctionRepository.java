@@ -1,7 +1,9 @@
 package by.novikgrits.webapp.repository;
 
-import by.novikgrits.webapp.model.*;
-import by.novikgrits.webapp.model.item.*;
+import by.novikgrits.webapp.model.Auction;
+import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.Item;
+import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public class AuctionRepository {
         return auctions;
     }
 
-    public List<Auction> findLotsByTypeAndStatus(ItemType itemType, Integer statusId){
+    public List<Auction> findLotsByTypeAndStatus(ItemType itemType, Integer statusId) {
         List<Auction> auctions = new ArrayList<>();
         Auction auction = new Auction();
         List<Lot> foundLots = lotRepository.findLotsByTypeAndStatus(itemType.toString(), statusId);

@@ -1,9 +1,7 @@
 package by.novikgrits.webapp.controller;
 
-import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.model.item.ItemType;
-import by.novikgrits.webapp.service.ItemCategoryService;
 import by.novikgrits.webapp.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

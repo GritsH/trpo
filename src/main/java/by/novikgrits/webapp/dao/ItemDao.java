@@ -1,8 +1,9 @@
 package by.novikgrits.webapp.dao;
 
-import by.novikgrits.webapp.model.*;
+import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.item.*;
-import by.novikgrits.webapp.repository.*;
+import by.novikgrits.webapp.repository.LotRepository;
+import by.novikgrits.webapp.repository.LotStatusRepository;
 import by.novikgrits.webapp.repository.item.*;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Component;

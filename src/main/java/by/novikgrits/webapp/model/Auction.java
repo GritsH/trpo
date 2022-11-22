@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.model;
 
-import by.novikgrits.webapp.model.item.*;
+import by.novikgrits.webapp.model.item.Item;
 
 public class Auction {
     private Lot lot;

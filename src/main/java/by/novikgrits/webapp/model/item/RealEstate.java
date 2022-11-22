@@ -2,7 +2,7 @@ package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class RealEstate extends Item{
+public class RealEstate extends Item {
     private Integer lotId;
     private Integer roomAmount;
     private Integer livingSpace;

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JewelryRepository  implements ItemRepository {
+public class JewelryRepository implements ItemRepository {
     private static final String INSERT = "insert into jewelry (material, has_precious_stones, lot_id) values (?,?,?)";
     private static final String SELECT_BY_LOT_ID = "select * from jewelry where lot_id = ?";
     private static final String SELECT_ALL = "select * from jewelry";
@@ -38,6 +38,7 @@ public class JewelryRepository  implements ItemRepository {
         return jdbcTemplate.query(SELECT_ALL, new JewelryRowMapper());
     }
 
+    @Override
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }

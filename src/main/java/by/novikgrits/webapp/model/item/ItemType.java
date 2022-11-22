@@ -3,15 +3,15 @@ package by.novikgrits.webapp.model.item;
 import java.util.stream.Stream;
 
 public enum ItemType {
-    CAR ("car"),
-    REAL_ESTATE ("real estate"),
-    JEWELRY ("jewelry"),
-    CLOTHES ("clothes"),
-    FURNITURE ("furniture"),
-    BUILDING_EQUIPMENT ("building equipment"),
-    SPORT_EQUIPMENT ("sport equipment"),
-    MEDICAL_EQUIPMENT ("medical equipment"),
-    OTHER ("other");
+    CAR("car"),
+    REAL_ESTATE("real estate"),
+    JEWELRY("jewelry"),
+    CLOTHES("clothes"),
+    FURNITURE("furniture"),
+    BUILDING_EQUIPMENT("building equipment"),
+    SPORT_EQUIPMENT("sport equipment"),
+    MEDICAL_EQUIPMENT("medical equipment"),
+    OTHER("other");
 
     private String typeDescription;
 

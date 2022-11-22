@@ -7,7 +7,6 @@ import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AuctionsService {
@@ -21,11 +20,11 @@ public class AuctionsService {
         return auctionDao.findAllAuctions(lots);
     }
 
-    public List<Auction> getByTypeAndStatus(ItemType itemType, Integer statusId){
+    public List<Auction> getByTypeAndStatus(ItemType itemType, Integer statusId) {
         return auctionDao.findByTypeAndStatus(itemType, statusId);
     }
 
-    public Auction getAuctionByLotId(Integer id){
+    public Auction getAuctionByLotId(Integer id) {
         return auctionDao.findLotById(id);
     }
 }

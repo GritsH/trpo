@@ -43,6 +43,7 @@ public class CarRepository implements ItemRepository {
         jdbcTemplate.update(DELETE_BY_ID, carId);
     }
 
+    @Override
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }

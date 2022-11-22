@@ -2,7 +2,7 @@ package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class Furniture extends Item{
+public class Furniture extends Item {
     private Integer lotId;
     private Integer furnitureTypeId;
     private String material;
