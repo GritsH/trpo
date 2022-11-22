@@ -1,6 +1,6 @@
 package by.novikgrits.webapp.mapper;
 
-import by.novikgrits.webapp.model.BuildingEquipment;
+import by.novikgrits.webapp.model.item.BuildingEquipment;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

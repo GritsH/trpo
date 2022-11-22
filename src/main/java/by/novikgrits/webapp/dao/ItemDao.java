@@ -1,7 +1,10 @@
 package by.novikgrits.webapp.dao;
 
-import by.novikgrits.webapp.model.*;
-import by.novikgrits.webapp.repository.*;
+import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.*;
+import by.novikgrits.webapp.repository.LotRepository;
+import by.novikgrits.webapp.repository.LotStatusRepository;
+import by.novikgrits.webapp.repository.item.*;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +43,7 @@ public class ItemDao {
     public void registerItem(Car car, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.CAR);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -52,6 +56,7 @@ public class ItemDao {
     public void registerItem(RealEstate realEstate, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.REAL_ESTATE);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -64,6 +69,7 @@ public class ItemDao {
     public void registerItem(Clothes clothes, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.CLOTHES);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -76,6 +82,7 @@ public class ItemDao {
     public void registerItem(SportEquipment sportEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.SPORT_EQUIPMENT);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -88,6 +95,7 @@ public class ItemDao {
     public void registerItem(BuildingEquipment buildingEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.BUILDING_EQUIPMENT);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -100,6 +108,7 @@ public class ItemDao {
     public void registerItem(MedicalEquipment medicalEquipment, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.MEDICAL_EQUIPMENT);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -112,6 +121,7 @@ public class ItemDao {
     public void registerItem(OtherItem otherItem, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.OTHER);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -124,6 +134,7 @@ public class ItemDao {
     public void registerItem(Furniture furniture, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.FURNITURE);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();
@@ -136,6 +147,7 @@ public class ItemDao {
     public void registerItem(Jewelry jewelry, Lot lot) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
+        lot.setItemType(ItemType.JEWELRY);
         lotRepository.save(lot, generatedKeyHolder);
 
         Integer id = Objects.requireNonNull(generatedKeyHolder.getKey()).intValue();

@@ -1,29 +1,11 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class SportEquipment {
-    private Integer id;
+public class SportEquipment extends Item {
     private Integer lotId;
     private Float weight;
     private String brand;
-
-    public SportEquipment() {
-    }
-
-    public SportEquipment(Integer lotId, Float weight, String brand) {
-        this.lotId = lotId;
-        this.weight = weight;
-        this.brand = brand;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getLotId() {
         return lotId;

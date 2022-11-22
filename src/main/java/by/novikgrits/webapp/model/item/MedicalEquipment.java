@@ -1,32 +1,13 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Date;
 import java.util.Objects;
 
-public class MedicalEquipment {
-    private Integer id;
+public class MedicalEquipment extends Item {
     private Integer lotId;
     private Integer specialityId;
     private Date manufactureYear;
     private String brand;
-
-    public MedicalEquipment() {
-    }
-
-    public MedicalEquipment(Integer lotId, Integer specialityId, Date manufactureYear, String brand) {
-        this.lotId = lotId;
-        this.specialityId = specialityId;
-        this.manufactureYear = manufactureYear;
-        this.brand = brand;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getLotId() {
         return lotId;

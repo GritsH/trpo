@@ -1,7 +1,9 @@
-package by.novikgrits.webapp.repository;
+package by.novikgrits.webapp.repository.item;
 
 import by.novikgrits.webapp.mapper.SportEquipmentRowMapper;
-import by.novikgrits.webapp.model.SportEquipment;
+import by.novikgrits.webapp.model.item.Item;
+import by.novikgrits.webapp.model.item.ItemType;
+import by.novikgrits.webapp.model.item.SportEquipment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class SportEquipmentRepository {
+public class SportEquipmentRepository implements ItemRepository {
     private static final String INSERT = "insert into sport_equipment (lot_id, weight, brand) values (?,?,?)";
     private static final String SELECT_BY_LOT_ID = "select * from sport_equipment where lot_id = ?";
     private static final String SELECT_ALL = "select * from sport_equipment";
@@ -20,12 +22,15 @@ public class SportEquipmentRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save(SportEquipment sportEquipment) {
+    @Override
+    public void save(Item item) {
+        SportEquipment sportEquipment = (SportEquipment) item;
         jdbcTemplate.update(INSERT,
                 sportEquipment.getLotId(), sportEquipment.getWeight(), sportEquipment.getBrand());
     }
 
-    public Optional<SportEquipment> findByLotId(Integer lotId) {
+    @Override
+    public Optional<Item> findByLotId(Integer lotId) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_LOT_ID, new Object[]{lotId}, new SportEquipmentRowMapper()));
     }
 
@@ -33,7 +38,13 @@ public class SportEquipmentRepository {
         return jdbcTemplate.query(SELECT_ALL, new SportEquipmentRowMapper());
     }
 
+    @Override
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
+    }
+
+    @Override
+    public ItemType getType() {
+        return ItemType.SPORT_EQUIPMENT;
     }
 }

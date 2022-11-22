@@ -1,29 +1,11 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class Furniture {
-    private Integer id;
+public class Furniture extends Item {
     private Integer lotId;
     private Integer furnitureTypeId;
     private String material;
-
-    public Furniture(Integer lotId, Integer furnitureTypeId, String material) {
-        this.lotId = lotId;
-        this.furnitureTypeId = furnitureTypeId;
-        this.material = material;
-    }
-
-    public Furniture() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getLotId() {
         return lotId;

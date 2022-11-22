@@ -1,27 +1,10 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class BuildingEquipment {
-    private Integer id;
+public class BuildingEquipment extends Item {
     private Integer lotId;
     private String brand;
-
-    public BuildingEquipment() {
-    }
-
-    public BuildingEquipment(Integer lotId, String brand) {
-        this.lotId = lotId;
-        this.brand = brand;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getLotId() {
         return lotId;

@@ -1,25 +1,11 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class Jewelry {
-    private Integer id;
+public class Jewelry extends Item {
     private Integer lotId;
     private String material;
     private Boolean hasPreciousStones;
-
-    public Jewelry(Integer lotId, String material, Boolean hasPreciousStones) {
-        this.lotId = lotId;
-        this.material = material;
-        this.hasPreciousStones = hasPreciousStones;
-    }
-
-    public Jewelry() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
 
     public Integer getLotId() {
         return lotId;
@@ -43,10 +29,6 @@ public class Jewelry {
 
     public void setHasPreciousStones(Boolean hasPreciousStones) {
         this.hasPreciousStones = hasPreciousStones;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override

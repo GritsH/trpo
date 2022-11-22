@@ -29,7 +29,7 @@ public class ItemCategoryRepository {
                 new Object[]{name}, new CategoryRowMapper()));
     }
 
-    public String findById(Integer id){
+    public String findById(Integer id) {
         return jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, String.class);
     }
 }

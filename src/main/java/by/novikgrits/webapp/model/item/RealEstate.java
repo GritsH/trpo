@@ -1,25 +1,11 @@
-package by.novikgrits.webapp.model;
+package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class RealEstate {
-    private Integer id;
+public class RealEstate extends Item {
     private Integer lotId;
     private Integer roomAmount;
     private Integer livingSpace;
-
-    public RealEstate(Integer lotId, Integer roomAmount, Integer livingSpace) {
-        this.lotId = lotId;
-        this.roomAmount = roomAmount;
-        this.livingSpace = livingSpace;
-    }
-
-    public RealEstate() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
 
     public Integer getLotId() {
         return lotId;
@@ -43,10 +29,6 @@ public class RealEstate {
 
     public void setLivingSpace(Integer livingSpace) {
         this.livingSpace = livingSpace;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     @Override
