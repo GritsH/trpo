@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,13 +22,17 @@ public class UserService {
         this.userRoleRepository = userRoleRepository;
     }
 
+    public List<User> findAll(){
+        return userRepository.findAll();
+    }
+
     public Optional<User> findByEmail(String email) {
         Optional<User> foundUser = userRepository.findByEmail(email);
         foundUser.ifPresent(user -> user.setEmail(email));
         return foundUser;
     }
 
-    public void addUser(User user) throws SQLException {
+    public void addUser(User user) {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setRoleName(userRoleRepository.findByRoleId(1));
         user.setPassword(encodedPassword);
@@ -36,5 +41,9 @@ public class UserService {
 
     public Optional<User> findById(Integer id) {
         return userRepository.findById(id);
+    }
+
+    public void deleteUser(Integer userId){
+        userRepository.deleteUser(userId);
     }
 }
