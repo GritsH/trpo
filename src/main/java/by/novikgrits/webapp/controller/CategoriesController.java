@@ -16,7 +16,7 @@ public class CategoriesController {
         List<String> allCategories = new ArrayList<>();
         ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));
         model.addAttribute("categories", allCategories);
-        model.addAttribute("all_categories", allCategories);
+        model.addAttribute("allCategories", allCategories);
         return "categories";
     }
 }
