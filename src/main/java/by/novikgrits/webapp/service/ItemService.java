@@ -48,4 +48,20 @@ public class ItemService {
     public void register(Lot lot, Jewelry jewelry){
         itemDao.registerItem(jewelry, lot);
     }
+
+    public void removeItem(Lot lot){
+        ItemType itemType = lot.getItemType();
+        Integer lotId = lot.getId();
+        switch (itemType){
+            case CAR -> itemDao.removeCar(lotId);
+            case JEWELRY -> itemDao.removeJewelry(lotId);
+            case OTHER -> itemDao.removeOtherItem(lotId);
+            case CLOTHES -> itemDao.removeClothes(lotId);
+            case FURNITURE -> itemDao.removeFurniture(lotId);
+            case REAL_ESTATE -> itemDao.removeRealEstate(lotId);
+            case SPORT_EQUIPMENT -> itemDao.removeSportEquipment(lotId);
+            case MEDICAL_EQUIPMENT -> itemDao.removeMedicalEquipment(lotId);
+            case BUILDING_EQUIPMENT -> itemDao.removeBuildingEquipment(lotId);
+        }
+    }
 }
