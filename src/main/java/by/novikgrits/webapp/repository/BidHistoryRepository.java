@@ -18,6 +18,7 @@ public class BidHistoryRepository {
     private static final String SELECT_BY_LOT_ID_BIDDER_ID = "select * from bid_history where bidder_id = ? and lot_id = ?";
     private static final String SELECT_BY_BIDDER_ID = "select * from bid_history where bidder_id = ?";
     private static final String SELECT_BY_DATE = "select * from bid_history where bidding_date = ?";
+    private static final String SELECT_LAST_HISTORIES = "select * from bid_history where id in (select max(id) from bid_history group by lot_id)";
     private final JdbcTemplate jdbcTemplate;
 
     public BidHistoryRepository(JdbcTemplate jdbcTemplate) {
@@ -52,6 +53,10 @@ public class BidHistoryRepository {
 
     public List<BidHistory> findAllByDate(Date biddingDate) {
         return jdbcTemplate.query(SELECT_BY_DATE, new Object[]{biddingDate}, new BidHistoryRowMapper());
+    }
+
+    public List<BidHistory> findLastBiddersInLots() {
+        return jdbcTemplate.query(SELECT_LAST_HISTORIES, new BidHistoryRowMapper());
     }
 
 }

@@ -13,6 +13,7 @@ public class UserRepository {
     private static final String INSERT = "insert into user(first_name, last_name, email," +
             " user_password, phone, passport_data, role_name) values(?,?,?,?,?,?,?)";
     private static final String SELECT_BY_EMAIL = "select * from user where email = ?";
+    private static final String SELECT_BY_ID = "select * from user where id = ?";
     private final JdbcTemplate jdbcTemplate;
 
     public UserRepository(JdbcTemplate jdbcTemplate) {
@@ -35,6 +36,10 @@ public class UserRepository {
             return Optional.empty();
         }
 
+    }
+
+    public Optional<User> findById(Integer id){
+        return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, new UserRowMapper()));
     }
 
 }

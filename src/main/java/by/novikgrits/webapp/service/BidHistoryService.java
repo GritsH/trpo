@@ -49,6 +49,10 @@ public class BidHistoryService {
         return foundHistories;
     }
 
+    public List<BidHistory> findLastHistoriesInLots(){
+        return bidHistoryRepository.findLastBiddersInLots();
+    }
+
     public List<BidHistory> findByDate(Date date) {
         return bidHistoryRepository.findAllByDate(date);
     }

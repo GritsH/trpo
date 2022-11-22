@@ -33,4 +33,8 @@ public class UserService {
         user.setPassword(encodedPassword);
         userRepository.save(user);
     }
+
+    public Optional<User> findById(Integer id){
+        return userRepository.findById(id);
+    }
 }
