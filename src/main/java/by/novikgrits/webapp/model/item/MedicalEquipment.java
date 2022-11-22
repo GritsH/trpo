@@ -3,7 +3,7 @@ package by.novikgrits.webapp.model.item;
 import java.util.Date;
 import java.util.Objects;
 
-public class MedicalEquipment extends Item{
+public class MedicalEquipment extends Item {
     private Integer lotId;
     private Integer specialityId;
     private Date manufactureYear;

@@ -38,7 +38,7 @@ public class UserRepository {
 
     }
 
-    public Optional<User> findById(Integer id){
+    public Optional<User> findById(Integer id) {
         return Optional.ofNullable(jdbcTemplate.queryForObject(SELECT_BY_ID, new Object[]{id}, new UserRowMapper()));
     }
 

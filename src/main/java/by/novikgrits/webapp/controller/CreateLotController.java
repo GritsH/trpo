@@ -1,8 +1,7 @@
 package by.novikgrits.webapp.controller;
 
-import by.novikgrits.webapp.model.*;
+import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.item.*;
-import by.novikgrits.webapp.service.ItemCategoryService;
 import by.novikgrits.webapp.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 

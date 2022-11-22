@@ -49,7 +49,7 @@ public class BidHistoryService {
         return foundHistories;
     }
 
-    public List<BidHistory> findLastHistoriesInLots(){
+    public List<BidHistory> findLastHistoriesInLots() {
         return bidHistoryRepository.findLastBiddersInLots();
     }
 

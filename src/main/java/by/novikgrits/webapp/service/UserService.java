@@ -34,7 +34,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Optional<User> findById(Integer id){
+    public Optional<User> findById(Integer id) {
         return userRepository.findById(id);
     }
 }

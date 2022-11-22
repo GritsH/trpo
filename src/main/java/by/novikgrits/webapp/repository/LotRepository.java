@@ -2,7 +2,6 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.mapper.LotRowMapper;
 import by.novikgrits.webapp.model.Lot;
-import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
@@ -91,7 +90,7 @@ public class LotRepository {
                 lot.getStatusId(), lot.getId());
     }
 
-    public List<Lot> findLotsByTypeAndStatus (String itemType, Integer statusId){
+    public List<Lot> findLotsByTypeAndStatus(String itemType, Integer statusId) {
         return jdbcTemplate.query(SELECT_ALL_BY_TYPE_AND_STATUS, new Object[]{itemType, statusId}, new LotRowMapper());
     }
 

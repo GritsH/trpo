@@ -46,6 +46,7 @@ public class RealEstateRepository implements ItemRepository {
     public void deleteByLotId(Integer lotId) {
         jdbcTemplate.update(DELETE_BY_LOT_ID, lotId);
     }
+
     @Override
     public ItemType getType() {
         return ItemType.REAL_ESTATE;

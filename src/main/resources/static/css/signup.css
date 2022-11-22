@@ -37,9 +37,11 @@
     text-align: center;
     overflow-y: scroll;
 }
+
 .sign-form::-webkit-scrollbar {
     width: 1em;
 }
+
 .sign-form::-webkit-scrollbar-track {
     background-color: #e4e7e0;
     border-radius: 100px;

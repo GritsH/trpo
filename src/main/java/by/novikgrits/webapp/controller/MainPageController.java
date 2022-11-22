@@ -1,8 +1,6 @@
 package by.novikgrits.webapp.controller;
 
-import by.novikgrits.webapp.model.ItemCategory;
 import by.novikgrits.webapp.model.item.ItemType;
-import by.novikgrits.webapp.service.ItemCategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

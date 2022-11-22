@@ -2,7 +2,6 @@ package by.novikgrits.webapp.controller.admin;
 
 import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.Lot;
-import by.novikgrits.webapp.model.item.ItemType;
 import by.novikgrits.webapp.service.AuctionsService;
 import by.novikgrits.webapp.service.ItemService;
 import by.novikgrits.webapp.service.LotService;
@@ -27,7 +26,7 @@ public class AdminAuctionsController {
     }
 
     @GetMapping("/admin/lots")
-    public String getAdminLots(Model model){
+    public String getAdminLots(Model model) {
         List<Lot> activeLots = lotService.findAllActive();
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);
 
@@ -36,7 +35,7 @@ public class AdminAuctionsController {
     }
 
     @PostMapping("/admin/lots/delete/{id}")
-    public String postDeleteLot(@PathVariable String id){
+    public String postDeleteLot(@PathVariable String id) {
         Lot lot = lotService.findById(Integer.parseInt(id)).get();
         itemService.removeItem(lot);
         return "redirect:/admin/lots";

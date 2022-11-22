@@ -2,7 +2,7 @@ package by.novikgrits.webapp.model.item;
 
 import java.util.Objects;
 
-public class OtherItem extends Item{
+public class OtherItem extends Item {
     private Integer lotId;
 
     public Integer getLotId() {

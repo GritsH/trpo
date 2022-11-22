@@ -27,7 +27,7 @@ public class LotController {
     }
 
     @GetMapping("/active-auctions/lot/{id}/participate")
-    public String getLot (@PathVariable String id, Model model){
+    public String getLot(@PathVariable String id, Model model) {
         Integer lotId = Integer.parseInt(id);
         Auction auction = auctionsService.getAuctionByLotId(lotId);
         List<BidHistory> lotBidHistory = bidHistoryService.findByLotId(lotId);
@@ -40,7 +40,7 @@ public class LotController {
     }
 
     @PostMapping("/active-auctions/lot/{id}/participate")
-    public String postLot(@PathVariable String id, Model model){
+    public String postLot(@PathVariable String id, Model model) {
         Integer lotId = Integer.parseInt(id);
         Double betPrice = (Double) model.getAttribute("betPrice");
 

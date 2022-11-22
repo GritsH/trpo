@@ -1,6 +1,5 @@
 package by.novikgrits.webapp.controller.admin;
 
-import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.BidHistory;
 import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.service.AuctionsService;
@@ -26,10 +25,10 @@ public class AdminMainPageController {
     }
 
     @GetMapping("/admin/main")
-    public String getMainAdmin(Model model){
+    public String getMainAdmin(Model model) {
         List<BidHistory> lastHistories = bidHistoryService.findLastHistoriesInLots();
         List<Lot> lots = new ArrayList<>();
-        for (BidHistory bidHistory: lastHistories) {
+        for (BidHistory bidHistory : lastHistories) {
             lots.add(lotService.findById(bidHistory.getLotId()).get());
         }
 
