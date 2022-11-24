@@ -52,11 +52,11 @@
     <div class="right-container">
         <div class="panel-profile">
             <div class="account-information">
-                <p class="first-name" th:text="${session.current_user.firstName}">first name</p>
-                <p class="last-name" th:text="${session.current_user.lastName}">last name</p>
-                <p class="e-mail-profile" th:text="${session.current_user.email}">e-mail</p>
-                <p class="phone-profile" th:text="${session.current_user.phone}">phone</p>
-                <p class="passport-profile" th:text="${session.current_user.passportData}">passport</p>
+                <p class="first-name" th:text="${current_user.firstName}">first name</p>
+                <p class="last-name" th:text="${current_user.lastName}">last name</p>
+                <p class="e-mail-profile" th:text="${current_user.email}">e-mail</p>
+                <p class="phone-profile" th:text="${current_user.phone}">phone</p>
+                <p class="passport-profile" th:text="${current_user.passportData}">passport</p>
             </div>
             <button class="add-card-button" type="button" th:href="@{/add_card}">
                 add card
