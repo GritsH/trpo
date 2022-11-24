@@ -54,22 +54,22 @@
 
                     </div>
                     <div class="lot-information">
-                        <p class="lot-name" th:text="${lot.lotName}">lot name</p>
+                        <p class="lot-name" th:text="${lot.lot.lotName}">lot name</p>
                         <div class="titles-for-lot">
                             <p class="lot-location">location: </p>
-                            <p class="location" th:text="${lot.locationId}">Minsk, Belarus </p>
+                            <p class="location" th:text="${lot.lot.locationId}">Minsk, Belarus </p>
                         </div>
                         <div class="titles-for-lot">
                             <p class="lot-opening">opening of the auction: </p>
-                            <p class="opening-date" th:text="${lot.startingDate}">2022-11-02 </p>
+                            <p class="opening-date" th:text="${lot.lot.startingDate}">2022-11-02 </p>
                         </div>
                         <div class="titles-for-lot">
                             <p class="lot-closing">closing of the auction: </p>
-                            <p class="closing-date" th:text="${lot.closingDate}">2022-11-20 </p>
+                            <p class="closing-date" th:text="${lot.lot.closingDate}">2022-11-20 </p>
                         </div>
                         <div class="titles-for-lot">
                             <p class="lot-current-bet">current bet: </p>
-                            <p class="current-bet" th:text="${lot.currentPrice}">100</p>
+                            <p class="current-bet" th:text="${lot.lot.currentPrice}">100</p>
                             <p class="current-bet-byn">BYN</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
                         <button class="delete-lot-button" type="button"
-                                th:href="@{/admin/lots/delete/{id}(id=${lot.id})}">
+                                th:href="@{/admin/lots/delete/{id}(id=${lot.lot.id})}">
                             delete the lot
                         </button>
                     </div>
