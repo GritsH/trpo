@@ -45,7 +45,7 @@
                 <a class="aside-link" th:href="@{/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/active_auctions}">all active auctions</a>
+                <a class="aside-link" th:href="@{/active-auctions}">all active auctions</a>
             </div>
             <div class="aside-box">
                 <a class="aside-link" th:href="@{/categories}">categories</a>
@@ -62,20 +62,20 @@
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-active-auctions" th:each="">
+        <div class="panel-active-auctions" th:each="lot : ${allActiveAuctions}">
             <div class="box-for-auction" >
                 <div class="for-img-auction">
                 </div>
                 <div class="lot-information">
-                    <p class="lot-name" th:text="${}">lot name</p>
-                    <p class="lot-info" th:text="${}">important information about the lot</p>
-                    <p class="lot-closing-date" th:text="${}">trading closing date</p>
+                    <p class="lot-name" th:text="${lot.lotName}">lot name</p>
+                    <p class="lot-info" th:text="${lot.briefInfo}">important information about the lot</p>
+                    <p class="lot-closing-date" th:text="${lot.closingDate}">trading closing date</p>
                 </div>
                 <div class="lot-price-button">
                     <button class="join-button" type="button" th:href="@{/lot}">
                         JOIN
                     </button>
-                    <p class="lot-price" th:text="${}">150</p>
+                    <p class="lot-price" th:text="${lot.currentPrice}">150</p>
                     <p class="lot-byn">BYN</p>
                 </div>
             </div>
