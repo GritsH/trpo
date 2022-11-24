@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Auction - Admin Lot Id</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/lot.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/admin_lot_id.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/lot.css}">
+    <link rel="stylesheet" th:href="@{/css/admin_lot_id.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -30,7 +30,7 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="" class="header-title-status"> log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -38,63 +38,52 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" href="admin-main.html">home page</a>
+                <a class="aside-link" th:href="@{/admin/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="admin_lot_id.html">lots</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin_user_id.html">users</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-bid-page.html">bids</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-income-page.html">income</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-lot-counter.html">lot counter</a>
+                <a class="aside-link" th:href="@{/admin/users}">users</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-lot">
-            <div class="top-panel-lot">
-                <div class="for-img-lot">
+        <form class="admin-lot-id-form" action="#"
+              th:action="@{/admin/lots/delete/{id}}" method="post">
+            <div class="panel-lot" th:each="lot:${activeAuctions}">
+                <div class="top-panel-lot">
+                    <div class="for-img-lot">
 
+                    </div>
+                    <div class="lot-information">
+                        <p class="lot-name" th:text="${lot.lotName}">lot name</p>
+                        <div class="titles-for-lot">
+                            <p class="lot-location">location: </p>
+                            <p class="location" th:text="${lot.locationId}">Minsk, Belarus </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-opening">opening of the auction: </p>
+                            <p class="opening-date" th:text="${lot.startingDate}">2022-11-02 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-closing">closing of the auction: </p>
+                            <p class="closing-date" th:text="${lot.closingDate}">2022-11-20 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-current-bet">current bet: </p>
+                            <p class="current-bet" th:text="${lot.currentPrice}">100</p>
+                            <p class="current-bet-byn">BYN</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="lot-information">
-                    <p class="lot-name">lot name</p>
-                    <div class="titles-for-lot">
-                        <p class="lot-location">location: </p>
-                        <p class="location">Minsk, Belarus </p>
-                    </div>
-                    <div class="titles-for-lot">
-                        <p class="lot-opening">opening of the auction: </p>
-                        <p class="opening-date">2022-11-02 </p>
-                    </div>
-                    <div class="titles-for-lot">
-                        <p class="lot-closing">closing of the auction: </p>
-                        <p class="closing-date">2022-11-20 </p>
-                    </div>
-                    <div class="titles-for-lot">
-                        <p class="lot-current-bet">current bet: </p>
-                        <p class="current-bet">100</p>
-                        <p class="current-bet-byn">BYN</p>
+                <div class="bottom-panel-lot">
+                    <div class="right-panel">
+                        <button class="delete-lot-button" type="button"
+                                th:href="@{/admin/lots/delete/{id}(id=${lot.id})}">
+                            delete the lot
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="bottom-panel-lot">
-                <div class="right-panel">
-                    <button class="delete-lot-button" type="button">
-                        delete the lot
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="title-all-info-lot">
-            <p class="all-info-lot">All information about the lot</p>
-        </div>
+        </form>
     </div>
 </main>
 <footer class="footer">

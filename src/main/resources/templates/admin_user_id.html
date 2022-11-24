@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Auction - Admin User Profile</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/admin_user_id.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/admin_user_id.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -30,7 +30,7 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="" class="header-title-status"> log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -38,40 +38,29 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" href="admin-main.html">home page</a>
+                <a class="aside-link" th:href="@{/admin/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="admin_lot_id.html">lots</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin_user_id.html">users</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-bid-page.html">bids</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-income-page.html">income</a>
-            </div>
-            <div class="aside-box">
-                <a class="aside-link" href="admin-lot-counter.html">lot counter</a>
+                <a class="aside-link" th:href="@{/admin/lots}">lots</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-profile">
-            <div class="account-information">
-                <p class="first-name">first name</p>
-                <p class="last-name">last name</p>
-                <p class="e-mail-profile">e-mail</p>
-                <p class="profile-info">important information about the user</p>
+        <form class="admin-user-id-form" action="#"
+              th:action="@{/admin/users/{id}/delete}" method="post">
+            <div class="panel-profile" th:each="user:${allUsers}">
+                <div class="account-information">
+                    <p class="first-name" th:text="${user.firstName}">first name</p>
+                    <p class="last-name" th:text="${user.lastName}">last name</p>
+                    <p class="e-mail-profile" th:text="${user.email}">e-mail</p>
+                    <p class="profile-info" th:text="${user.phone}">important information about the user</p>
+                </div>
+                <button class="delete-profile-button" type="button"
+                        th:href="@{/admin/users/{id}(id=${user.id})/delete}">
+                    delete profile
+                </button>
             </div>
-            <button class="delete-profile-button" type="button">
-                delete profile
-            </button>
-            <button class="block-profile-button" type="button">
-                block profile
-            </button>
-        </div>
+        </form>
     </div>
 </main>
 <footer class="footer">
