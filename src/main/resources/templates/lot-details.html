@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Auction - Lot details</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/lot-details.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/active_auctions.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/lot-details.css}">
+    <link rel="stylesheet" th:href="@{/css/active_auctions.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -14,7 +14,7 @@
 <body>
 <header class="header">
     <div class="header-title">
-        <a class="header-title-text">auction</a>
+        <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
         <select class="header-title-select">
@@ -30,7 +30,7 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="" class="header-title-status"> log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -38,22 +38,22 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" href="main.html">home page</a>
+                <a class="aside-link" th:href="@{/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="active_auctions.html">all active auctions</a>
+                <a class="aside-link" th:href="@{/active-auctions}">all active auctions</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="categories.html">categories</a>
+                <a class="aside-link" th:href="@{/categories}">categories</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="profile.html">personal account</a>
+                <a class="aside-link" th:href="@{/profile}">personal account</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="information.html">information</a>
+                <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="about_us.html">about us</a>
+                <a class="aside-link" th:href="@{/about_us}">about us</a>
             </div>
         </aside>
     </div>
@@ -63,24 +63,22 @@
                 <div class="for-img-auction">
                 </div>
                 <div class="lot-information">
-                    <p class="lot-name">lot name</p>
-                    <p class="lot-info">important information about the lot</p>
-                    <p class="lot-category">category</p>
-                    <p class="lot-starting-date">trading starting date</p>
-                    <p class="lot-closing-date">trading closing date</p>
-                    <p class="lot-auction-step">auction step</p>
+                    <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
+                    <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
+                    <p class="lot-category" th:text="${categories}">category</p>
+                    <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
+                    <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
+                    <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
                 </div>
                 <div class="lot-price-button">
-                    <button class="join-button" type="button">
+                    <button class="join-button" type="button"
+                            th:href="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
                         JOIN
                     </button>
-                    <p class="lot-price">150</p>
+                    <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
                     <p class="lot-byn">BYN</p>
                 </div>
             </div>
-        </div>
-        <div class="title-bidders-table">
-            <p class="text-bidders-table">bidders table</p>
         </div>
     </div>
 </main>
