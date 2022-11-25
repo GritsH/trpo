@@ -92,11 +92,17 @@
 }
 
 .for-img-categories {
-    width: 120px;
+    width: 140px;
     height: 120px;
     border-radius: 20px;
     background-color: white;
 
+}
+
+img {
+    width: 140px;
+    height: 120px;
+    border-radius: 20px;
 }
 
 .title-for-categories {
