@@ -77,3 +77,9 @@
     color: black;
     margin: 5px;
 }
+
+.lot-details-form {
+    height: 40%;
+    width: border-box;
+    display: flex;
+}

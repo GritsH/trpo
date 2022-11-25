@@ -59,26 +59,29 @@
     </div>
     <div class="right-container">
         <div class="panel-active-auctions">
-            <div class="box-for-lot">
-                <div class="for-img-auction">
+            <form class="lot-details-form" action="#"
+                  th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="get">
+                <div class="box-for-lot">
+                    <div class="for-img-auction">
+                    </div>
+                    <div class="lot-information">
+                        <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
+                        <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
+                        <p class="lot-category" th:text="${foundAuction.lot.category}">category</p>
+                        <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
+                        <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
+                        <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
+                    </div>
+                    <div class="lot-price-button">
+                        <button class="join-button" type="submit"
+                                th:href="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
+                            JOIN
+                        </button>
+                        <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
+                        <p class="lot-byn">BYN</p>
+                    </div>
                 </div>
-                <div class="lot-information">
-                    <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
-                    <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
-                    <p class="lot-category" th:text="${categories}">category</p>
-                    <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
-                    <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
-                    <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
-                </div>
-                <div class="lot-price-button">
-                    <button class="join-button" type="button"
-                            th:href="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
-                        JOIN
-                    </button>
-                    <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
-                    <p class="lot-byn">BYN</p>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </main>

@@ -36,7 +36,7 @@ public class LotController {
         model.addAttribute("lotBidHistory", lotBidHistory);
         model.addAttribute("betPrice", 0.0);
 
-        return "/lot";
+        return "lot-place-a-bet-page";
     }
 
     @PostMapping("/active-auctions/lot/{id}/participate")
