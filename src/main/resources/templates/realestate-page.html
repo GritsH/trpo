@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Auction - Create lot Real Estate</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/pages.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/pages.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -13,7 +13,7 @@
 <body>
 <header class="header">
     <div class="header-title">
-        <a class="header-title-text">auction</a>
+        <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
         <select class="header-title-select">
@@ -29,7 +29,7 @@
         </select>
     </div>
     <div class="header-title-auth">
-        <a href="" class="header-title-status"> log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -37,27 +37,27 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" href="main.html">home page</a>
+                <a class="aside-link" th:href="@{/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="active_auctions.html">all active auctions</a>
+                <a class="aside-link" th:href="@{/active-auctions}">all active auctions</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="categories.html">categories</a>
+                <a class="aside-link" th:href="@{/categories}">categories</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="profile.html">personal account</a>
+                <a class="aside-link" th:href="@{/profile}">personal account</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="information.html">information</a>
+                <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="about_us.html">about us</a>
+                <a class="aside-link" th:href="@{/about_us}">about us</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form">
+        <form class="create-lot-form" action="#" th:action="@{/create/real-estate}" method="post">
             <div class="create-lot-photo">
                 <div class="for-img-lot">
 
@@ -69,46 +69,50 @@
             <div class="create-lot-information">
                 <div class="create-lot-input">
                     <label>lot name: </label>
-                    <input class="lot-name-input" id="lotName" type="text" required/>
+                    <input class="lot-name-input" id="lotName" type="text" th:field="*{newLot.lotName}" required/>
                 </div>
-                <div class="create-lot-input">
-                    <label>lot category: </label>
-                    <input class="lot-category-input" id="lotCategory" type="text" required/>
-                </div>
+<!--                <div class="create-lot-input">-->
+<!--                    <label>lot category: </label>-->
+<!--                    <input class="lot-category-input" id="lotCategory" type="text" required/>-->
+<!--                </div>-->
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
-                    <input class="all-lot-info" id="allLotInfo" type="text" required/>
+                    <input class="all-lot-info" id="allLotInfo" type="text" th:field="*{newLot.briefInfo}"required/>
                 </div>
                 <div class="create-lot-input">
                     <label>room amount: </label>
-                    <input class="room-amount" id="roomAmount" type="number" required/>
+                    <input class="room-amount" id="roomAmount" type="number"
+                           th:field="*{newRealEstate.roomAmount}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>living space: </label>
-                    <input class="living-space" id="livingSpace" type="number" required/>
+                    <input class="living-space" id="livingSpace" type="number"
+                           th:field="*{newRealEstate.livingSpace}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>location: </label>
-                    <input class="lot-location" id="lotLocation" type="text" required/>
+                    <input class="lot-location" id="lotLocation" type="text" th:field="*{newLot.locationId}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading starting date: </label>
-                    <input class="start-date" id="startDate" type="date" required/>
+                    <input class="start-date" id="startDate" type="date"
+                           th:value="*{newLot.startingDate}" th:field="*{newLot.startingDate}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading closing date: </label>
-                    <input class="close-date" id="closeDate" type="date" required/>
+                    <input class="close-date" id="closeDate" type="date"
+                           th:value="*{newLot.closingDate}" th:field="*{newLot.closingDate}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>starting price: </label>
-                    <input class="start-price" id="startPrice" type="number" required/>
+                    <input class="start-price" id="startPrice" type="number" th:field="*{newLot.startingPrice}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>auction step: </label>
-                    <input class="auction-step" id="auctionStep" type="number" required/>
+                    <input class="auction-step" id="auctionStep" type="number" th:field="*{newLot.step}" required/>
                 </div>
             </div>
-            <button class="create-lot-button" type="button" id="createLotButton">
+            <button class="create-lot-button" type="submit" id="createLotButton">
                 create lot
             </button>
         </form>
