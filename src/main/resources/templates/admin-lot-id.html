@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Auction - Admin Lot Id</title>
     <link rel="stylesheet" th:href="@{/css/lot-place-a-bet-page.css}">
-    <link rel="stylesheet" th:href="@{/css/admin_lot_id.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lot-id.css}">
     <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
     <div class="right-container">
         <div class="panel-lot" th:each="auction:${activeAuctions}">
             <form class="admin-lot-id-form" action="#"
-                  th:action="@{/admin/lots/delete/{id}}" method="post">
+                  th:action="@{/admin/lots/delete/{id}(id=${auction.lot.id})}" method="post">
                 <div class="top-panel-lot">
                     <div class="for-img-lot">
 
@@ -77,7 +77,7 @@
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
                         <button class="delete-lot-button" type="submit"
-                                th:href="@{/admin/lots/delete/{id}(id=${auction.lot.id})}">
+                                th:action="@{/admin/lots/delete/{id}(id=${auction.lot.id})}">
                             delete the lot
                         </button>
                     </div>

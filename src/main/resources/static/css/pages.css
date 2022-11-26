@@ -55,7 +55,7 @@ label {
 }
 
 input {
-    width: 45em;
+    width: 600px;
     height: 40px;
     /*margin: auto;*/
     outline: none;

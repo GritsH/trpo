@@ -64,96 +64,99 @@
     </div>
     <div class="right-container">
         <div class="panel-auctions">
-            <div class="box-for-categories">
+            <div class="box-for-categories" th:each="category :${allCategories}">
                 <div class="for-img-categories">
                     <img class="image-category"
-                         th:src="@{/img/car.jpg}">
+                         th:src="@{${'/img/'+ category + '.jpg'}}">
                 </div>
-                <p class="title-for-categories">cars</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/cars}">
-                    more detailed
+                <p class="title-for-categories" th:text="${category}">cars</p>
+                <button class="more-detailed-button" type="button">
+                    <a class="more-detailed-link" th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}">
+                        more detailed
+                    </a>
+
                 </button>
             </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/real_estate.jpg}">
-                </div>
-                <p class="title-for-categories">real estates</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/real-estates}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/sport_equipment.jpg}">
-                </div>
-                <p class="title-for-categories">sport equipment</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/sport-equipment}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/jewelry.jpg}">
-                </div>
-                <p class="title-for-categories">jewelry</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/jewelry}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/building_equipment.jfif}">
-                </div>
-                <p class="title-for-categories">building equipment</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/building-equipment}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/clothes.jpg}">
-                </div>
-                <p class="title-for-categories">clothes</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/clothes}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/medical_equipment.jpg}">
-                </div>
-                <p class="title-for-categories">medical equipment</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/medical-equipment}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/furniture.jpeg}">
-                </div>
-                <p class="title-for-categories">furniture</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/furniture}">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/other.jpg}">
-                </div>
-                <p class="title-for-categories">other property</p>
-                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/other-property}">
-                    more detailed
-                </button>
-            </div>
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/real_estate.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">real estates</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/real-estates}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/sport_equipment.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">sport equipment</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/sport-equipment}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/jewelry.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">jewelry</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/jewelry}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/building_equipment.jfif}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">building equipment</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/building-equipment}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/clothes.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">clothes</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/clothes}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/medical_equipment.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">medical equipment</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/medical-equipment}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/furniture.jpeg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">furniture</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/furniture}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="box-for-categories">-->
+<!--                <div class="for-img-categories">-->
+<!--                    <img class="image-category"-->
+<!--                         th:src="@{/img/other.jpg}">-->
+<!--                </div>-->
+<!--                <p class="title-for-categories">other property</p>-->
+<!--                <button class="more-detailed-button" type="button" th:href="@{/active-auctions/category/other-property}">-->
+<!--                    more detailed-->
+<!--                </button>-->
+<!--            </div>-->
         </div>
 
     </div>

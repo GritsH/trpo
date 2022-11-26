@@ -124,10 +124,6 @@ img {
     border-radius: 7px;
     background-color: #BBD25D;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
-    color: black;
 }
 
 .more-detailed-button:hover {
@@ -135,4 +131,13 @@ img {
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     color: black;
 }
+
+.more-detailed-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Auction - Admin User Profile</title>
     <link rel="stylesheet" th:href="@{/css/profile.css}">
-    <link rel="stylesheet" th:href="@{/css/admin_user_id.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-user-id.css}">
     <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
     <div class="right-container">
         <div class="panel-profile" th:each="user:${allUsers}">
             <form class="admin-user-id-form" action="#"
-                  th:action="@{/admin/users/{id}/delete}" method="post">
+                  th:action="@{/admin/users/{id}(id=${user.id})/delete}" method="post">
 
                 <div class="account-information">
                     <p class="first-name" th:text="${user.firstName}">first name</p>
@@ -57,7 +57,7 @@
                     <p class="profile-info" th:text="${user.phone}">important information about the user</p>
                 </div>
                 <button class="delete-profile-button" type="submit"
-                        th:href="@{/admin/users/{id}(id=${user.id})/delete}">
+                        th:action="@{/admin/users/{id}(id=${user.id})/delete}">
                     delete profile
                 </button>
             </form>

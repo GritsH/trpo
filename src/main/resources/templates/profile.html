@@ -16,10 +16,7 @@
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
-        <select class="header-title-select" name="">
-            <option th:each=""
-                    th:text="" />
-        </select>
+
     </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
@@ -61,8 +58,10 @@
             <button class="add-card-button" type="button" th:href="@{/add_card}">
                 add card
             </button>
-            <button class="create-lot-button" type="button" th:href="@{/create-lot}">
-                create lot
+            <button class="create-lot-button" type="button">
+                <a class="create-lot-link" th:href="@{/create}">
+                    create lot
+                </a>
             </button>
         </div>
     </div>

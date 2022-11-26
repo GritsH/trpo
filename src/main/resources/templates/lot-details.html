@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Auction - Lot details</title>
     <link rel="stylesheet" th:href="@{/css/lot-details.css}">
-    <link rel="stylesheet" th:href="@{/css/active_auctions.css}">
+    <link rel="stylesheet" th:href="@{/css/active-auctions.css}">
     <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,14 +67,14 @@
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
                         <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
-                        <p class="lot-category" th:text="${foundAuction.lot.category}">category</p>
+                        <p class="lot-category" th:text="${foundAuction.lot.itemType.typeDescription}">category</p>
                         <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
                         <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
                         <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
                     </div>
                     <div class="lot-price-button">
                         <button class="join-button" type="submit"
-                                th:href="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
+                                th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
                             JOIN
                         </button>
                         <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
