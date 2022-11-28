@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.repository.item;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -16,6 +17,6 @@ public class FurnitureTypeRepository {
     }
 
     public Map<Integer, String> finalAll(){
-        return jdbcTemplate.query(SELECT_ALL, new HashMap<Integer, String>);
+        return jdbcTemplate.query(SELECT_ALL, new RowMapper<Map<Integer, String>>);
     }
 }
