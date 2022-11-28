@@ -15,7 +15,6 @@ import java.util.List;
 @Controller
 public class CreateLotController {
     private final ItemService itemService;
-    private final
 
     public CreateLotController(ItemService itemService) {
         this.itemService = itemService;
@@ -83,6 +82,8 @@ public class CreateLotController {
 
     @GetMapping("/create/furniture")
     public String createFurnitureLot(Model model) {
+        model.addAttribute("furnitureTypes", FurnitureType.getAll());
+
         model.addAttribute("newLot", new Lot());
         model.addAttribute("newFurniture", new Furniture());
         return "furniture-page";
@@ -122,6 +123,8 @@ public class CreateLotController {
 
     @GetMapping("/create/medical-equipment")
     public String createMedicalEqLot(Model model) {
+        model.addAttribute("medicalSpecialities", MedicalSpeciality.getAll());
+
         model.addAttribute("newLot", new Lot());
         model.addAttribute("newMedicalEquipment", new MedicalEquipment());
         return "medical-equipment-page";

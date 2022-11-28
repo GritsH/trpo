@@ -1,5 +1,7 @@
 package by.novikgrits.webapp.model.item;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -35,6 +37,19 @@ public enum FurnitureType {
             }
         }
         return null;
+    }
+    public static List<FurnitureType> getAll(){
+        List<FurnitureType> types = new ArrayList<>();
+        types.add(CHAIR);
+        types.add(TABLE);
+        types.add(BED);
+        types.add(CUPBOARD);
+        types.add(WARDROBE);
+        types.add(LAMP);
+        types.add(SOFA);
+        types.add(ARMCHAIR);
+        types.add(OTHER);
+        return types;
     }
 
 }
