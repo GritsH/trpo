@@ -47,7 +47,7 @@ public class LotRepository {
             preparedStatement.setInt(7, lot.getOwnerId());
             preparedStatement.setString(8, lot.getLotName());
             preparedStatement.setInt(9, lot.getStatusId());
-            preparedStatement.setString(10, lot.getItemType().toString());
+            preparedStatement.setString(10, lot.getItemType().getTypeDescription());
 
             return preparedStatement;
         }, keyHolder);

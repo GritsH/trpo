@@ -1,5 +1,6 @@
 package by.novikgrits.webapp.model.item;
 
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public enum ItemType {
@@ -19,10 +20,6 @@ public enum ItemType {
         return typeDescription;
     }
 
-    public void setTypeDescription(String typeDescription) {
-        this.typeDescription = typeDescription;
-    }
-
     ItemType(String typeDescription) {
         this.typeDescription = typeDescription;
     }
@@ -33,7 +30,7 @@ public enum ItemType {
 
     public static ItemType getByName(String description) {
         for (ItemType value : ItemType.values()) {
-            if (value.typeDescription == description) {
+            if (Objects.equals(value.typeDescription, description)) {
                 return value;
             }
         }
