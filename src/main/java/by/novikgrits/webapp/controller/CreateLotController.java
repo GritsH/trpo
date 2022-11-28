@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 public class CreateLotController {
     private final ItemService itemService;
+    private final
 
     public CreateLotController(ItemService itemService) {
         this.itemService = itemService;
