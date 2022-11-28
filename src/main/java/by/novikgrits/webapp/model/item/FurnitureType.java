@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public enum FurnitureType {
-    CHAIR ("chair"),
+    CHAIR("chair"),
     TABLE("table"),
     BED("bed"),
     CUPBOARD("cupboard"),
@@ -38,7 +38,8 @@ public enum FurnitureType {
         }
         return null;
     }
-    public static List<FurnitureType> getAll(){
+
+    public static List<FurnitureType> getAll() {
         List<FurnitureType> types = new ArrayList<>();
         types.add(CHAIR);
         types.add(TABLE);

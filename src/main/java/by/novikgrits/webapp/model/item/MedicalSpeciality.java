@@ -36,7 +36,7 @@ public enum MedicalSpeciality {
         return null;
     }
 
-    public static List<MedicalSpeciality> getAll(){
+    public static List<MedicalSpeciality> getAll() {
         List<MedicalSpeciality> specialities = new ArrayList<>();
 
         specialities.add(DENTISTRY);
