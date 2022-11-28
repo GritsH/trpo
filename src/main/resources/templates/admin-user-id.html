@@ -56,8 +56,7 @@
                     <p class="e-mail-profile" th:text="${user.email}">e-mail</p>
                     <p class="profile-info" th:text="${user.phone}">important information about the user</p>
                 </div>
-                <button class="delete-profile-button" type="submit"
-                        th:action="@{/admin/users/{id}(id=${user.id})/delete}">
+                <button class="delete-profile-button" type="submit">
                     delete profile
                 </button>
             </form>

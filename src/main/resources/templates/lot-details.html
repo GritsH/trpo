@@ -73,8 +73,7 @@
                         <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
                     </div>
                     <div class="lot-price-button">
-                        <button class="join-button" type="submit"
-                                th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}">
+                        <button class="join-button" type="submit">
                             JOIN
                         </button>
                         <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>

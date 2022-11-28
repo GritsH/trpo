@@ -16,17 +16,7 @@
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
-        <select class="header-title-select">
-            <option>cars</option>
-            <option>jewelry</option>
-            <option>real estate</option>
-            <option>furniture</option>
-            <option>clothes</option>
-            <option>sport equipment</option>
-            <option>building equipment</option>
-            <option>medical equipment</option>
-            <option>other property</option>
-        </select>
+
     </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
@@ -72,10 +62,6 @@
                     <input class="lot-name-input" id="lotName" type="text"
                            th:field="*{newLot.lotName}" required/>
                 </div>
-<!--                <div class="create-lot-input">-->
-<!--                    <label>lot category: </label>-->
-<!--                    <input class="lot-category-input" id="lotCategory" type="text" required/>-->
-<!--                </div>-->
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text"
@@ -95,11 +81,6 @@
                     <label>size: </label>
                     <input class="clothes-size" id="clothesSize" type="number"
                            th:field="*{newClothes.size}" required/>
-                </div>
-                <div class="create-lot-input">
-                    <label>location: </label>
-                    <input class="lot-location" id="lotLocation" type="text"
-                           th:field="*{newLot.locationId}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading starting date: </label>

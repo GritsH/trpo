@@ -58,7 +58,7 @@
     </div>
     <div class="right-container">
         <form class="lot-place-bet-form" action="#"
-              th:action="@{/active-auctions/lot/{id}/participate}" method="post">
+              th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="post">
             <div class="panel-lot">
                 <div class="top-panel-lot">
                     <div class="for-img-lot">
@@ -88,8 +88,7 @@
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
                         <input class="bet-field" id="betField" type="number" th:field="*{betPrice}">
-                        <button class="place-bet-button" type="button"
-                                th:href="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" >
+                        <button class="place-bet-button" type="submit">
                             place a bet
                         </button>
                     </div>
