@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,9 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/jewelry")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpServletRequest request) {
+        String hasStones = request.getParameter("jewelryPreciousStone");
+        newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
         itemService.register(newLot, newJewelry);
         return "redirect:/main";
     }
