@@ -123,4 +123,25 @@ button:hover {
     background-color: whitesmoke;
 }
 
+.jewelry-precious-stones {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 40px;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.jewelry-stones-choice {
+    width: 40px;
+    height: 20px;
+    outline: none;
+    border: none;
+    margin: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    color: black;
+    background-color: #D9D9D9;
+}
+
 
