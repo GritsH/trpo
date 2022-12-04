@@ -2,6 +2,7 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.Item;
 import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.stereotype.Repository;
@@ -13,10 +14,12 @@ import java.util.List;
 public class AuctionRepository {
     private final ItemRepositoryProvider itemRepositoryProvider;
     private final LotRepository lotRepository;
+    private final LotPhotoRepository lotPhotoRepository;
 
-    public AuctionRepository(LotRepository lotRepository, ItemRepositoryProvider itemRepositoryProvider) {
+    public AuctionRepository(LotRepository lotRepository, ItemRepositoryProvider itemRepositoryProvider, LotPhotoRepository lotPhotoRepository) {
         this.lotRepository = lotRepository;
         this.itemRepositoryProvider = itemRepositoryProvider;
+        this.lotPhotoRepository = lotPhotoRepository;
     }
 
 
@@ -28,7 +31,9 @@ public class AuctionRepository {
             auction.setLot(lot);
             Item foundItem = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
+            LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
             auction.setItem(foundItem);
+            auction.setPhoto(lotPhoto);
             auctions.add(auction);
         }
         return auctions;
@@ -41,6 +46,8 @@ public class AuctionRepository {
         for (Lot lot : foundLots) {
             Item item = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
+            LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
+            auction.setPhoto(lotPhoto);
             auction.setItem(item);
             auction.setLot(lot);
             auctions.add(auction);
@@ -52,10 +59,12 @@ public class AuctionRepository {
         Lot foundLot = lotRepository.findById(id).orElseThrow(RuntimeException::new);
         ItemType itemType = foundLot.getItemType();
         Item item = itemRepositoryProvider.findRepoByType(itemType).findByLotId(id).orElseThrow(RuntimeException::new);
+        LotPhoto lotPhoto = lotPhotoRepository.findByLotId(id).get();
 
         Auction auction = new Auction();
         auction.setItem(item);
         auction.setLot(foundLot);
+        auction.setPhoto(lotPhoto);
         return auction;
     }
 }

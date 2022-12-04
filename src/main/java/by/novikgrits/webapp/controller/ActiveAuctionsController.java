@@ -29,6 +29,7 @@ public class ActiveAuctionsController {
         List<String> allCategories = new ArrayList<>();
         ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));
         model.addAttribute("categories", allCategories);
+
         List<Lot> activeLots = lotService.findAllActive();
         Collections.sort(activeLots);
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);

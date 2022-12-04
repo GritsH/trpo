@@ -6,6 +6,8 @@ public class Auction {
     private Lot lot;
     private Item item;
 
+    private LotPhoto photo;
+
     public Auction() {
     }
 
@@ -23,5 +25,13 @@ public class Auction {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public LotPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(LotPhoto photo) {
+        this.photo = photo;
     }
 }
