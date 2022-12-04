@@ -98,7 +98,7 @@
             </thead>
             <tbody>
             <tr th:each="lot : ${lotBidHistory}">
-                <td><span th:text="${lot.bidderId}"> BidderId </span></td>
+                <td><span th:text="${lot.bidderEmail}"> BidderId </span></td>
                 <td><span th:text="${lot.price}"> price </span></td>
                 <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
             </tr>

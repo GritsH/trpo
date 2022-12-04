@@ -2,6 +2,7 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.Item;
 import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.stereotype.Repository;

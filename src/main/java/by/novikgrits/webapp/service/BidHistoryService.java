@@ -31,14 +31,14 @@ public class BidHistoryService {
         return foundHistories;
     }
 
-    public List<BidHistory> findByBidderIdAndLotId(Integer bidderId, Integer lotId) {
-        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderIdAndLotId(bidderId, lotId);
+    public List<BidHistory> findByBidderIdAndLotId(String bidderEmail, Integer lotId) {
+        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderIdAndLotId(bidderEmail, lotId);
         Collections.sort(foundHistories);
         return foundHistories;
     }
 
-    public List<BidHistory> findByBidderId(Integer bidderId) {
-        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderId(bidderId);
+    public List<BidHistory> findByBidderId(String bidderEmail) {
+        List<BidHistory> foundHistories = bidHistoryRepository.findAllByBidderId(bidderEmail);
         Collections.sort(foundHistories);
         return foundHistories;
     }

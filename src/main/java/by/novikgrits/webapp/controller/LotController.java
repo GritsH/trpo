@@ -56,7 +56,7 @@ public class LotController {
 
         BidHistory bidHistory = new BidHistory();
         bidHistory.setLotId(lotId);
-        bidHistory.setBidderId(userService.findByEmail((String) session.getAttribute("current_user")).get().getId());
+        bidHistory.setBidderEmail((String) session.getAttribute("current_user"));
         bidHistory.setPrice(betPrice);
         bidHistory.setBiddingDate(LocalDate.now());
 

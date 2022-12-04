@@ -11,12 +11,12 @@ import java.util.Optional;
 
 @Repository
 public class BidHistoryRepository {
-    private static final String INSERT_CMD = "insert into bid_history (bidder_id, lot_id, price, bidding_date) values (?,?,?,?)";
+    private static final String INSERT_CMD = "insert into bid_history (lot_id, price, bidding_date, bidder_email) values (?,?,?,?)";
     private static final String SELECT_ALL_BY_ID = "select * from bid_history where id = ?";
     private static final String SELECT_ALL = "select * from bid_history";
     private static final String SELECT_BY_LOT_ID = "select * from bid_history where lot_id = ?";
-    private static final String SELECT_BY_LOT_ID_BIDDER_ID = "select * from bid_history where bidder_id = ? and lot_id = ?";
-    private static final String SELECT_BY_BIDDER_ID = "select * from bid_history where bidder_id = ?";
+    private static final String SELECT_BY_LOT_ID_BIDDER_ID = "select * from bid_history where bidder_email = ? and lot_id = ?";
+    private static final String SELECT_BY_BIDDER_ID = "select * from bid_history where bidder_email = ?";
     private static final String SELECT_BY_DATE = "select * from bid_history where bidding_date = ?";
     private static final String SELECT_LAST_HISTORIES = "select * from bid_history where id in (select max(id) from bid_history group by lot_id)";
     private static final String DELETE_BY_LOT_ID = "delete from bid_history where lot_id = ?";
@@ -27,7 +27,7 @@ public class BidHistoryRepository {
     }
 
     public void save(BidHistory bidHistory) {
-        jdbcTemplate.update(INSERT_CMD, bidHistory.getBidderId(), bidHistory.getLotId(),
+        jdbcTemplate.update(INSERT_CMD, bidHistory.getBidderEmail(), bidHistory.getLotId(),
                 bidHistory.getPrice(), bidHistory.getBiddingDate());
     }
 
@@ -44,12 +44,12 @@ public class BidHistoryRepository {
         return jdbcTemplate.query(SELECT_BY_LOT_ID, new Object[]{lotId}, new BidHistoryRowMapper());
     }
 
-    public List<BidHistory> findAllByBidderIdAndLotId(Integer bidderId, Integer lotId) {
-        return jdbcTemplate.query(SELECT_BY_LOT_ID_BIDDER_ID, new Object[]{bidderId, lotId}, new BidHistoryRowMapper());
+    public List<BidHistory> findAllByBidderIdAndLotId(String bidderEmail, Integer lotId) {
+        return jdbcTemplate.query(SELECT_BY_LOT_ID_BIDDER_ID, new Object[]{bidderEmail, lotId}, new BidHistoryRowMapper());
     }
 
-    public List<BidHistory> findAllByBidderId(Integer bidderId) {
-        return jdbcTemplate.query(SELECT_BY_BIDDER_ID, new Object[]{bidderId}, new BidHistoryRowMapper());
+    public List<BidHistory> findAllByBidderId(String bidderEmail) {
+        return jdbcTemplate.query(SELECT_BY_BIDDER_ID, new Object[]{bidderEmail}, new BidHistoryRowMapper());
     }
 
     public List<BidHistory> findAllByDate(Date biddingDate) {
