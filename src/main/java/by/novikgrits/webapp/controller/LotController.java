@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -34,21 +36,20 @@ public class LotController {
 
         model.addAttribute("foundAuction", auction);
         model.addAttribute("lotBidHistory", lotBidHistory);
-        model.addAttribute("betPrice", 0.0);
 
         return "lot-place-a-bet-page";
     }
 
     @PostMapping("/active-auctions/lot/participate/{id}")
-    public String postLot(@PathVariable String id, Model model) {
+    public String postLot(@PathVariable String id, Model model, HttpServletRequest request) {
         Integer lotId = Integer.parseInt(id);
-        Double betPrice = (Double) model.getAttribute("betPrice");
+        Double betPrice = Double.parseDouble(request.getParameter("betPrice"));
 
         Auction auction = auctionsService.getAuctionByLotId(lotId);
         Lot lot = auction.getLot();
         lot.setCurrentPrice(lot.getCurrentPrice() + betPrice);
         lotService.updateLot(lot);
 
-        return "redirect:/lot";
+        return "redirect:/lot-place-a-bet-page";
     }
 }

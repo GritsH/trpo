@@ -79,7 +79,7 @@ public class CreateLotController {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        String hasStones = request.getParameter("jewelryPreciousStone");
+        String hasStones = request.getParameter("jewelryPreciousStonesChoice");
         newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
         itemService.register(newLot, newJewelry);
         return "redirect:/main";
