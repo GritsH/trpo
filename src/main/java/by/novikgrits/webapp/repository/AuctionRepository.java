@@ -31,9 +31,9 @@ public class AuctionRepository {
             auction.setLot(lot);
             Item foundItem = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
-            LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
+            //LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
             auction.setItem(foundItem);
-            auction.setPhoto(lotPhoto);
+           // auction.setPhoto(lotPhoto);
             auctions.add(auction);
         }
         return auctions;
@@ -46,8 +46,8 @@ public class AuctionRepository {
         for (Lot lot : foundLots) {
             Item item = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
-            LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
-            auction.setPhoto(lotPhoto);
+            //LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
+           // auction.setPhoto(lotPhoto);
             auction.setItem(item);
             auction.setLot(lot);
             auctions.add(auction);
@@ -59,12 +59,12 @@ public class AuctionRepository {
         Lot foundLot = lotRepository.findById(id).orElseThrow(RuntimeException::new);
         ItemType itemType = foundLot.getItemType();
         Item item = itemRepositoryProvider.findRepoByType(itemType).findByLotId(id).orElseThrow(RuntimeException::new);
-        LotPhoto lotPhoto = lotPhotoRepository.findByLotId(id).get();
+        //LotPhoto lotPhoto = lotPhotoRepository.findByLotId(id).get();
 
         Auction auction = new Auction();
         auction.setItem(item);
         auction.setLot(foundLot);
-        auction.setPhoto(lotPhoto);
+        //auction.setPhoto(lotPhoto);
         return auction;
     }
 }
