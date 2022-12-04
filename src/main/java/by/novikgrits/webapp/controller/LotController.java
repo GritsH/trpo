@@ -62,6 +62,6 @@ public class LotController {
 
         bidHistoryService.addHistory(bidHistory);
 
-        return "redirect:/lot-place-a-bet-page";
+        return "redirect:/active-auctions/lot/participate/{id}";
     }
 }
