@@ -93,11 +93,17 @@
 }
 
 .for-img-categories {
-    width: 120px;
+    width: 140px;
     height: 120px;
     border-radius: 20px;
     background-color: white;
 
+}
+
+img {
+    width: 140px;
+    height: 120px;
+    border-radius: 20px;
 }
 
 .title-for-categories {
@@ -118,10 +124,6 @@
     border-radius: 7px;
     background-color: #BBD25D;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 16px;
-    color: black;
 }
 
 .more-detailed-button:hover {
@@ -129,4 +131,13 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     color: black;
 }
+
+.more-detailed-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+
 

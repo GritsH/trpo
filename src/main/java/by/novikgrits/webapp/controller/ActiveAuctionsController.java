@@ -33,7 +33,7 @@ public class ActiveAuctionsController {
         Collections.sort(activeLots);
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);
         model.addAttribute("allActiveAuctions", auctions);
-        return "active_auctions";
+        return "active-auctions";
     }
 
     @GetMapping("/active-auctions/category/{categoryName}")
@@ -43,6 +43,6 @@ public class ActiveAuctionsController {
         ItemType itemType = ItemType.getByName(categoryName);
         List<Auction> foundAuctions = auctionsService.getByTypeAndStatus(itemType, activeLots.get(0).getStatusId());
         model.addAttribute("allActiveCategoryAuctions", foundAuctions);
-        return "active_auctions";
+        return "active-auctions";
     }
 }

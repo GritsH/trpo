@@ -31,7 +31,7 @@ public class AdminAuctionsController {
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);
 
         model.addAttribute("activeAuctions", auctions);
-        return "/admin_lot_id";
+        return "admin-lot-id";
     }
 
     @PostMapping("/admin/lots/delete/{id}")

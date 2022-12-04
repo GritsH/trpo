@@ -2,10 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Lot details</title>
-    <link rel="stylesheet" th:href="@{/css/lot-details.css}">
-    <link rel="stylesheet" th:href="@{/css/active-auctions.css}">
+    <title>Auction - Lot</title>
     <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/lot-place-a-bet-page.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -18,7 +17,7 @@
     </div>
     <div class="header-title-categories">
         <button class="header-select-button">select a category</button>
-        <div class="header-title-select" th:each="category : ${categories}">
+        <div class="header-title-select" th:each="category : ${allCategories}">
             <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
                th:text="${category}"></a>
         </div>
@@ -52,30 +51,47 @@
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-active-auctions">
-            <form class="lot-details-form" action="#"
-                  th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="get">
-                <div class="box-for-lot">
-                    <div class="for-img-auction">
+        <form class="lot-place-bet-form" action="#"
+              th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="post">
+            <div class="panel-lot">
+                <div class="top-panel-lot">
+                    <div class="for-img-lot">
+
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
-                        <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
-                        <p class="lot-category" th:text="${foundAuction.lot.itemType.typeDescription}">category</p>
-                        <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
-                        <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
-                        <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
-                    </div>
-                    <div class="lot-price-button">
-                        <button class="join-button" type="submit">
-                            JOIN
-                        </button>
-                        <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
-                        <p class="lot-byn">BYN</p>
+                        <div class="titles-for-lot">
+                            <p class="lot-location">location: </p>
+                            <p class="location" th:text="${foundAuction.lot.locationId}">Minsk, Belarus </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-opening">opening of the auction: </p>
+                            <p class="opening-date" th:text="${foundAuction.lot.startingDate}">2022-11-02 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-closing">closing of the auction: </p>
+                            <p class="closing-date" th:text="${foundAuction.lot.closingDate}">2022-11-20 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-current-bet">current bet: </p>
+                            <p class="current-bet" th:text="${foundAuction.lot.currentPrice}">100</p>
+                            <p class="current-bet-byn">BYN</p>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="bottom-panel-lot">
+                    <div class="right-panel">
+                        <input class="bet-field" id="betField" type="number" th:field="*{betPrice}">
+                        <button class="place-bet-button" type="submit">
+                            place a bet
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="title-all-info-lot">
+                <p class="all-info-lot" th:text="${foundAuction.lot.briefInfo}">All information about the lot</p>
+            </div>
+        </form>
     </div>
 </main>
 <footer class="footer">

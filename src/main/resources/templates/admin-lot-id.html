@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auction - Admin Lot Id</title>
+    <link rel="stylesheet" th:href="@{/css/lot-place-a-bet-page.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-lot-id.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="header-title">
+        <a class="header-title-text">auction</a>
+    </div>
+    <div class="header-title-categories">
+        <button class="header-select-button">select a category</button>
+        <div class="header-title-select" th:each="category : ${allCategories}">
+            <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
+               th:text="${category}"></a>
+        </div>
+    </div>
+    <div class="header-title-auth">
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
+    </div>
+
+</header>
+<main class="main">
+    <div class="left-container">
+        <aside class="aside-list">
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/admin/main}">home page</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/admin/users}">users</a>
+            </div>
+        </aside>
+    </div>
+    <div class="right-container">
+        <div class="panel-lot" th:each="auction:${activeAuctions}">
+            <form class="admin-lot-id-form" action="#"
+                  th:action="@{/admin/lots/delete/{id}(id=${auction.lot.id})}" method="post">
+                <div class="top-panel-lot">
+                    <div class="for-img-lot">
+
+                    </div>
+                    <div class="lot-information">
+                        <p class="lot-name" th:text="${auction.lot.lotName}">lot name</p>
+                        <div class="titles-for-lot">
+                            <p class="lot-location">location: </p>
+                            <p class="location" th:text="${auction.lot.locationId}">Minsk, Belarus </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-opening">opening of the auction: </p>
+                            <p class="opening-date" th:text="${auction.lot.startingDate}">2022-11-02 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-closing">closing of the auction: </p>
+                            <p class="closing-date" th:text="${auction.lot.closingDate}">2022-11-20 </p>
+                        </div>
+                        <div class="titles-for-lot">
+                            <p class="lot-current-bet">current bet: </p>
+                            <p class="current-bet" th:text="${auction.lot.currentPrice}">100</p>
+                            <p class="current-bet-byn">BYN</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-panel-lot">
+                    <div class="right-panel">
+                        <button class="delete-lot-button" type="submit">
+                            delete the lot
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <p class="footer-text">Ⓒ‎2022</p>
+    </div>
+</footer>
+
+</body>
+</html>

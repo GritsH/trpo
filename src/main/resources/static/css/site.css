@@ -98,28 +98,67 @@ footer {
     text-decoration: none;
 }
 
+.header-title-categories {
+    position: relative;
+    display: inline-block;
+    width: 350px;
+    height: 45px;
+    background-color: #D9D9D9;
+}
+
 .header-title-select {
+    display: none;
+    background-color: #D9D9D9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
     text-align: center;
     width: 350px;
     height: 45px;
     border: none;
+}
+
+.header-select-button {
+    text-decoration: none;
+    color: black;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: normal;
     letter-spacing: 1px;
-
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 350px;
+    height: 45px;
+    border: none;
 }
 
-.header-title-select:focus {
-    border: 2px solid black;
-    background-color: #D9D9D9;
+.header-select-button:hover {
+    color: slategrey;
 }
 
-.header-title-select:hover {
-
+.header-title-select a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    color: black;
 }
 
+.header-title-categories:hover .header-title-select {
+    display: block;
+}
+
+.header-title-select a:hover {
+    background-color: #ddd;
+}
+
+.header-title-categories:hover .header-select-button {
+    background-color: slategrey;
+}
 
 .aside-list {
     display: flex;
