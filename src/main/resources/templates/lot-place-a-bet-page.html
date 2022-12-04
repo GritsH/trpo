@@ -52,7 +52,7 @@
     </div>
     <div class="right-container">
         <form class="lot-place-bet-form" action="#"
-              th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="post">
+              th:action="@{/active-auctions/lot/participate/{id}(id=${foundAuction.lot.id})}" method="post">
             <div class="panel-lot">
                 <div class="top-panel-lot">
                     <div class="for-img-lot">
@@ -60,10 +60,6 @@
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
-                        <div class="titles-for-lot">
-                            <p class="lot-location">location: </p>
-                            <p class="location" th:text="${foundAuction.lot.locationId}">Minsk, Belarus </p>
-                        </div>
                         <div class="titles-for-lot">
                             <p class="lot-opening">opening of the auction: </p>
                             <p class="opening-date" th:text="${foundAuction.lot.startingDate}">2022-11-02 </p>

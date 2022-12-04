@@ -54,7 +54,7 @@
     <div class="right-container">
         <div class="panel-active-auctions">
             <form class="lot-details-form" action="#"
-                  th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="get">
+                  th:action="@{/active-auctions/lot/participate/{id}(id=${foundAuction.lot.id})}" method="get">
                 <div class="box-for-lot">
                     <div class="for-img-auction">
                     </div>

@@ -19,7 +19,7 @@ public class DetailedLotController {
         this.auctionsService = auctionsService;
     }
 
-    @GetMapping("/active-auctions/lot/{id}/details")
+    @GetMapping("/active-auctions/lot/details/{id}")
     public String getLot(@PathVariable String id, Model model) {
         List<String> allCategories = new ArrayList<>();
         ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));

@@ -26,7 +26,7 @@ public class LotController {
         this.lotService = lotService;
     }
 
-    @GetMapping("/active-auctions/lot/{id}/participate")
+    @GetMapping("/active-auctions/lot/participate/{id}")
     public String getLot(@PathVariable String id, Model model) {
         Integer lotId = Integer.parseInt(id);
         Auction auction = auctionsService.getAuctionByLotId(lotId);
@@ -39,7 +39,7 @@ public class LotController {
         return "lot-place-a-bet-page";
     }
 
-    @PostMapping("/active-auctions/lot/{id}/participate")
+    @PostMapping("/active-auctions/lot/participate/{id}")
     public String postLot(@PathVariable String id, Model model) {
         Integer lotId = Integer.parseInt(id);
         Double betPrice = (Double) model.getAttribute("betPrice");
