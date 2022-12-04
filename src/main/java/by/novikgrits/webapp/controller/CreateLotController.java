@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,11 +75,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/jewelry")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpServletRequest request, HttpSession session) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpSession session, @RequestParam("jewelryPreciousStonesChoice") String hasStones) {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        String hasStones = request.getParameter("jewelryPreciousStonesChoice");
         newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
         itemService.register(newLot, newJewelry);
         return "redirect:/main";
