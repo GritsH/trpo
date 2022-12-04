@@ -42,7 +42,7 @@ public class ActiveAuctionsController {
         Collections.sort(activeLots);
         ItemType itemType = ItemType.getByName(categoryName);
         List<Auction> foundAuctions = auctionsService.getByTypeAndStatus(itemType, activeLots.get(0).getStatusId());
-        model.addAttribute("allActiveCategoryAuctions", foundAuctions);
+        model.addAttribute("allActiveAuctions", foundAuctions);
         return "active-auctions";
     }
 }
