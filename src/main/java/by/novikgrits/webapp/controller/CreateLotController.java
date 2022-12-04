@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.model.item.*;
 import by.novikgrits.webapp.service.ItemService;
@@ -11,8 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import javax.sql.rowset.serial.SerialBlob;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +48,15 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/car")
-    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session) {
+    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newCar);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newCar, newPhoto);
         return "redirect:/main";
     }
 

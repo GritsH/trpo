@@ -1,7 +1,9 @@
 package by.novikgrits.webapp.dao;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.*;
+import by.novikgrits.webapp.repository.LotPhotoRepository;
 import by.novikgrits.webapp.repository.LotRepository;
 import by.novikgrits.webapp.repository.LotStatusRepository;
 import by.novikgrits.webapp.repository.item.*;
@@ -24,8 +26,9 @@ public class ItemDao {
     private final MedicalEquipmentRepository medicalEquipmentRepository;
     private final OtherItemRepository otherItemRepository;
     private final LotStatusRepository lotStatusRepository;
+    private final LotPhotoRepository lotPhotoRepository;
 
-    public ItemDao(LotRepository lotRepository, CarRepository carRepository, RealEstateRepository realEstateRepository, JewelryRepository jewelryRepository, FurnitureRepository furnitureRepository, ClothesRepository clothesRepository, SportEquipmentRepository sportEquipmentRepository, BuildingEquipmentRepository buildingEquipmentRepository, MedicalEquipmentRepository medicalEquipmentRepository, OtherItemRepository otherItemRepository, LotStatusRepository lotStatusRepository) {
+    public ItemDao(LotRepository lotRepository, CarRepository carRepository, RealEstateRepository realEstateRepository, JewelryRepository jewelryRepository, FurnitureRepository furnitureRepository, ClothesRepository clothesRepository, SportEquipmentRepository sportEquipmentRepository, BuildingEquipmentRepository buildingEquipmentRepository, MedicalEquipmentRepository medicalEquipmentRepository, OtherItemRepository otherItemRepository, LotStatusRepository lotStatusRepository, LotPhotoRepository lotPhotoRepository) {
         this.lotRepository = lotRepository;
         this.carRepository = carRepository;
         this.realEstateRepository = realEstateRepository;
@@ -37,10 +40,11 @@ public class ItemDao {
         this.medicalEquipmentRepository = medicalEquipmentRepository;
         this.otherItemRepository = otherItemRepository;
         this.lotStatusRepository = lotStatusRepository;
+        this.lotPhotoRepository = lotPhotoRepository;
     }
 
     @Transactional
-    public void registerItem(Car car, Lot lot) {
+    public void registerItem(Car car, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.CAR);
@@ -50,6 +54,9 @@ public class ItemDao {
 
         car.setLotId(id);
         carRepository.save(car);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional

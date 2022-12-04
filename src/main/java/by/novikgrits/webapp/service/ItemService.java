@@ -2,6 +2,7 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.dao.ItemDao;
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.*;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,8 @@ public class ItemService {
         this.itemDao = itemDao;
     }
 
-    public void register(Lot lot, Car car) {
-        itemDao.registerItem(car, lot);
+    public void register(Lot lot, Car car, LotPhoto photo) {
+        itemDao.registerItem(car, lot, photo);
     }
 
     public void register(Lot lot, RealEstate realEstate) {
