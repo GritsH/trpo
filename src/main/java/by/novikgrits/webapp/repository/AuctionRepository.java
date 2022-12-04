@@ -2,7 +2,6 @@ package by.novikgrits.webapp.repository;
 
 import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.Lot;
-import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.Item;
 import by.novikgrits.webapp.model.item.ItemType;
 import org.springframework.stereotype.Repository;
@@ -33,7 +32,7 @@ public class AuctionRepository {
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
             //LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
             auction.setItem(foundItem);
-           // auction.setPhoto(lotPhoto);
+            // auction.setPhoto(lotPhoto);
             auctions.add(auction);
         }
         return auctions;
@@ -41,13 +40,13 @@ public class AuctionRepository {
 
     public List<Auction> findLotsByTypeAndStatus(ItemType itemType, Integer statusId) {
         List<Auction> auctions = new ArrayList<>();
-        Auction auction = new Auction();
         List<Lot> foundLots = lotRepository.findLotsByTypeAndStatus(itemType.getTypeDescription(), statusId);
         for (Lot lot : foundLots) {
+            Auction auction = new Auction();
             Item item = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
             //LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).get();
-           // auction.setPhoto(lotPhoto);
+            // auction.setPhoto(lotPhoto);
             auction.setItem(item);
             auction.setLot(lot);
             auctions.add(auction);
