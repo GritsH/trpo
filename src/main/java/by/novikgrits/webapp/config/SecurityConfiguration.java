@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login", "/logout", "/signup", "/", "/main", "/active-auctions", "/active-auctions/category/**", "/categories")
                 .permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/active-auctions/lot/**").hasRole("USER")
+                .antMatchers("/active-auctions/lot/**").hasAnyRole("USER", "ADMIN")
                 .and()
                 .formLogin().loginPage("/login").successHandler(authenticationSuccessHandler())
                 .and()
