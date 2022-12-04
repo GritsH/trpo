@@ -1,3 +1,11 @@
+.header-title-categories {
+    position: relative;
+    display: inline-block;
+    width: 350px;
+    height: 45px;
+    background-color: #BBD25D;
+}
+
 .left-container {
     width: 22%;
     height: 100%;
