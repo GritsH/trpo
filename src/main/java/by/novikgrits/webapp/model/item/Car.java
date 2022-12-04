@@ -1,6 +1,5 @@
 package by.novikgrits.webapp.model.item;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Car extends Item {

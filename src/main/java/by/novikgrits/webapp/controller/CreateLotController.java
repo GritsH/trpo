@@ -1,8 +1,10 @@
 package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.model.item.*;
 import by.novikgrits.webapp.service.ItemService;
+import by.novikgrits.webapp.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,15 +12,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class CreateLotController {
     private final ItemService itemService;
+    private final UserService userService;
+    private User currentUser;
 
-    public CreateLotController(ItemService itemService) {
+    public CreateLotController(ItemService itemService, UserService userService) {
         this.itemService = itemService;
+        this.userService = userService;
     }
 
     @GetMapping("/create")
@@ -37,7 +43,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/car")
-    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot) {
+    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newCar);
         return "redirect:/main";
     }
@@ -50,7 +59,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/real-estate")
-    public String postCreateEstate(@ModelAttribute RealEstate newRealEstate, @ModelAttribute Lot newLot) {
+    public String postCreateEstate(@ModelAttribute RealEstate newRealEstate, @ModelAttribute Lot newLot, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newRealEstate);
         return "redirect:/main";
     }
@@ -63,7 +75,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/jewelry")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpServletRequest request) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpServletRequest request, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         String hasStones = request.getParameter("jewelryPreciousStone");
         newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
         itemService.register(newLot, newJewelry);
@@ -78,7 +93,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/clothes")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Clothes newClothes) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Clothes newClothes, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newClothes);
         return "redirect:/main";
     }
@@ -93,7 +111,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/furniture")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Furniture newFurniture) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Furniture newFurniture, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newFurniture);
         return "redirect:/main";
     }
@@ -106,7 +127,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/building-equipment")
-    public String postBuildingEqJewelry(@ModelAttribute Lot newLot, @ModelAttribute BuildingEquipment newBuildingEquipment) {
+    public String postBuildingEqJewelry(@ModelAttribute Lot newLot, @ModelAttribute BuildingEquipment newBuildingEquipment, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newBuildingEquipment);
         return "redirect:/main";
     }
@@ -119,7 +143,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/sport-equipment")
-    public String postCreateSportEq(@ModelAttribute Lot newLot, @ModelAttribute SportEquipment newSportEquipment) {
+    public String postCreateSportEq(@ModelAttribute Lot newLot, @ModelAttribute SportEquipment newSportEquipment, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newSportEquipment);
         return "redirect:/main";
     }
@@ -134,7 +161,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/medical-equipment")
-    public String postCreateMedicalEq(@ModelAttribute Lot newLot, @ModelAttribute MedicalEquipment newMedicalEquipment) {
+    public String postCreateMedicalEq(@ModelAttribute Lot newLot, @ModelAttribute MedicalEquipment newMedicalEquipment, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newMedicalEquipment);
         return "redirect:/main";
     }
@@ -147,7 +177,10 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/other")
-    public String postCreateOther(@ModelAttribute Lot newLot, @ModelAttribute OtherItem newOtherItem) {
+    public String postCreateOther(@ModelAttribute Lot newLot, @ModelAttribute OtherItem newOtherItem, HttpSession session) {
+        String gmail = (String) session.getAttribute("current_user");
+        currentUser = userService.findByEmail(gmail).get();
+        newLot.setOwnerId(currentUser.getId());
         itemService.register(newLot, newOtherItem);
         return "redirect:/main";
     }
