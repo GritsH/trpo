@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.mapper;
 
 import by.novikgrits.webapp.model.item.Furniture;
+import by.novikgrits.webapp.model.item.FurnitureType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -12,9 +13,9 @@ public class FurnitureRowMapper implements RowMapper<Furniture> {
         Furniture furniture = new Furniture();
 
         furniture.setId(rs.getInt("id"));
-        furniture.setFurnitureTypeId(rs.getInt("furniture_type_id"));
         furniture.setMaterial(rs.getString("material"));
         furniture.setLotId(rs.getInt("lot_id"));
+        furniture.setFurnitureType(FurnitureType.getByName(rs.getString("type")));
 
         return furniture;
     }

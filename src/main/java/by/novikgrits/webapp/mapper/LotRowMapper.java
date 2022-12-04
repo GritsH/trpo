@@ -21,9 +21,8 @@ public class LotRowMapper implements RowMapper<Lot> {
         lot.setStep(rs.getDouble("step"));
         lot.setCurrentPrice(rs.getDouble("current_price"));
         lot.setOwnerId(rs.getInt("owner_id"));
-        lot.setLocationId(rs.getInt("location_id"));
         lot.setStatusId(rs.getInt("status_id"));
-        lot.setItemType(ItemType.valueOf(rs.getString("item_type")));
+        lot.setItemType(ItemType.getByName(rs.getString("item_type")));
 
         return lot;
     }

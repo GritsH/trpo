@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public class FurnitureRepository implements ItemRepository {
-    private static final String INSERT = "insert into furniture (lot_id, furniture_type_id, material) values (?,?,?)";
+    private static final String INSERT = "insert into furniture (lot_id, material, type) values (?,?,?)";
     private static final String SELECT_BY_LOT_ID = "select * from furniture where lot_id = ?";
     private static final String SELECT_ALL = "select * from furniture";
     private static final String DELETE_BY_LOT_ID = "delete from furniture where lot_id = ?";
@@ -26,7 +26,7 @@ public class FurnitureRepository implements ItemRepository {
     public void save(Item item) {
         Furniture furniture = (Furniture) item;
         jdbcTemplate.update(INSERT,
-                furniture.getLotId(), furniture.getFurnitureTypeId(), furniture.getMaterial());
+                furniture.getLotId(), furniture.getMaterial(), furniture.getFurnitureType().getTypeDescription());
     }
 
     @Override

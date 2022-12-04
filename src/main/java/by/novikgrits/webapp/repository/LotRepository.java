@@ -15,7 +15,7 @@ import java.util.Optional;
 @Repository
 public class LotRepository {
     public static final String INSERT = "insert into lot (starting_date, closing_date, starting_price, step, " +
-            "current_price, location_id, brief_info, owner_id, lot_name, status_id, item_type) values (?,?,?,?,?,?,?,?,?,?,?)";
+            "current_price, brief_info, owner_id, lot_name, status_id, item_type) values (?,?,?,?,?,?,?,?,?,?)";
     public static final String DELETE = "delete from lot where id = ?";
     public static final String SELECT_BY_ID = "select * from lot where id = ?";
     public static final String SELECT_BY_OWNER_ID = "select * from lot where owner_id = ?";
@@ -25,7 +25,7 @@ public class LotRepository {
     public static final String SELECT_ALL_SOLD = "select * from lot where status_id = 3";
     public static final String UPDATE = "update lot set starting_date = ?, closing_date = ?, " +
             "starting_price = ?, step = ?, current_price = ?, " +
-            "location_id = ?, brief_info = ?, " +
+            "brief_info = ?, " +
             "owner_id = ?, lot_name = ?, status_id = ? where id = ?";
 
     public static final String SELECT_ALL_BY_TYPE_AND_STATUS = "select * from lot where item_type = ? and status_id = ?";
@@ -47,7 +47,7 @@ public class LotRepository {
             preparedStatement.setInt(7, lot.getOwnerId());
             preparedStatement.setString(8, lot.getLotName());
             preparedStatement.setInt(9, lot.getStatusId());
-            preparedStatement.setString(10, lot.getItemType().toString());
+            preparedStatement.setString(10, lot.getItemType().getTypeDescription());
 
             return preparedStatement;
         }, keyHolder);
@@ -85,7 +85,7 @@ public class LotRepository {
     public void update(Lot lot) {
         jdbcTemplate.update(UPDATE,
                 lot.getStartingDate(), lot.getClosingDate(), lot.getStartingPrice(),
-                lot.getStep(), lot.getCurrentPrice(), lot.getLocationId(),
+                lot.getStep(), lot.getCurrentPrice(),
                 lot.getBriefInfo(), lot.getOwnerId(), lot.getLotName(),
                 lot.getStatusId(), lot.getId());
     }

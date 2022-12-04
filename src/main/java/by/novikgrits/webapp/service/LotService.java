@@ -17,7 +17,6 @@ public class LotService {
         this.lotRepository = lotRepository;
     }
 
-
     public Optional<Lot> findById(Integer id) {
         return lotRepository.findById(id);
     }
