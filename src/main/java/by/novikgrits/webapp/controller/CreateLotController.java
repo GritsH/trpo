@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,9 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/jewelry")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpServletRequest request) {
+        String hasStones = request.getParameter("jewelryPreciousStone");
+        newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
         itemService.register(newLot, newJewelry);
         return "redirect:/main";
     }
@@ -82,6 +85,8 @@ public class CreateLotController {
 
     @GetMapping("/create/furniture")
     public String createFurnitureLot(Model model) {
+        model.addAttribute("furnitureTypes", FurnitureType.getAll());
+
         model.addAttribute("newLot", new Lot());
         model.addAttribute("newFurniture", new Furniture());
         return "furniture-page";
@@ -121,6 +126,8 @@ public class CreateLotController {
 
     @GetMapping("/create/medical-equipment")
     public String createMedicalEqLot(Model model) {
+        model.addAttribute("medicalSpecialities", MedicalSpeciality.getAll());
+
         model.addAttribute("newLot", new Lot());
         model.addAttribute("newMedicalEquipment", new MedicalEquipment());
         return "medical-equipment-page";

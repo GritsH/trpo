@@ -4,15 +4,22 @@ import java.util.Objects;
 
 public class Furniture extends Item {
     private Integer lotId;
-    private Integer furnitureTypeId;
     private String material;
+    private FurnitureType furnitureType;
+
+    public Furniture() {
+    }
+
+    public FurnitureType getFurnitureType() {
+        return furnitureType;
+    }
+
+    public void setFurnitureType(FurnitureType furnitureType) {
+        this.furnitureType = furnitureType;
+    }
 
     public Integer getLotId() {
         return lotId;
-    }
-
-    public Integer getFurnitureTypeId() {
-        return furnitureTypeId;
     }
 
     public String getMaterial() {
@@ -21,10 +28,6 @@ public class Furniture extends Item {
 
     public void setLotId(Integer lotId) {
         this.lotId = lotId;
-    }
-
-    public void setFurnitureTypeId(Integer furnitureTypeId) {
-        this.furnitureTypeId = furnitureTypeId;
     }
 
     public void setMaterial(String material) {
@@ -36,21 +39,20 @@ public class Furniture extends Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Furniture furniture = (Furniture) o;
-        return Objects.equals(id, furniture.id) && Objects.equals(lotId, furniture.lotId) && Objects.equals(furnitureTypeId, furniture.furnitureTypeId) && Objects.equals(material, furniture.material);
+        return Objects.equals(lotId, furniture.lotId) && Objects.equals(material, furniture.material) && furnitureType == furniture.furnitureType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lotId, furnitureTypeId, material);
+        return Objects.hash(lotId, material, furnitureType);
     }
 
     @Override
     public String toString() {
         return "Furniture{" +
-                "id=" + id +
-                ", lotId=" + lotId +
-                ", furnitureTypeId=" + furnitureTypeId +
+                "lotId=" + lotId +
                 ", material='" + material + '\'' +
+                ", furnitureType=" + furnitureType +
                 '}';
     }
 }

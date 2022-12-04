@@ -5,9 +5,17 @@ import java.util.Objects;
 
 public class MedicalEquipment extends Item {
     private Integer lotId;
-    private Integer specialityId;
     private Date manufactureYear;
     private String brand;
+    private MedicalSpeciality medicalSpeciality;
+
+    public MedicalSpeciality getMedicalSpeciality() {
+        return medicalSpeciality;
+    }
+
+    public void setMedicalSpeciality(MedicalSpeciality medicalSpeciality) {
+        this.medicalSpeciality = medicalSpeciality;
+    }
 
     public Integer getLotId() {
         return lotId;
@@ -15,14 +23,6 @@ public class MedicalEquipment extends Item {
 
     public void setLotId(Integer lotId) {
         this.lotId = lotId;
-    }
-
-    public Integer getSpecialityId() {
-        return specialityId;
-    }
-
-    public void setSpecialityId(Integer specialityId) {
-        this.specialityId = specialityId;
     }
 
     public Date getManufactureYear() {
@@ -46,22 +46,21 @@ public class MedicalEquipment extends Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MedicalEquipment that = (MedicalEquipment) o;
-        return Objects.equals(id, that.id) && Objects.equals(lotId, that.lotId) && Objects.equals(specialityId, that.specialityId) && Objects.equals(manufactureYear, that.manufactureYear) && Objects.equals(brand, that.brand);
+        return Objects.equals(lotId, that.lotId) && Objects.equals(manufactureYear, that.manufactureYear) && Objects.equals(brand, that.brand) && medicalSpeciality == that.medicalSpeciality;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, lotId, specialityId, manufactureYear, brand);
+        return Objects.hash(lotId, manufactureYear, brand, medicalSpeciality);
     }
 
     @Override
     public String toString() {
         return "MedicalEquipment{" +
-                "id=" + id +
-                ", lotId=" + lotId +
-                ", specialityId=" + specialityId +
+                "lotId=" + lotId +
                 ", manufactureYear=" + manufactureYear +
                 ", brand='" + brand + '\'' +
+                ", medicalSpeciality=" + medicalSpeciality +
                 '}';
     }
 }

@@ -13,7 +13,6 @@ public class Lot implements Comparable<Lot> {
     private Double startingPrice;
     private Double step;
     private Double currentPrice;
-    private Integer locationId;
     private Integer statusId;
     private String briefInfo;
     private String lotName;
@@ -21,14 +20,13 @@ public class Lot implements Comparable<Lot> {
     private ItemType itemType;
 
     public Lot(Integer ownerId, LocalDate startingDate, LocalDate closingDate, Double startingPrice,
-               Double step, Double currentPrice, Integer locationId, Integer statusId, String briefInfo, String lotName, ItemType itemType) {
+               Double step, Double currentPrice, Integer statusId, String briefInfo, String lotName, ItemType itemType) {
         this.ownerId = ownerId;
         this.startingDate = startingDate;
         this.closingDate = closingDate;
         this.startingPrice = startingPrice;
         this.step = step;
         this.currentPrice = currentPrice;
-        this.locationId = locationId;
         this.statusId = statusId;
         this.briefInfo = briefInfo;
         this.lotName = lotName;
@@ -64,10 +62,6 @@ public class Lot implements Comparable<Lot> {
 
     public Double getCurrentPrice() {
         return currentPrice;
-    }
-
-    public Integer getLocationId() {
-        return locationId;
     }
 
     public Integer getStatusId() {
@@ -106,10 +100,6 @@ public class Lot implements Comparable<Lot> {
         this.currentPrice = currentPrice;
     }
 
-    public void setLocationId(Integer locationId) {
-        this.locationId = locationId;
-    }
-
     public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
@@ -139,12 +129,21 @@ public class Lot implements Comparable<Lot> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lot lot = (Lot) o;
-        return Objects.equals(id, lot.id) && Objects.equals(ownerId, lot.ownerId) && Objects.equals(startingDate, lot.startingDate) && Objects.equals(closingDate, lot.closingDate) && Objects.equals(startingPrice, lot.startingPrice) && Objects.equals(step, lot.step) && Objects.equals(currentPrice, lot.currentPrice) && Objects.equals(locationId, lot.locationId) && Objects.equals(statusId, lot.statusId) && Objects.equals(briefInfo, lot.briefInfo) && Objects.equals(lotName, lot.lotName) && itemType == lot.itemType;
+        return Objects.equals(id, lot.id) && Objects.equals(ownerId, lot.ownerId)
+                && Objects.equals(startingDate, lot.startingDate)
+                && Objects.equals(closingDate, lot.closingDate)
+                && Objects.equals(startingPrice, lot.startingPrice)
+                && Objects.equals(step, lot.step)
+                && Objects.equals(currentPrice, lot.currentPrice)
+                && Objects.equals(statusId, lot.statusId)
+                && Objects.equals(briefInfo, lot.briefInfo)
+                && Objects.equals(lotName, lot.lotName)
+                && itemType == lot.itemType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, ownerId, startingDate, closingDate, startingPrice, step, currentPrice, locationId, statusId, briefInfo, lotName, itemType);
+        return Objects.hash(id, ownerId, startingDate, closingDate, startingPrice, step, currentPrice, statusId, briefInfo, lotName, itemType);
     }
 
     @Override
@@ -157,7 +156,6 @@ public class Lot implements Comparable<Lot> {
                 ", startingPrice=" + startingPrice +
                 ", step=" + step +
                 ", currentPrice=" + currentPrice +
-                ", locationId=" + locationId +
                 ", statusId=" + statusId +
                 ", briefInfo='" + briefInfo + '\'' +
                 ", lotName='" + lotName + '\'' +
