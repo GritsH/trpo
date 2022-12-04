@@ -42,7 +42,7 @@ public class LotRepository {
             preparedStatement.setDate(2, Date.valueOf(lot.getClosingDate()));
             preparedStatement.setDouble(3, lot.getStartingPrice());
             preparedStatement.setDouble(4, lot.getStep());
-            preparedStatement.setDouble(5, 0.0);
+            preparedStatement.setDouble(5, lot.getStartingPrice());
             preparedStatement.setString(6, lot.getBriefInfo());
             preparedStatement.setInt(7, lot.getOwnerId());
             preparedStatement.setString(8, lot.getLotName());
