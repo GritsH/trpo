@@ -37,7 +37,7 @@ public class AuctionRepository {
     public List<Auction> findLotsByTypeAndStatus(ItemType itemType, Integer statusId) {
         List<Auction> auctions = new ArrayList<>();
         Auction auction = new Auction();
-        List<Lot> foundLots = lotRepository.findLotsByTypeAndStatus(itemType.toString(), statusId);
+        List<Lot> foundLots = lotRepository.findLotsByTypeAndStatus(itemType.getTypeDescription(), statusId);
         for (Lot lot : foundLots) {
             Item item = itemRepositoryProvider.findRepoByType(itemType).
                     findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
