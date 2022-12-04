@@ -88,6 +88,22 @@
                 <p class="all-info-lot" th:text="${foundAuction.lot.briefInfo}">All information about the lot</p>
             </div>
         </form>
+        <table class="table-bid-history">
+            <thead>
+            <tr>
+                <th> BidderId </th>
+                <th> Price </th>
+                <th> Bidding date </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="lot : ${lotBidHistory}">
+                <td><span th:text="${lot.bidderId}"> BidderId </span></td>
+                <td><span th:text="${lot.price}"> price </span></td>
+                <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </main>
 <footer class="footer">
