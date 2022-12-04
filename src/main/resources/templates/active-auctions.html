@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auction - Main</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title>Auction - Active auctions</title>
     <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/active-auctions.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -56,61 +56,22 @@
         </aside>
     </div>
     <div class="right-container">
-        <div class="panel-for-title">
-            <p class="main-title">This web auction is a real auction but in online mode.
-                Each auction will be activated for a certain period of time,
-                clearly displaying the start and end dates. During this period,
-                you can actively participate in the auction and put your lot up
-                for auction. All the necessary information is available
-                on the information page of this website.</p>
-        </div>
-        <div class="for-advertisement">
-            <div class="image-for-advertisement">
-                <p class="title-for-advertisement">
-                    the best place for your advertisement
-                </p>
-            </div>
-        </div>
-        <div class="panel-auctions">
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/car.jpg}">
+        <div class="panel-active-auctions" th:each="auction : ${allActiveAuctions}">
+            <div class="box-for-auction" >
+                <div class="for-img-auction">
                 </div>
-                <p class="title-for-categories">cars</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/real estate.jpg}">
+                <div class="lot-information">
+                    <p class="lot-name" th:text="${auction.lot.locationId}">lot name</p>
+                    <p class="lot-info" th:text="${auction.lot.briefInfo}">important information about the lot</p>
+                    <p class="lot-closing-date" th:text="${auction.lot.closingDate}">trading closing date</p>
                 </div>
-                <p class="title-for-categories">real estates</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/sport equipment.jpg}">
+                <div class="lot-price-button">
+                    <button class="join-button" type="button" th:href="@{/active-auctions/lot/{id}(id=${auction.lot.id})/participate}">
+                        JOIN
+                    </button>
+                    <p class="lot-price" th:text="${auction.lot.currentPrice}">150</p>
+                    <p class="lot-byn">BYN</p>
                 </div>
-                <p class="title-for-categories">sport equipment</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/jewelry.jpg}">
-                </div>
-                <p class="title-for-categories">jewelry</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
             </div>
         </div>
     </div>

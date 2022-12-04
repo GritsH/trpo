@@ -70,7 +70,16 @@
     margin: 10px;
 }
 
-.profile-info {
+.phone-profile {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: black;
+    margin: 10px;
+}
+
+.passport-profile {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     font-weight: normal;
@@ -121,129 +130,9 @@
     color: black;
 }
 
-.title-your-lots {
-    height: 30%;
-    width: 100%;
-    margin: 25px;
-}
-
-.all-your-lots {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: black;
-
-}
-
-.panel-auctions {
-    height: 50%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: white;
-    margin-right: 60px;
-
-}
-
-.box-for-auction {
-    width: border-box;
-    height: 150px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin: 25px;
-    padding: 10px;
-    background-color: #D9D9D9;
-}
-
-.for-img-auction {
-    width: 120px;
-    height: 120px;
-    border-radius: 20px;
-    background-color: white;
-}
-
-.lot-information {
-    display: flex;
-    flex-direction: column;
-    height: 120px;
-    justify-content: space-evenly;
-
-}
-
-.lot-name {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: black;
-}
-
-.lot-info {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: black;
-}
-
-.lot-closing-date {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: black;
-}
-
-.lot-price-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.open-button {
-    height: 50px;
-    width: 150px;
-    margin: 1em auto;
-    padding: 0.6em;
-    outline: none;
-    border: none;
-    border-radius: 7px;
-    background-color: #BBD25D;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-
-}
-
-.open-button:hover {
-    background-color: #91b02e;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
-    color: black;
-
-}
-
-.lot-price {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: black;
-}
-
-.lot-byn {
+.create-lot-link {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
-    font-weight: bold;
-    letter-spacing: 1px;
     color: black;
+    text-decoration: none;
 }
-
-

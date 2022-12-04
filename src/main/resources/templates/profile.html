@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Auction - Profile</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/profile.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/site.css">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -13,23 +13,17 @@
 <body>
 <header class="header">
     <div class="header-title">
-        <a class="header-title-text">auction</a>
+        <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
-        <select class="header-title-select">
-            <option>cars</option>
-            <option>jewelry</option>
-            <option>real estate</option>
-            <option>furniture</option>
-            <option>clothes</option>
-            <option>sport equipment</option>
-            <option>building equipment</option>
-            <option>medical equipment</option>
-            <option>other property</option>
-        </select>
+        <button class="header-select-button">select a category</button>
+        <div class="header-title-select" th:each="category : ${categories}">
+            <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
+               th:text="${category}"></a>
+        </div>
     </div>
     <div class="header-title-auth">
-        <a href="" class="header-title-status"> log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -37,60 +31,42 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" href="main.html">home page</a>
+                <a class="aside-link" th:href="@{/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="active_auctions.html">all active auctions</a>
+                <a class="aside-link" th:href="@{/active-auctions}">all active auctions</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="categories.html">categories</a>
+                <a class="aside-link" th:href="@{/categories}">categories</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="profile.html">personal account</a>
+                <a class="aside-link" th:href="@{/profile}">personal account</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="information.html">information</a>
+                <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" href="about_us.html">about us</a>
+                <a class="aside-link" th:href="@{/about_us}">about us</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
         <div class="panel-profile">
             <div class="account-information">
-                <p class="first-name">first name</p>
-                <p class="last-name">last name</p>
-                <p class="e-mail-profile">e-mail</p>
-                <p class="profile-info">important information about the user</p>
+                <p class="first-name" th:text="${current_user.firstName}">first name</p>
+                <p class="last-name" th:text="${current_user.lastName}">last name</p>
+                <p class="e-mail-profile" th:text="${current_user.email}">e-mail</p>
+                <p class="phone-profile" th:text="${current_user.phone}">phone</p>
+                <p class="passport-profile" th:text="${current_user.passportData}">passport</p>
             </div>
-            <button class="add-card-button" type="button" onclick="window.location.href='add_card.html'">
+            <button class="add-card-button" type="button" th:href="@{/add_card}">
                 add card
             </button>
-            <button class="create-lot-button" type="button" onclick="window.location.href='create-lot.html'">
-                create lot
+            <button class="create-lot-button" type="button">
+                <a class="create-lot-link" th:href="@{/create}">
+                    create lot
+                </a>
             </button>
-        </div>
-        <div class="title-your-lots">
-            <p class="all-your-lots">All your lots</p>
-        </div>
-        <div class="panel-your-lots">
-            <div class="box-for-auction">
-                <div class="for-img-auction">
-                </div>
-                <div class="lot-information">
-                    <p class="lot-name">lot name</p>
-                    <p class="lot-info">important information about the lot</p>
-                    <p class="lot-closing-date">trading closing date</p>
-                </div>
-                <div class="lot-price-button">
-                    <button class="open-button" type="button" onclick="window.location.href='lot-details.html'">
-                        OPEN
-                    </button>
-                    <p class="lot-price">150</p>
-                    <p class="lot-byn">BYN</p>
-                </div>
-            </div>
         </div>
     </div>
 </main>

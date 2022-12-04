@@ -23,7 +23,7 @@ public class AdminUserPage {
         List<User> allUsers = userService.findAll();
 
         model.addAttribute("allUsers", allUsers);
-        return "/admin_user_id";
+        return "admin-user-id";
     }
 
     @PostMapping("/admin/users/{id}/delete")

@@ -18,3 +18,12 @@ button:hover {
     color: black;
 
 }
+
+.admin-user-id-form {
+    height: 40%;
+    width: border-box;
+    display: flex;
+    margin: 20px;
+    padding: 25px;
+    align-items: flex-start;
+}

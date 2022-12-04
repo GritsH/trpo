@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Auction - Admin Main</title>
+    <title>Auction - Admin User Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/admin-user-id.css}">
     <link rel="stylesheet" th:href="@{/css/site.css}">
-    <link rel="stylesheet" th:href="@{/css/admin-main.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -23,7 +24,7 @@
         </div>
     </div>
     <div class="header-title-auth">
-        <a th:href="@{/logout}" class="header-title-status">log out</a>
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
 
 </header>
@@ -31,24 +32,29 @@
     <div class="left-container">
         <aside class="aside-list">
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/admin/lots}">lots</a>
+                <a class="aside-link" th:href="@{/admin/main}">home page</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/admin/users}">users</a>
+                <a class="aside-link" th:href="@{/admin/lots}">lots</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
-        <div class="box-for-sort">
-            <select class="sort-select">
-                <option>by name</option>
-                <option>by price</option>
-            </select>
-            <button class="sort-button" type="button" id="sortButton">
-                sort
-            </button>
-        </div>
+        <div class="panel-profile" th:each="user:${allUsers}">
+            <form class="admin-user-id-form" action="#"
+                  th:action="@{/admin/users/{id}(id=${user.id})/delete}" method="post">
 
+                <div class="account-information">
+                    <p class="first-name" th:text="${user.firstName}">first name</p>
+                    <p class="last-name" th:text="${user.lastName}">last name</p>
+                    <p class="e-mail-profile" th:text="${user.email}">e-mail</p>
+                    <p class="profile-info" th:text="${user.phone}">important information about the user</p>
+                </div>
+                <button class="delete-profile-button" type="submit">
+                    delete profile
+                </button>
+            </form>
+        </div>
     </div>
 </main>
 <footer class="footer">
