@@ -68,7 +68,7 @@ public class AuctionRepository {
                 findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
         LotPhoto lotPhoto = lotPhotoRepository.findByLotId(lot.getId()).orElseThrow(RuntimeException::new);
 
-        auction.setPic(Base64.getEncoder().encodeToString(lotPhoto.getPhoto().getBytes(0L, (int) lotPhoto.getPhoto().length())));
+        auction.setPic(Base64.getEncoder().encodeToString(lotPhoto.getPhoto().getBytes(1L, (int) lotPhoto.getPhoto().length())));
         auction.setItem(item);
     }
 }
