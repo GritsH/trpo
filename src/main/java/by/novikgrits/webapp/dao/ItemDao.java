@@ -60,7 +60,7 @@ public class ItemDao {
     }
 
     @Transactional
-    public void registerItem(RealEstate realEstate, Lot lot) {
+    public void registerItem(RealEstate realEstate, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.REAL_ESTATE);
@@ -70,10 +70,14 @@ public class ItemDao {
 
         realEstate.setLotId(id);
         realEstateRepository.save(realEstate);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
+
     }
 
     @Transactional
-    public void registerItem(Clothes clothes, Lot lot) {
+    public void registerItem(Clothes clothes, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.CLOTHES);
@@ -83,10 +87,13 @@ public class ItemDao {
 
         clothes.setLotId(id);
         clothesRepository.save(clothes);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(SportEquipment sportEquipment, Lot lot) {
+    public void registerItem(SportEquipment sportEquipment, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.SPORT_EQUIPMENT);
@@ -96,10 +103,13 @@ public class ItemDao {
 
         sportEquipment.setLotId(id);
         sportEquipmentRepository.save(sportEquipment);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(BuildingEquipment buildingEquipment, Lot lot) {
+    public void registerItem(BuildingEquipment buildingEquipment, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.BUILDING_EQUIPMENT);
@@ -109,10 +119,13 @@ public class ItemDao {
 
         buildingEquipment.setLotId(id);
         buildingEquipmentRepository.save(buildingEquipment);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(MedicalEquipment medicalEquipment, Lot lot) {
+    public void registerItem(MedicalEquipment medicalEquipment, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.MEDICAL_EQUIPMENT);
@@ -122,10 +135,13 @@ public class ItemDao {
 
         medicalEquipment.setLotId(id);
         medicalEquipmentRepository.save(medicalEquipment);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(OtherItem otherItem, Lot lot) {
+    public void registerItem(OtherItem otherItem, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.OTHER);
@@ -135,10 +151,13 @@ public class ItemDao {
 
         otherItem.setLotId(id);
         otherItemRepository.save(otherItem);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(Furniture furniture, Lot lot) {
+    public void registerItem(Furniture furniture, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.FURNITURE);
@@ -148,10 +167,13 @@ public class ItemDao {
 
         furniture.setLotId(id);
         furnitureRepository.save(furniture);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
-    public void registerItem(Jewelry jewelry, Lot lot) {
+    public void registerItem(Jewelry jewelry, Lot lot, LotPhoto photo) {
         GeneratedKeyHolder generatedKeyHolder = new GeneratedKeyHolder();
         lot.setStatusId(lotStatusRepository.findStatusByName("ACTIVE"));
         lot.setItemType(ItemType.JEWELRY);
@@ -161,10 +183,14 @@ public class ItemDao {
 
         jewelry.setLotId(id);
         jewelryRepository.save(jewelry);
+
+        photo.setLotId(id);
+        lotPhotoRepository.save(photo);
     }
 
     @Transactional
     public void removeCar(Integer lotId) {
+
         carRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }

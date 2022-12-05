@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class LotController {
     }
 
     @GetMapping("/active-auctions/lot/participate/{id}")
-    public String getLot(@PathVariable String id, Model model) {
+    public String getLot(@PathVariable String id, Model model) throws SQLException {
         Integer lotId = Integer.parseInt(id);
         Auction auction = auctionsService.getAuctionByLotId(lotId);
         List<BidHistory> lotBidHistory = bidHistoryService.findByLotId(lotId);
@@ -45,7 +46,7 @@ public class LotController {
     }
 
     @PostMapping("/active-auctions/lot/participate/{id}")
-    public String postLot(@PathVariable String id, Model model, HttpServletRequest request, HttpSession session) {
+    public String postLot(@PathVariable String id, Model model, HttpServletRequest request, HttpSession session) throws SQLException {
         Integer lotId = Integer.parseInt(id);
         Double betPrice = Double.parseDouble(request.getParameter("betPrice"));
 

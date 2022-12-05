@@ -48,7 +48,8 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/car")
-    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+    public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session,
+                                @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -68,11 +69,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/real-estate")
-    public String postCreateEstate(@ModelAttribute RealEstate newRealEstate, @ModelAttribute Lot newLot, HttpSession session) {
+    public String postCreateEstate(@ModelAttribute RealEstate newRealEstate, @ModelAttribute Lot newLot, HttpSession session,
+                                   @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newRealEstate);
+        itemService.register(newLot, newRealEstate, newPhoto);
         return "redirect:/main";
     }
 
@@ -84,12 +90,17 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/jewelry")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpSession session, @RequestParam("jewelryPreciousStonesChoice") String hasStones) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpSession session,
+                                    @RequestParam("jewelryPreciousStonesChoice") String hasStones, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
         newJewelry.setHasPreciousStones(Boolean.valueOf(hasStones));
-        itemService.register(newLot, newJewelry);
+        itemService.register(newLot, newJewelry, newPhoto);
         return "redirect:/main";
     }
 
@@ -101,11 +112,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/clothes")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Clothes newClothes, HttpSession session) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Clothes newClothes, HttpSession session,
+                                    @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newClothes);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newClothes, newPhoto);
         return "redirect:/main";
     }
 
@@ -119,11 +135,17 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/furniture")
-    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Furniture newFurniture, HttpSession session) {
+    public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Furniture newFurniture, HttpSession session,
+                                    @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
+
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newFurniture);
+        itemService.register(newLot, newFurniture, newPhoto);
         return "redirect:/main";
     }
 
@@ -135,11 +157,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/building-equipment")
-    public String postBuildingEqJewelry(@ModelAttribute Lot newLot, @ModelAttribute BuildingEquipment newBuildingEquipment, HttpSession session) {
+    public String postBuildingEqJewelry(@ModelAttribute Lot newLot, @ModelAttribute BuildingEquipment newBuildingEquipment,
+                                        HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newBuildingEquipment);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newBuildingEquipment, newPhoto);
         return "redirect:/main";
     }
 
@@ -151,11 +178,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/sport-equipment")
-    public String postCreateSportEq(@ModelAttribute Lot newLot, @ModelAttribute SportEquipment newSportEquipment, HttpSession session) {
+    public String postCreateSportEq(@ModelAttribute Lot newLot, @ModelAttribute SportEquipment newSportEquipment,
+                                    HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newSportEquipment);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newSportEquipment, newPhoto);
         return "redirect:/main";
     }
 
@@ -169,11 +201,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/medical-equipment")
-    public String postCreateMedicalEq(@ModelAttribute Lot newLot, @ModelAttribute MedicalEquipment newMedicalEquipment, HttpSession session) {
+    public String postCreateMedicalEq(@ModelAttribute Lot newLot, @ModelAttribute MedicalEquipment newMedicalEquipment,
+                                      HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newMedicalEquipment);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newMedicalEquipment, newPhoto);
         return "redirect:/main";
     }
 
@@ -185,11 +222,16 @@ public class CreateLotController {
     }
 
     @PostMapping("/create/other")
-    public String postCreateOther(@ModelAttribute Lot newLot, @ModelAttribute OtherItem newOtherItem, HttpSession session) {
+    public String postCreateOther(@ModelAttribute Lot newLot, @ModelAttribute OtherItem newOtherItem, HttpSession session,
+                                  @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
-        itemService.register(newLot, newOtherItem);
+
+        LotPhoto newPhoto = new LotPhoto();
+        newPhoto.setPhoto(new SerialBlob(multipartFile.getBytes()));
+
+        itemService.register(newLot, newOtherItem, newPhoto);
         return "redirect:/main";
     }
 }

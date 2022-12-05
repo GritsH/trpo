@@ -59,6 +59,7 @@
         <div class="panel-active-auctions" th:each="auction : ${allActiveAuctions}">
             <div class="box-for-auction" >
                 <div class="for-img-auction">
+                    <img th:src="*{'data:image/*;base64,' + auction.pic}">
                 </div>
                 <div class="lot-information">
                     <p class="title-for-lot-info">lot name: </p>

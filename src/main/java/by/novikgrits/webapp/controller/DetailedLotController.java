@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class DetailedLotController {
     }
 
     @GetMapping("/active-auctions/lot/details/{id}")
-    public String getLot(@PathVariable String id, Model model) {
+    public String getLot(@PathVariable String id, Model model) throws SQLException {
         List<String> allCategories = new ArrayList<>();
         ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));
         model.addAttribute("categories", allCategories);

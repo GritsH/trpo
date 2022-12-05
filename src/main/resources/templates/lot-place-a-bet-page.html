@@ -55,8 +55,8 @@
               th:action="@{/active-auctions/lot/participate/{id}(id=${foundAuction.lot.id})}" method="post">
             <div class="panel-lot">
                 <div class="top-panel-lot">
-                    <div class="for-img-lot">
-
+                    <div class="for-img-auction">
+                        <img th:src="*{'data:image/*;base64,' + foundAuction.pic}">
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
