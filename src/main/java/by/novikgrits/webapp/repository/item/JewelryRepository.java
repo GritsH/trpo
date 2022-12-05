@@ -45,6 +45,6 @@ public class JewelryRepository implements ItemRepository {
 
     @Override
     public ItemType getType() {
-        return null;
+        return ItemType.JEWELRY;
     }
 }

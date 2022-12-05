@@ -6,6 +6,14 @@
     align-items: center;
 }
 
+.header-title-categories {
+    position: relative;
+    display: inline-block;
+    width: 350px;
+    height: 45px;
+    background-color: #BBD25D;
+}
+
 .sign-title {
     display: flex;
     align-items: center;

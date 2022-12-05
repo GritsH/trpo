@@ -6,6 +6,7 @@ import by.novikgrits.webapp.model.item.ItemType;
 import by.novikgrits.webapp.repository.AuctionRepository;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Component
@@ -16,15 +17,15 @@ public class AuctionDao {
         this.auctionRepository = auctionRepository;
     }
 
-    public List<Auction> findAllAuctions(List<Lot> lots) {
+    public List<Auction> findAllAuctions(List<Lot> lots) throws SQLException {
         return auctionRepository.findAllItemsForLots(lots);
     }
 
-    public List<Auction> findByTypeAndStatus(ItemType itemType, Integer status) {
+    public List<Auction> findByTypeAndStatus(ItemType itemType, Integer status) throws SQLException {
         return auctionRepository.findLotsByTypeAndStatus(itemType, status);
     }
 
-    public Auction findLotById(Integer id) {
+    public Auction findLotById(Integer id) throws SQLException {
         return auctionRepository.findAuctionByLotId(id);
     }
 }

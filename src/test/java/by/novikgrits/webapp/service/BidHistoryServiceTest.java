@@ -28,7 +28,7 @@ class BidHistoryServiceTest {
     @DisplayName("should add history")
     @Test
     void addHistory() {
-        BidHistory history = new BidHistory(1, 1, 1.0, LocalDate.now());
+        BidHistory history = new BidHistory(1, "email", 1.0, LocalDate.now());
 
         bidHistoryService.addHistory(history);
 

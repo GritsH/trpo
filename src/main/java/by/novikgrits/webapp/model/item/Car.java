@@ -1,12 +1,11 @@
 package by.novikgrits.webapp.model.item;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Car extends Item {
     private Integer lotId;
     private String brand;
-    private Date manufactureYear;
+    private Integer manufactureYear;
     private Integer mileage;
     private Integer engineVolume;
 
@@ -18,7 +17,7 @@ public class Car extends Item {
         return brand;
     }
 
-    public Date getManufactureYear() {
+    public Integer getManufactureYear() {
         return manufactureYear;
     }
 
@@ -38,7 +37,7 @@ public class Car extends Item {
         this.brand = brand;
     }
 
-    public void setManufactureYear(Date manufactureYear) {
+    public void setManufactureYear(Integer manufactureYear) {
         this.manufactureYear = manufactureYear;
     }
 

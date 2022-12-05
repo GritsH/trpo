@@ -59,15 +59,21 @@
         <div class="panel-active-auctions" th:each="auction : ${allActiveAuctions}">
             <div class="box-for-auction" >
                 <div class="for-img-auction">
+                    <img th:src="*{'data:image/*;base64,' + auction.pic}">
                 </div>
                 <div class="lot-information">
-                    <p class="lot-name" th:text="${auction.lot.locationId}">lot name</p>
+                    <p class="title-for-lot-info">lot name: </p>
+                    <p class="lot-name" th:text="${auction.lot.lotName}">lot name</p>
+                    <p class="title-for-lot-info">lot information: </p>
                     <p class="lot-info" th:text="${auction.lot.briefInfo}">important information about the lot</p>
+                    <p class="title-for-lot-info">lot closing date: </p>
                     <p class="lot-closing-date" th:text="${auction.lot.closingDate}">trading closing date</p>
                 </div>
                 <div class="lot-price-button">
-                    <button class="join-button" type="button" th:href="@{/active-auctions/lot/{id}(id=${auction.lot.id})/participate}">
-                        JOIN
+                    <button class="join-button" type="button">
+                        <a class="open-lot-link" th:href="@{/active-auctions/lot/details/{id}(id=${auction.lot.id})}">
+                            OPEN
+                        </a>
                     </button>
                     <p class="lot-price" th:text="${auction.lot.currentPrice}">150</p>
                     <p class="lot-byn">BYN</p>

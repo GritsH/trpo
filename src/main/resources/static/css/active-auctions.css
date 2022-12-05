@@ -37,7 +37,7 @@
 
 .box-for-auction {
     width: border-box;
-    height: 150px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -52,12 +52,13 @@
     height: 120px;
     border-radius: 20px;
     background-color: white;
+    margin: 15px;
 }
 
 .lot-information {
     display: flex;
     flex-direction: column;
-    height: 120px;
+
     justify-content: space-evenly;
 }
 
@@ -67,6 +68,7 @@
     font-weight: bold;
     letter-spacing: 1px;
     color: black;
+    margin: 5px;
 }
 
 .lot-info {
@@ -75,6 +77,7 @@
     font-weight: normal;
     letter-spacing: 1px;
     color: black;
+    margin: 5px;
 }
 
 .lot-closing-date {
@@ -83,6 +86,7 @@
     font-weight: normal;
     letter-spacing: 1px;
     color: black;
+    margin: 5px;
 }
 
 .lot-price-button {
@@ -104,10 +108,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: black;
-
 }
 
 .join-button:hover {
@@ -131,4 +134,11 @@
     font-weight: bold;
     letter-spacing: 1px;
     color: black;
+}
+
+.open-lot-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
 }

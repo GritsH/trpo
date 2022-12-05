@@ -47,6 +47,26 @@
             <button class="sort-button" type="button" id="sortButton">
                 sort
             </button>
+            <table class="admin-table-bid-history">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> LotId </th>
+                    <th> BidderId </th>
+                    <th> Price </th>
+                    <th> Bidding date </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lot : ${bidHistories}">
+                    <td><span th:text="${lot.id}"> id</span></td>
+                    <td><span th:text="${lot.lotId}"> lotId </span></td>
+                    <td><span th:text="${lot.bidderEmail}"> BidderId </span></td>
+                    <td><span th:text="${lot.price}"> price </span></td>
+                    <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>

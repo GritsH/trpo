@@ -16,11 +16,7 @@
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
-        <button class="header-select-button">select a category</button>
-        <div class="header-title-select" th:each="category : ${allCategories}">
-            <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
-               th:text="${category}"></a>
-        </div>
+
     </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
@@ -51,14 +47,15 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/car}" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/car}" enctype="multipart/form-data" method="post">
             <div class="create-lot-photo">
                 <div class="for-img-lot">
 
                 </div>
-                <button class="add-photo-button" type="button" id="addPhotoButton">
-                    add photo
-                </button>
+<!--                <button class="add-photo-button" type="button" id="addPhotoButton">-->
+<!--                    add photo-->
+<!--                </button>-->
+                <input type="file" name="image" accept="image/*">
             </div>
             <div class="create-lot-information">
                 <div class="create-lot-input">

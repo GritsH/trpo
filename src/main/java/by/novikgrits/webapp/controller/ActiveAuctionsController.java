@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,10 +26,11 @@ public class ActiveAuctionsController {
     }
 
     @GetMapping("/active-auctions")
-    public String getActiveAuctions(Model model) {
+    public String getActiveAuctions(Model model) throws SQLException {
         List<String> allCategories = new ArrayList<>();
         ItemType.stream().forEach(i -> allCategories.add(i.getTypeDescription()));
         model.addAttribute("categories", allCategories);
+
         List<Lot> activeLots = lotService.findAllActive();
         Collections.sort(activeLots);
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);
@@ -37,12 +39,12 @@ public class ActiveAuctionsController {
     }
 
     @GetMapping("/active-auctions/category/{categoryName}")
-    public String getActiveLotsByCategory(@PathVariable String categoryName, Model model) {
+    public String getActiveLotsByCategory(@PathVariable String categoryName, Model model) throws SQLException {
         List<Lot> activeLots = lotService.findAllActive();
         Collections.sort(activeLots);
         ItemType itemType = ItemType.getByName(categoryName);
         List<Auction> foundAuctions = auctionsService.getByTypeAndStatus(itemType, activeLots.get(0).getStatusId());
-        model.addAttribute("allActiveCategoryAuctions", foundAuctions);
+        model.addAttribute("allActiveAuctions", foundAuctions);
         return "active-auctions";
     }
 }

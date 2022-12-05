@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -26,7 +27,7 @@ public class AdminAuctionsController {
     }
 
     @GetMapping("/admin/lots")
-    public String getAdminLots(Model model) {
+    public String getAdminLots(Model model) throws SQLException {
         List<Lot> activeLots = lotService.findAllActive();
         List<Auction> auctions = auctionsService.getAllAuctions(activeLots);
 
