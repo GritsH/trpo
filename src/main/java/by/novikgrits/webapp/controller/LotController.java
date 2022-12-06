@@ -46,7 +46,7 @@ public class LotController {
     }
 
     @PostMapping("/active-auctions/lot/participate/{id}")
-    public String postLot(@PathVariable String id, Model model, HttpServletRequest request, HttpSession session) throws SQLException {
+    public String postLot(@PathVariable String id, HttpServletRequest request, HttpSession session) throws SQLException {
         Integer lotId = Integer.parseInt(id);
         Double betPrice = Double.parseDouble(request.getParameter("betPrice"));
 
