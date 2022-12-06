@@ -26,7 +26,7 @@ public class AdminUserPage {
         return "admin-user-id";
     }
 
-    @PostMapping("/admin/users/{id}/delete")
+    @PostMapping("/admin/users/delete/{id}")
     public String postDeleteUser(@PathVariable String id) {
         Integer userId = Integer.parseInt(id);
         userService.deleteUser(userId);

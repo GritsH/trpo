@@ -37,7 +37,7 @@
     <div class="right-container">
         <div class="panel-profile" th:each="user:${allUsers}">
             <form class="admin-user-id-form" action="#"
-                  th:action="@{/admin/users/{id}(id=${user.id})/delete}" method="post">
+                  th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post">
 
                 <div class="account-information">
                     <p class="first-name" th:text="${user.firstName}">first name</p>
