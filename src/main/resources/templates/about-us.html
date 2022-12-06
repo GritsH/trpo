@@ -15,13 +15,6 @@
     <div class="header-title">
         <a class="header-title-text">auction</a>
     </div>
-    <div class="header-title-categories">
-        <button class="header-select-button">select a category</button>
-        <div class="header-title-select" th:each="category : ${allCategories}">
-            <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
-               th:text="${category}"></a>
-        </div>
-    </div>
     <div class="header-title-auth">
         <a href="" class="header-title-status"> log out</a>
     </div>

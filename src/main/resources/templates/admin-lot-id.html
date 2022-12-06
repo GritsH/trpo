@@ -40,7 +40,7 @@
                   th:action="@{/admin/lots/delete/{id}(id=${auction.lot.id})}" method="post">
                 <div class="top-panel-lot">
                     <div class="for-img-lot">
-
+                        <img th:src="*{'data:image/*;base64,' + auction.pic}">
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${auction.lot.lotName}">lot name</p>
