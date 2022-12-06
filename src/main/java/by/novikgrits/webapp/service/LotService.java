@@ -3,6 +3,7 @@ package by.novikgrits.webapp.service;
 import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.item.ItemType;
 import by.novikgrits.webapp.repository.LotRepository;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -29,6 +30,10 @@ public class LotService {
         List<Lot> foundLots = lotRepository.findAll();
         Collections.sort(foundLots);
         return foundLots;
+    }
+
+    public void save(Lot lot, GeneratedKeyHolder keyHolder){
+        lotRepository.save(lot, keyHolder);
     }
 
     public List<Lot> findAllActive() {
