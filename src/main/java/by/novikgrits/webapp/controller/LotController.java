@@ -34,35 +34,20 @@ public class LotController {
     }
 
     @GetMapping("/active-auctions/lot/participate/{id}")
-    public String getLot(@PathVariable String id, Model model) throws SQLException {
-        Integer lotId = Integer.parseInt(id);
+    public String getLot(@PathVariable String id, Model model, HttpSession session) throws SQLException {
+        Integer lotId = 0;
+        if (id != null) {
+            lotId = Integer.parseInt(id);
+        } else if (session.getAttribute("lot_to_participate") != null) {
+            lotId = (Integer) session.getAttribute("lot_to_participate");
+        }
         Auction auction = auctionsService.getAuctionByLotId(lotId);
         List<BidHistory> lotBidHistory = bidHistoryService.findByLotId(lotId);
 
         model.addAttribute("foundAuction", auction);
         model.addAttribute("lotBidHistory", lotBidHistory);
+        session.setAttribute("betPrice", 0.0);
 
         return "lot-place-a-bet-page";
-    }
-
-    @PostMapping("/active-auctions/lot/participate/{id}")
-    public String postLot(@PathVariable String id, HttpServletRequest request, HttpSession session) throws SQLException {
-        Integer lotId = Integer.parseInt(id);
-        Double betPrice = Double.parseDouble(request.getParameter("betPrice"));
-
-        Auction auction = auctionsService.getAuctionByLotId(lotId);
-        Lot lot = auction.getLot();
-        lot.setCurrentPrice(lot.getCurrentPrice() + betPrice);
-        lotService.updateLot(lot);
-
-        BidHistory bidHistory = new BidHistory();
-        bidHistory.setLotId(lotId);
-        bidHistory.setBidderEmail((String) session.getAttribute("current_user"));
-        bidHistory.setPrice(betPrice);
-        bidHistory.setBiddingDate(LocalDate.now());
-
-        bidHistoryService.addHistory(bidHistory);
-
-        return "redirect:/active-auctions/lot/participate/{id}";
     }
 }
