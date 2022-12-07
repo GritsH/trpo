@@ -44,7 +44,7 @@ class UserServiceTest {
                 "firstname", "lastname",
                 "ROLE", "111", "passport data");
 
-        userService.addUser(user);
+        userService.save(user);
 
         verify(userRepository).save(user);
         verifyNoMoreInteractions(userRepository);

@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.model;
 
 import by.novikgrits.webapp.model.item.ItemType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -8,7 +9,9 @@ import java.util.Objects;
 public class Lot implements Comparable<Lot> {
     private Integer id;
     private Integer ownerId;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate startingDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate closingDate;
     private Double startingPrice;
     private Double step;

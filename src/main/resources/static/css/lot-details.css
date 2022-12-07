@@ -4,9 +4,15 @@
     margin: 25px;
 }
 
+.lot-information-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .box-for-lot {
     width: border-box;
-    height: content-box;
+    /*height: fit-content;*/
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -16,12 +22,8 @@
     background-color: #D9D9D9;
 }
 
-.text-bidders-table {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: black;
+.lot-price-button {
+    margin: 20px;
 }
 
 .lot-name {
@@ -79,7 +81,6 @@
 }
 
 .lot-details-form {
-    height: 40%;
-    width: border-box;
+    /*height: fit-content;*/
     display: flex;
 }

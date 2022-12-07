@@ -52,18 +52,14 @@
     </div>
     <div class="right-container">
         <form class="lot-place-bet-form" action="#"
-              th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="post">
+              th:action="@{/active-auctions/lot/participate/{id}(id=${foundAuction.lot.id})}" method="post">
             <div class="panel-lot">
                 <div class="top-panel-lot">
-                    <div class="for-img-lot">
-
+                    <div class="for-img-auction">
+                        <img th:src="*{'data:image/*;base64,' + foundAuction.pic}">
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
-                        <div class="titles-for-lot">
-                            <p class="lot-location">location: </p>
-                            <p class="location" th:text="${foundAuction.lot.locationId}">Minsk, Belarus </p>
-                        </div>
                         <div class="titles-for-lot">
                             <p class="lot-opening">opening of the auction: </p>
                             <p class="opening-date" th:text="${foundAuction.lot.startingDate}">2022-11-02 </p>
@@ -81,7 +77,7 @@
                 </div>
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
-                        <input class="bet-field" id="betField" type="number" th:field="*{betPrice}">
+                        <input class="bet-field" type="number" id="betPrice" name="betPrice">
                         <button class="place-bet-button" type="submit">
                             place a bet
                         </button>
@@ -92,6 +88,22 @@
                 <p class="all-info-lot" th:text="${foundAuction.lot.briefInfo}">All information about the lot</p>
             </div>
         </form>
+        <table class="table-bid-history">
+            <thead>
+            <tr>
+                <th> BidderEmail </th>
+                <th> Price </th>
+                <th> Bidding date </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="lot : ${lotBidHistory}">
+                <td><span th:text="${lot.bidderEmail}"> BidderId </span></td>
+                <td><span th:text="${lot.price}"> price </span></td>
+                <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </main>
 <footer class="footer">

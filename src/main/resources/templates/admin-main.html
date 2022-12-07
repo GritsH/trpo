@@ -15,13 +15,6 @@
     <div class="header-title">
         <a class="header-title-text">auction</a>
     </div>
-    <div class="header-title-categories">
-        <button class="header-select-button">select a category</button>
-        <div class="header-title-select" th:each="category : ${allCategories}">
-            <a th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}"
-               th:text="${category}"></a>
-        </div>
-    </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status">log out</a>
     </div>
@@ -47,6 +40,26 @@
             <button class="sort-button" type="button" id="sortButton">
                 sort
             </button>
+            <table class="admin-table-bid-history">
+                <thead>
+                <tr>
+                    <th> Id </th>
+                    <th> LotId </th>
+                    <th> BidderId </th>
+                    <th> Price </th>
+                    <th> Bidding date </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="lot : ${bidHistories}">
+                    <td><span th:text="${lot.id}"> id</span></td>
+                    <td><span th:text="${lot.lotId}"> lotId </span></td>
+                    <td><span th:text="${lot.bidderEmail}"> BidderId </span></td>
+                    <td><span th:text="${lot.price}"> price </span></td>
+                    <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>

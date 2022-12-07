@@ -17,17 +17,6 @@
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
     <div class="header-title-categories">
-        <select class="header-title-select">
-            <option>cars</option>
-            <option>jewelry</option>
-            <option>real estate</option>
-            <option>furniture</option>
-            <option>clothes</option>
-            <option>sport equipment</option>
-            <option>building equipment</option>
-            <option>medical equipment</option>
-            <option>other property</option>
-        </select>
     </div>
     <div class="header-title-auth">
         <a class="header-title-status" th:href="@{/login}"> log in</a>
@@ -50,24 +39,29 @@
         </div>
         <label>phone number</label>
         <div class="sign-form-input">
-            <input class="phone-number-field" id="phone-numberInput" type="number" placeholder="enter your phone number"
+            <input class="phone-number-field" id="phone-numberInput" type="number"
+                   placeholder="enter your phone number: +375 29 1234567" maxlength="13"
                    th:field="*{phone}" required/>
+            <p class="error-signup-phone hidden" id="phoneNumberError">phone number is invalid</p>
         </div>
         <label>e-mail</label>
         <div class="sign-form-input">
             <input class="email-field" id="emailInput" type="text" placeholder="enter your e-mail" th:field="*{email}"
                    required/>
+            <p id="emailError" class="error-email hidden">email is invalid</p>
         </div>
         <label>password</label>
         <div class="sign-form-input">
             <input class="password-field" id="passwordInput" type="password" placeholder="enter your password"
-                   th:field="*{password}" required/>
-            <p class="error-signup" id="errorPassword" hidden="true">too short</p>
+                   th:field="*{password}" min="6" required/>
+            <p class="error-password hidden" id="passwordError">password is too short</p>
         </div>
         <label>passport id</label>
         <div class="sign-form-input">
-            <input class="id-field" id="idInput" type="text" placeholder="enter your id" th:field="*{passportData}"
+            <input class="passport-id-field" id="passportInput" type="text" maxlength="9"
+                   placeholder="enter your passport id: AB1234567" th:field="*{passportData}"
                    required/>
+            <p class="error-signup-passport hidden" id="passportError">passport is invalid</p>
         </div>
         <div class="form-checkbox">
             <input id="checkbox-signup" type="checkbox" class="checkbox-signup" required>
@@ -85,6 +79,6 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script type="module" th:src="@{/js/signup.js}"></script>
 </body>
 </html>

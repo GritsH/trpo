@@ -2,6 +2,7 @@ package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.dao.ItemDao;
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.*;
 import org.springframework.stereotype.Service;
 
@@ -13,40 +14,40 @@ public class ItemService {
         this.itemDao = itemDao;
     }
 
-    public void register(Lot lot, Car car) {
-        itemDao.registerItem(car, lot);
+    public void register(Lot lot, Car car, LotPhoto photo) {
+        itemDao.registerItem(car, lot, photo);
     }
 
-    public void register(Lot lot, RealEstate realEstate) {
-        itemDao.registerItem(realEstate, lot);
+    public void register(Lot lot, RealEstate realEstate, LotPhoto photo) {
+        itemDao.registerItem(realEstate, lot, photo);
     }
 
-    public void register(Lot lot, Clothes clothes) {
-        itemDao.registerItem(clothes, lot);
+    public void register(Lot lot, Clothes clothes, LotPhoto photo) {
+        itemDao.registerItem(clothes, lot, photo);
     }
 
-    public void register(Lot lot, SportEquipment sportEquipment) {
-        itemDao.registerItem(sportEquipment, lot);
+    public void register(Lot lot, SportEquipment sportEquipment, LotPhoto photo) {
+        itemDao.registerItem(sportEquipment, lot, photo);
     }
 
-    public void register(Lot lot, BuildingEquipment buildingEquipment) {
-        itemDao.registerItem(buildingEquipment, lot);
+    public void register(Lot lot, BuildingEquipment buildingEquipment, LotPhoto photo) {
+        itemDao.registerItem(buildingEquipment, lot, photo);
     }
 
-    public void register(Lot lot, MedicalEquipment medicalEquipment) {
-        itemDao.registerItem(medicalEquipment, lot);
+    public void register(Lot lot, MedicalEquipment medicalEquipment, LotPhoto photo) {
+        itemDao.registerItem(medicalEquipment, lot, photo);
     }
 
-    public void register(Lot lot, OtherItem otherItem) {
-        itemDao.registerItem(otherItem, lot);
+    public void register(Lot lot, OtherItem otherItem, LotPhoto photo) {
+        itemDao.registerItem(otherItem, lot, photo);
     }
 
-    public void register(Lot lot, Furniture furniture) {
-        itemDao.registerItem(furniture, lot);
+    public void register(Lot lot, Furniture furniture, LotPhoto photo) {
+        itemDao.registerItem(furniture, lot, photo);
     }
 
-    public void register(Lot lot, Jewelry jewelry) {
-        itemDao.registerItem(jewelry, lot);
+    public void register(Lot lot, Jewelry jewelry, LotPhoto photo) {
+        itemDao.registerItem(jewelry, lot, photo);
     }
 
     public void removeItem(Lot lot) {

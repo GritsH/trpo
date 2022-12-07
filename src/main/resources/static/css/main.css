@@ -76,7 +76,21 @@
     justify-content: space-between;
     background-color: white;
     margin-right: 60px;
+    overflow-x: scroll;
+}
 
+.panel-auctions::-webkit-scrollbar {
+    width: 1em;
+}
+
+.panel-auctions::-webkit-scrollbar-track {
+    background-color: #e4e7e0;
+    border-radius: 100px;
+}
+
+.panel-auctions::-webkit-scrollbar-thumb {
+    background-color: #dfe8cc;
+    border-radius: 100px;
 }
 
 .box-for-categories {
@@ -135,3 +149,9 @@ img {
     color: black;
 }
 
+.more-detailed-link {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}

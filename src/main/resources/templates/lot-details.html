@@ -54,16 +54,23 @@
     <div class="right-container">
         <div class="panel-active-auctions">
             <form class="lot-details-form" action="#"
-                  th:action="@{/active-auctions/lot/{id}(id=${foundAuction.lot.id})/participate}" method="get">
+                  th:action="@{/active-auctions/lot/participate/{id}(id=${foundAuction.lot.id})}" method="get">
                 <div class="box-for-lot">
                     <div class="for-img-auction">
+                        <img th:src="*{'data:image/*;base64,' + foundAuction.pic}">
                     </div>
-                    <div class="lot-information">
+                    <div class="lot-information-box">
+                        <p class="title-for-lot-info">lot name: </p>
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
+                        <p class="title-for-lot-info">all information about the lot: </p>
                         <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the lot</p>
+                        <p class="title-for-lot-info">lot category: </p>
                         <p class="lot-category" th:text="${foundAuction.lot.itemType.typeDescription}">category</p>
+                        <p class="title-for-lot-info">lot starting date: </p>
                         <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting date</p>
+                        <p class="title-for-lot-info">lot closing date: </p>
                         <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
+                        <p class="title-for-lot-info">lot auction step: </p>
                         <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
                     </div>
                     <div class="lot-price-button">

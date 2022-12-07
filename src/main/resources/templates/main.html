@@ -72,44 +72,16 @@
             </div>
         </div>
         <div class="panel-auctions">
-            <div class="box-for-categories">
+            <div class="box-for-categories" th:each="category :${categories}">
                 <div class="for-img-categories">
                     <img class="image-category"
-                         th:src="@{/img/car.jpg}">
+                         th:src="@{${'/img/'+ category + '.jpg'}}">
                 </div>
-                <p class="title-for-categories">cars</p>
+                <p class="title-for-categories" th:text="${category}">cars</p>
                 <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/real estate.jpg}">
-                </div>
-                <p class="title-for-categories">real estates</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/sport equipment.jpg}">
-                </div>
-                <p class="title-for-categories">sport equipment</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
-                </button>
-            </div>
-            <div class="box-for-categories">
-                <div class="for-img-categories">
-                    <img class="image-category"
-                         th:src="@{/img/jewelry.jpg}">
-                </div>
-                <p class="title-for-categories">jewelry</p>
-                <button class="more-detailed-button" type="button">
-                    more detailed
+                    <a class="more-detailed-link" th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}">
+                        more detailed
+                    </a>
                 </button>
             </div>
         </div>
