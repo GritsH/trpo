@@ -1,27 +1,68 @@
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:th='http://www.thymeleaf.org' lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/lot-place-a-bet-page.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<form action="#" th:action="@{/charge}" method='POST' id='checkout-form'>
-    <input type='hidden' th:value='${amount}' name='amount'/>
-    <label>Price:<span th:text='${amount}'></span></label>
-    <!-- NOTE: data-key/data-amount/data-currency will be rendered by Thymeleaf -->
-    <script
-            src='https://checkout.stripe.com/checkout.js'
-            class='stripe-button'
-            th:attr='data-key=${stripePublicKey},
+<header class="header">
+    <div class="header-title">
+        <a class="header-title-text" th:href="@{/}">auction</a>
+    </div>
+    <div class="header-title-categories">
+    </div>
+    <div class="header-title-auth">
+        <a th:href="@{/logout}" class="header-title-status"> log out</a>
+    </div>
+
+</header>
+<main class="main">
+    <div class="left-container">
+        <aside class="aside-list">
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/main}">home page</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/active-auctions}">all active auctions</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/categories}">categories</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/profile}">personal account</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/information}">information</a>
+            </div>
+            <div class="aside-box">
+                <a class="aside-link" th:href="@{/about_us}">about us</a>
+            </div>
+        </aside>
+    </div>
+    <div class="right-container">
+        <form action="#" th:action="@{/charge}" method='POST' id='checkout-form'>
+            <input type='hidden' th:value='${amount}' name='amount'/>
+<!--            <label>Price:<span th:text='${amount}'></span></label>-->
+            <script
+                    src='https://checkout.stripe.com/checkout.js'
+                    class='stripe-button'
+                    th:attr='data-key=${stripePublicKey},
                      data-amount=${amount},
                      data-currency=${currency}'
-            data-name='Baeldung'
-            data-description='Spring course checkout'
-            data-image
-                    ='https://www.baeldung.com/wp-content/themes/baeldung/favicon/android-chrome-192x192.png'
-            data-locale='auto'
-            data-zip-code='false'>
-    </script>
-</form>
+                    data-name='Auction'
+                    data-description='Lot checkout'
+                    data-locale='auto'
+                    data-zip-code='false'>
+            </script>
+        </form>
+    </div>
+</main>
+
 </body>
 </html>

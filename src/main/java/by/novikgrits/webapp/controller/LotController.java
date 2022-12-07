@@ -35,12 +35,8 @@ public class LotController {
 
     @GetMapping("/active-auctions/lot/participate/{id}")
     public String getLot(@PathVariable String id, Model model, HttpSession session) throws SQLException {
-        Integer lotId = 0;
-        if (id != null) {
-            lotId = Integer.parseInt(id);
-        } else if (session.getAttribute("lot_to_participate") != null) {
-            lotId = (Integer) session.getAttribute("lot_to_participate");
-        }
+        Integer lotId = Integer.parseInt(id);
+
         Auction auction = auctionsService.getAuctionByLotId(lotId);
         List<BidHistory> lotBidHistory = bidHistoryService.findByLotId(lotId);
 

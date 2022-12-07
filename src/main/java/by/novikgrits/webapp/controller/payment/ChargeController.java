@@ -38,7 +38,7 @@ public class ChargeController {
     @PostMapping("/charge")
     public String charge(ChargeRequest chargeRequest, Model model, HttpSession session, HttpServletRequest request)
             throws StripeException, SQLException {
-        chargeRequest.setDescription("Example charge");
+        chargeRequest.setDescription("Auction charge");
         chargeRequest.setCurrency(ChargeRequest.Currency.USD);
         Charge charge = paymentsService.charge(chargeRequest);
         model.addAttribute("id", charge.getId());
@@ -62,7 +62,7 @@ public class ChargeController {
 
         bidHistoryService.addHistory(bidHistory);
 
-        return "redirect:/main";
+        return "redirect:/active-auctions/lot/participate/" + lotId;
     }
 
     @ExceptionHandler(StripeException.class)
