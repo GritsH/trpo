@@ -126,7 +126,6 @@ label {
     margin-top: 10px;
     padding-bottom: 0;
     color: rgba(0, 0, 0, 0.64);
-
 }
 
 .checkbox-signup {
@@ -136,4 +135,18 @@ label {
 
 .sign-form::-webkit-scrollbar-thumb {
     width: 0;
+}
+
+.sign-form-input p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 10px;
+    padding-bottom: 0;
+    color: darkred;
+}
+
+.hidden {
+    display: none;
 }
