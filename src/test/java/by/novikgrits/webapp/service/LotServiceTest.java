@@ -1,6 +1,7 @@
 package by.novikgrits.webapp.service;
 
 import by.novikgrits.webapp.model.Lot;
+import by.novikgrits.webapp.model.item.ItemType;
 import by.novikgrits.webapp.repository.LotRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +29,13 @@ class LotServiceTest {
     @DisplayName("should add new lot")
     @Test
     void addLot() {
-//        Lot lot = new Lot(1, LocalDate.now(), LocalDate.now(),
-//                1.0, 1.0, 1.0, 1, 1, "info", "name");
-//        lotService.addLot(lot);
-//
-//        verify(lotRepository).save(lot);
-//        verifyNoMoreInteractions(lotRepository);
+        Lot lot = new Lot(1, LocalDate.now(), LocalDate.now(),
+                1.0, 1.0, 1.0, 1, "dedede", "info", ItemType.CLOTHES);
+        GeneratedKeyHolder key = mock(GeneratedKeyHolder.class);
+        lotService.save(lot, key);
+
+        verify(lotRepository).save(lot, key);
+        verifyNoMoreInteractions(lotRepository);
     }
 
     @DisplayName("should find lot by id")
