@@ -47,16 +47,12 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/jewelry}" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/jewelry}" enctype="multipart/form-data" method="post">
             <div class="create-lot-photo">
                 <div class="for-img-lot">
 
                 </div>
                 <input type="file" name="image" accept="image/*">
-
-                <button class="add-photo-button" type="button" id="addPhotoButton">
-                    add photo
-                </button>
             </div>
             <div class="create-lot-information">
                 <div class="create-lot-input">
