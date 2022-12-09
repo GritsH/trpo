@@ -7,7 +7,7 @@ public class Car extends Item {
     private String brand;
     private Integer manufactureYear;
     private Integer mileage;
-    private Integer engineVolume;
+    private Double engineVolume;
 
     public Integer getLotId() {
         return lotId;
@@ -25,7 +25,7 @@ public class Car extends Item {
         return mileage;
     }
 
-    public Integer getEngineVolume() {
+    public Double getEngineVolume() {
         return engineVolume;
     }
 
@@ -45,7 +45,7 @@ public class Car extends Item {
         this.mileage = mileage;
     }
 
-    public void setEngineVolume(Integer engineVolume) {
+    public void setEngineVolume(Double engineVolume) {
         this.engineVolume = engineVolume;
     }
 
