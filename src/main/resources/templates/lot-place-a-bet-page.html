@@ -51,7 +51,7 @@
             <div class="panel-lot">
                 <div class="top-panel-lot">
                     <div class="for-img-auction">
-                        <img th:src="*{'data:image/*;base64,' + foundAuction.pic}">
+                        <img class="image-photo" th:src="*{'data:image/*;base64,' + foundAuction.pic}">
                     </div>
                     <div class="lot-information">
                         <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
@@ -91,13 +91,13 @@
         </form>
         <table class="table-bid-history">
             <thead>
-            <tr>
+            <tr class="top-table">
                 <th> BidderEmail </th>
                 <th> Price </th>
                 <th> Bidding date </th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="bottom-table">
             <tr th:each="history : ${lotBidHistory}">
                 <td><span th:text="${history.bidderEmail}"> BidderId </span></td>
                 <td><span th:text="${history.price}"> price </span></td>

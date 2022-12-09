@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 25px;
 }
 
 .box-for-lot {
@@ -83,4 +84,10 @@
 .lot-details-form {
     /*height: fit-content;*/
     display: flex;
+}
+
+.image-photo {
+    width: 140px;
+    height: 120px;
+    margin: 25px;
 }

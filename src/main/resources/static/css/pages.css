@@ -222,7 +222,7 @@ button:hover {
     background-color: #eee;
 }
 
-p{
+p {
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -235,4 +235,10 @@ p{
 
 .hidden {
     display: none;
+}
+
+.image-photo {
+    width: 140px;
+    height: 120px;
+    margin: 20px;
 }
