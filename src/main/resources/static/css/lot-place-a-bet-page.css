@@ -149,3 +149,18 @@ p {
     letter-spacing: 1px;
     color: black;
 }
+
+.right-panel p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    color: darkred;
+}
+
+.hidden {
+    display: none;
+}

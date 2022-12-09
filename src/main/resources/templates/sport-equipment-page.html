@@ -48,13 +48,11 @@
     <div class="right-container">
         <form class="create-lot-form" action="#" th:action="@{/create/sport-equipment}" method="post">
             <div class="create-lot-photo">
-                <div class="for-img-lot">
-
-                </div>
-                <input type="file" name="image" accept="image/*">
-                <button class="add-photo-button" type="button" id="addPhotoButton">
-                    add photo
-                </button>
+                <label class="input-file">
+                    <input type="file" name="image" accept="image/*">
+                    <span class="input-file-btn">choose a file</span>
+                    <span class="input-file-text" type="text"></span>
+                </label>
             </div>
             <div class="create-lot-information">
                 <div class="create-lot-input">
@@ -67,9 +65,10 @@
                 </div>
                 <div class="create-lot-input">
                     <label>weight: </label>
-                    <input class="sport-equipment-weight" id="sportEquipmentWeight" type="number"
+                    <input class="sport-equipment-weight" id="sportEquipmentWeight" type="number" max="46"
                            th:field="*{newSportEquipment.weight}" required/>
                 </div>
+                <p class="error-sport-weight hidden" id="sportWeightError">weight is invalid</p>
                 <div class="create-lot-input">
                     <label>brand: </label>
                     <input class="sport-equipment-brand" id="sportEquipmentBrand" type="text"
@@ -107,6 +106,8 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script th:src="@{/js/imageinput.js}"></script>
+<script th:src="@{/js/lot-creation-pages.js}"></script>
 </body>
 </html>

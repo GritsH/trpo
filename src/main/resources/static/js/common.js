@@ -1,4 +1,10 @@
-import {validateEmail, validatePassport, validatePassword, validatePhoneNumber} from "./validation.js";
+import {
+    validateCarEngineVolume,
+    validateEmail, validateManufactureYear,
+    validatePassport,
+    validatePassword,
+    validatePhoneNumber
+} from "./validation.js";
 
 export function setEmailEventListeners() {
     const emailInput = document.querySelector('.email-field');
@@ -53,6 +59,72 @@ export function setPassportEventListeners() {
             passportError.classList.remove('hidden');
         } else {
             passportError.classList.add('hidden');
+        }
+    });
+}
+
+export function setCarEngineVolumeEventListeners() {
+    const carEngineVolumeInput = document.querySelector('.car_engine_volume');
+    const carEngineVolumeError = document.querySelector('.error-car-engine-volume');
+    carEngineVolumeInput.addEventListener('input', function (event) {
+        const carEngineVolume = event.target.value;
+        if (!validateCarEngineVolume(carEngineVolume)) {
+            carEngineVolumeError.classList.remove('hidden');
+        } else {
+            carEngineVolumeError.classList.add('hidden');
+        }
+    });
+}
+
+export function setCarManufactureYearEventListeners() {
+    const carManufactureYearInput = document.querySelector('.car_manufacture_year');
+    const carManufactureYearError = document.querySelector('.error-car-manufacture-year');
+    carManufactureYearInput.addEventListener('input', function (event) {
+        const carManufactureYear = event.target.value;
+        if (!validateManufactureYear(carManufactureYear)) {
+            carManufactureYearError.classList.remove('hidden');
+        } else {
+            carManufactureYearError.classList.add('hidden');
+        }
+    });
+}
+
+export function setMedicalManufactureYearEventListeners() {
+    const medicalManufactureYearInput = document.querySelector('.medical-equipment-manufacture-year');
+    const medicalManufactureYearError = document.querySelector('.error-medical-manufacture-year');
+    medicalManufactureYearInput.addEventListener('input', function (event) {
+        const medicalManufactureYear = event.target.value;
+        if (!validateManufactureYear(medicalManufactureYear)) {
+            medicalManufactureYearError.classList.remove('hidden');
+        } else {
+            medicalManufactureYearError.classList.add('hidden');
+        }
+    });
+}
+
+export function setRoomAmountEventListeners() {
+    const roomAmountInput = document.querySelector('.room-amount');
+    const roomAmountError = document.querySelector('.error-room-amount');
+
+    roomAmountInput.addEventListener('input', function (event) {
+        const roomAmount = event.target.value;
+        if (!(roomAmount <= 12)) {
+            roomAmountError.classList.remove('hidden');
+        } else {
+            roomAmountError.classList.add('hidden');
+        }
+    });
+}
+
+export function setLivingSpaceEventListeners() {
+    const livingSpaceInput = document.querySelector('.living-space');
+    const livingSpaceError = document.querySelector('.error-living-space');
+    livingSpaceInput.addEventListener('input', function (event) {
+        const livingSpace = event.target.value;
+        if (!(livingSpace <= 15000)) {
+            livingSpaceError.classList.remove('hidden');
+        } else {
+            livingSpaceError.classList.add('hidden');
         }
     });
 }

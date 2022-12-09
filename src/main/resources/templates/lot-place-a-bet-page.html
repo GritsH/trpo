@@ -69,15 +69,21 @@
                             <p class="closing-date" th:text="${foundAuction.lot.closingDate}">2022-11-20 </p>
                         </div>
                         <div class="titles-for-lot">
+                            <p class="lot-closing">auction step: </p>
+                            <p class="auction-step" th:text="${foundAuction.lot.step}">100 </p>
+                        </div>
+                        <div class="titles-for-lot">
                             <p class="lot-current-bet">current bet: </p>
                             <p class="current-bet" th:text="${foundAuction.lot.currentPrice}">100</p>
                             <p class="current-bet-byn">BYN</p>
                         </div>
+
                     </div>
                 </div>
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
                         <input class="bet-field" type="number" id="betPrice" name="betPrice">
+                        <p class="error-new-bet hidden" id="newBetError">new bet is less than current bet</p>
                         <button class="place-bet-button" type="submit">
                             place a bet
                         </button>

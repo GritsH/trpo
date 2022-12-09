@@ -49,10 +49,11 @@
     <div class="right-container">
         <form class="create-lot-form" action="#" th:action="@{/create/car}" enctype="multipart/form-data" method="post">
             <div class="create-lot-photo">
-                <div class="for-img-lot">
-
-                </div>
-                <input type="file" name="image" accept="image/*">
+                <label class="input-file">
+                    <input type="file" name="image" accept="image/*">
+                    <span class="input-file-btn">choose a file</span>
+                    <span class="input-file-text" type="text"></span>
+                </label>
             </div>
             <div class="create-lot-information">
                 <div class="create-lot-input">
@@ -68,11 +69,13 @@
                 <div class="create-lot-input">
                     <label>manufacture year: </label>
                     <input class="car_manufacture_year" id="carManufactureYear" type="number"
-                           th:field="*{newCar.manufactureYear}" required/>
+                           th:field="*{newCar.manufactureYear}" max="2022" required/>
                 </div>
+                <p class="error-car-manufacture-year hidden"
+                   id="carManufactureYearError">manufacture year is invalid</p>
                 <div class="create-lot-input">
                     <label>mileage: </label>
-                    <input class="car_mileage" id="carMileage" type="number"
+                    <input class="car_mileage" id="carMileage" type="number" max="1500000"
                            th:field="*{newCar.mileage}" required/>
                 </div>
                 <div class="create-lot-input">
@@ -80,6 +83,7 @@
                     <input class="car_engine_volume" id="carEngineVolume" type="number"
                            th:field="*{newCar.engineVolume}" required/>
                 </div>
+                <p class="error-car-engine-volume hidden" id="carEngineVolumeError">engine volume is invalid</p>
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text"
@@ -117,6 +121,8 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script th:src="@{/js/imageinput.js}"></script>
+<script type="module" th:src="@{/js/car-creation.js}"></script>
 </body>
 </html>
