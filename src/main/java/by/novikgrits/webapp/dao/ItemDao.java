@@ -3,6 +3,7 @@ package by.novikgrits.webapp.dao;
 import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.LotPhoto;
 import by.novikgrits.webapp.model.item.*;
+import by.novikgrits.webapp.repository.BidHistoryRepository;
 import by.novikgrits.webapp.repository.LotPhotoRepository;
 import by.novikgrits.webapp.repository.LotRepository;
 import by.novikgrits.webapp.repository.LotStatusRepository;
@@ -27,8 +28,9 @@ public class ItemDao {
     private final OtherItemRepository otherItemRepository;
     private final LotStatusRepository lotStatusRepository;
     private final LotPhotoRepository lotPhotoRepository;
+    private final BidHistoryRepository bidHistoryRepository;
 
-    public ItemDao(LotRepository lotRepository, CarRepository carRepository, RealEstateRepository realEstateRepository, JewelryRepository jewelryRepository, FurnitureRepository furnitureRepository, ClothesRepository clothesRepository, SportEquipmentRepository sportEquipmentRepository, BuildingEquipmentRepository buildingEquipmentRepository, MedicalEquipmentRepository medicalEquipmentRepository, OtherItemRepository otherItemRepository, LotStatusRepository lotStatusRepository, LotPhotoRepository lotPhotoRepository) {
+    public ItemDao(LotRepository lotRepository, CarRepository carRepository, RealEstateRepository realEstateRepository, JewelryRepository jewelryRepository, FurnitureRepository furnitureRepository, ClothesRepository clothesRepository, SportEquipmentRepository sportEquipmentRepository, BuildingEquipmentRepository buildingEquipmentRepository, MedicalEquipmentRepository medicalEquipmentRepository, OtherItemRepository otherItemRepository, LotStatusRepository lotStatusRepository, LotPhotoRepository lotPhotoRepository, BidHistoryRepository bidHistoryRepository) {
         this.lotRepository = lotRepository;
         this.carRepository = carRepository;
         this.realEstateRepository = realEstateRepository;
@@ -41,6 +43,7 @@ public class ItemDao {
         this.otherItemRepository = otherItemRepository;
         this.lotStatusRepository = lotStatusRepository;
         this.lotPhotoRepository = lotPhotoRepository;
+        this.bidHistoryRepository = bidHistoryRepository;
     }
 
     @Transactional
@@ -190,55 +193,72 @@ public class ItemDao {
 
     @Transactional
     public void removeCar(Integer lotId) {
-
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         carRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeRealEstate(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         realEstateRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeJewelry(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         jewelryRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeFurniture(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         furnitureRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeClothes(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         clothesRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeSportEquipment(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         sportEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeBuildingEquipment(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         buildingEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeMedicalEquipment(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         medicalEquipmentRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }
 
     @Transactional
     public void removeOtherItem(Integer lotId) {
+        lotPhotoRepository.deleteByLotId(lotId);
+        bidHistoryRepository.deleteByLotId(lotId);
         otherItemRepository.deleteByLotId(lotId);
         lotRepository.deleteById(lotId);
     }

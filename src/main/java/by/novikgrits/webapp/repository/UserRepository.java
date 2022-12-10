@@ -22,12 +22,14 @@ public class UserRepository {
     private final JdbcTemplate jdbcTemplate;
     private final LotRepository lotRepository;
     private final BidHistoryRepository bidHistoryRepository;
+    private final LotPhotoRepository lotPhotoRepository;
     private final ItemRepositoryProvider itemRepositoryProvider;
 
-    public UserRepository(JdbcTemplate jdbcTemplate, LotRepository lotRepository, BidHistoryRepository bidHistoryRepository, ItemRepositoryProvider itemRepositoryProvider) {
+    public UserRepository(JdbcTemplate jdbcTemplate, LotRepository lotRepository, BidHistoryRepository bidHistoryRepository, LotPhotoRepository lotPhotoRepository, ItemRepositoryProvider itemRepositoryProvider) {
         this.jdbcTemplate = jdbcTemplate;
         this.lotRepository = lotRepository;
         this.bidHistoryRepository = bidHistoryRepository;
+        this.lotPhotoRepository = lotPhotoRepository;
         this.itemRepositoryProvider = itemRepositoryProvider;
     }
 
@@ -62,6 +64,8 @@ public class UserRepository {
         List<Lot> allUserLots = lotRepository.findAllByOwnerId(userId);
         for (Lot lot : allUserLots) {
             bidHistoryRepository.deleteByLotId(lot.getId());
+
+            lotPhotoRepository.deleteByLotId(lot.getId());
 
             ItemType itemType = lot.getItemType();
             itemRepositoryProvider.findRepoByType(itemType).deleteByLotId(lot.getId());
