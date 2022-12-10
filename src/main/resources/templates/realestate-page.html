@@ -61,7 +61,7 @@
                 </div>
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
-                    <input class="all-lot-info" id="allLotInfo" type="text" th:field="*{newLot.briefInfo}"required/>
+                    <input class="all-lot-info" id="allLotInfo" type="text" th:field="*{newLot.briefInfo}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>room amount: </label>
@@ -85,7 +85,8 @@
                 </div>
                 <div class="create-lot-input">
                     <label>starting price: </label>
-                    <input class="start-price" id="startPrice" type="number" th:field="*{newLot.startingPrice}" required/>
+                    <input class="start-price" id="startPrice" type="number" th:field="*{newLot.startingPrice}"
+                           required/>
                 </div>
                 <div class="create-lot-input">
                     <label>auction step: </label>

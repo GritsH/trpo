@@ -3,7 +3,6 @@ package by.novikgrits.webapp.mapper;
 import by.novikgrits.webapp.model.LotPhoto;
 import org.springframework.jdbc.core.RowMapper;
 
-import javax.swing.tree.TreePath;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

@@ -32,7 +32,7 @@ public class LotService {
         return foundLots;
     }
 
-    public void save(Lot lot, GeneratedKeyHolder keyHolder){
+    public void save(Lot lot, GeneratedKeyHolder keyHolder) {
         lotRepository.save(lot, keyHolder);
     }
 

@@ -29,7 +29,7 @@ public class BidHistoryRepository {
     }
 
     public void save(BidHistory bidHistory) {
-        jdbcTemplate.update(INSERT_CMD, bidHistory.getLotId(), bidHistory.getPrice(),bidHistory.getBiddingDate(),
+        jdbcTemplate.update(INSERT_CMD, bidHistory.getLotId(), bidHistory.getPrice(), bidHistory.getBiddingDate(),
                 bidHistory.getBidderEmail());
     }
 
@@ -62,11 +62,11 @@ public class BidHistoryRepository {
         return jdbcTemplate.query(SELECT_LAST_HISTORIES, new BidHistoryRowMapper());
     }
 
-    public List<BidHistory> findSortedByPrice(){
+    public List<BidHistory> findSortedByPrice() {
         return jdbcTemplate.query(SELECT_LAST_HISTORIES_SORT_BY_PRICE, new BidHistoryRowMapper());
     }
 
-    public List<BidHistory> findSortedByBidderEmail(){
+    public List<BidHistory> findSortedByBidderEmail() {
         return jdbcTemplate.query(SELECT_LAST_HISTORIES_SORT_BY_BIDDER, new BidHistoryRowMapper());
     }
 

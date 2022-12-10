@@ -48,7 +48,7 @@
     <div class="right-container">
         <form action="#" th:action="@{/charge}" method='POST' id='checkout-form'>
             <input type='hidden' th:value='${amount}' name='amount'/>
-<!--            <label>Price:<span th:text='${amount}'></span></label>-->
+            <!--            <label>Price:<span th:text='${amount}'></span></label>-->
             <script
                     src='https://checkout.stripe.com/checkout.js'
                     class='stripe-button'

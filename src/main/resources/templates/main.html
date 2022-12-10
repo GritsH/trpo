@@ -79,7 +79,8 @@
                 </div>
                 <p class="title-for-categories" th:text="${category}">cars</p>
                 <button class="more-detailed-button" type="button">
-                    <a class="more-detailed-link" th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}">
+                    <a class="more-detailed-link"
+                       th:href="@{/active-auctions/category/{categoryName}(categoryName=${category})}">
                         more detailed
                     </a>
                 </button>

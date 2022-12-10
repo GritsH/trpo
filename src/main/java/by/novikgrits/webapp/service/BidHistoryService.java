@@ -49,11 +49,11 @@ public class BidHistoryService {
         return foundHistories;
     }
 
-    public List<BidHistory> findSortedByPrice(){
+    public List<BidHistory> findSortedByPrice() {
         return bidHistoryRepository.findSortedByPrice();
     }
 
-    public List<BidHistory> findSortedByBidderEmail(){
+    public List<BidHistory> findSortedByBidderEmail() {
         return bidHistoryRepository.findSortedByBidderEmail();
     }
 
