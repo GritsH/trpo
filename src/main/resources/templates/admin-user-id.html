@@ -40,10 +40,14 @@
                   th:action="@{/admin/users/delete/{id}(id=${user.id})}" method="post">
 
                 <div class="account-information">
+                    <p class="title-for-user">first name: </p>
                     <p class="first-name" th:text="${user.firstName}">first name</p>
+                    <p class="title-for-user">last name: </p>
                     <p class="last-name" th:text="${user.lastName}">last name</p>
+                    <p class="title-for-user">email: </p>
                     <p class="e-mail-profile" th:text="${user.email}">e-mail</p>
-                    <p class="profile-info" th:text="${user.phone}">important information about the user</p>
+                    <p class="title-for-user">phone number: </p>
+                    <p class="phone-profile" th:text="${user.phone}">phone</p>
                 </div>
                 <button class="delete-profile-button" type="submit">
                     delete profile
