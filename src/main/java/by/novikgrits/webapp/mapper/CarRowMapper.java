@@ -14,7 +14,7 @@ public class CarRowMapper implements RowMapper<Car> {
         car.setId(rs.getInt("id"));
         car.setBrand(rs.getString("brand"));
         car.setMileage(rs.getInt("mileage"));
-        car.setEngineVolume(rs.getInt("engine_volume"));
+        car.setEngineVolume(rs.getDouble("engine_volume"));
         car.setManufactureYear(rs.getInt("manufacture_year"));
         car.setLotId(rs.getInt("lot_id"));
 

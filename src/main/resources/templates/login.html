@@ -35,15 +35,14 @@
         <div class="log-form-input">
             <input class="email-field" id="emailInput" type="email" name="username" placeholder="enter your e-mail"
                    required/>
-            <p class="error-login" id="errorEmail" hidden="true">wrong email</p>
+            <p class="error-email hidden" id="errorEmail">wrong email</p>
         </div>
         <label>password</label>
         <div class="log-form-input">
             <input class="password-field" id="passwordInput" name="password" type="password"
                    placeholder="enter your password"
                    required/>
-            <p class="error-login" id="errorPassword" hidden="true">Wrong password</p>
-            <p class="error-login" id="noUser" hidden="true">No such user</p>
+            <p class="error-password hidden" id="errorPassword">wrong password</p>
         </div>
         <div class="log-form-new-user">
             <a th:href="@{/signup}" class="sign-up">register as a new user</a>
@@ -59,6 +58,6 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script type="module" th:src="@{/js/login.js}"></script>
 </body>
 </html>

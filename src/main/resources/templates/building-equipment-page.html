@@ -46,15 +46,14 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/building-equipment}" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/building-equipment}" enctype="multipart/form-data"
+              method="post">
             <div class="create-lot-photo">
-                <div class="for-img-lot">
-
-                </div>
-                <input type="file" name="image" accept="image/*">
-                <button class="add-photo-button" type="button" id="addPhotoButton">
-                    add photo
-                </button>
+                <label class="input-file">
+                    <input class="image-photo" type="file" name="image" accept="image/*">
+                    <span class="input-file-btn">choose a file</span>
+                    <span class="input-file-text" type="text"></span>
+                </label>
             </div>
             <div class="create-lot-information">
                 <div class="create-lot-input">
@@ -102,6 +101,7 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script th:src="@{/js/imageinput.js}"></script>
 </body>
 </html>

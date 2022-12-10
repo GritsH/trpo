@@ -42,21 +42,21 @@
             </button>
             <table class="admin-table-bid-history">
                 <thead>
-                <tr>
+                <tr class="top-admin-table">
                     <th> Id</th>
                     <th> LotId</th>
-                    <th> BidderId</th>
+                    <th> Bidder Email</th>
                     <th> Price</th>
                     <th> Bidding date</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="lot : ${bidHistories}">
-                    <td><span th:text="${lot.id}"> id</span></td>
-                    <td><span th:text="${lot.lotId}"> lotId </span></td>
-                    <td><span th:text="${lot.bidderEmail}"> BidderId </span></td>
-                    <td><span th:text="${lot.price}"> price </span></td>
-                    <td><span th:text="${lot.biddingDate}"> bidding date </span></td>
+                <tr th:each="history : ${bidHistories}">
+                    <td><span th:text="${history.id}"> id</span></td>
+                    <td><span th:text="${history.lotId}"> lotId </span></td>
+                    <td><span th:text="${history.bidderEmail}"> BidderId </span></td>
+                    <td><span th:text="${history.price}"> price </span></td>
+                    <td><span th:text="${history.biddingDate}"> bidding date </span></td>
                 </tr>
                 </tbody>
             </table>

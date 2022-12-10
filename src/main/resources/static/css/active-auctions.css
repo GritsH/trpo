@@ -48,11 +48,12 @@
 }
 
 .for-img-auction {
-    width: 120px;
+    width: 140px;
     height: 120px;
     border-radius: 20px;
-    background-color: white;
-    margin: 15px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .lot-information {
@@ -65,7 +66,7 @@
 .lot-name {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 1px;
     color: black;
     margin: 5px;
@@ -141,4 +142,10 @@
     font-size: 20px;
     color: black;
     text-decoration: none;
+}
+
+.image-photo {
+    width: 140px;
+    height: 120px;
+    margin: 20px;
 }

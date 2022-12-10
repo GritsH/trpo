@@ -22,6 +22,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    align-items: center;
 }
 
 .aside-list {
@@ -101,10 +102,22 @@
 }
 
 .admin-table-bid-history {
+    table-layout: fixed;
+    width: 930px;
+    height: 30px;
+    margin-bottom: 20px;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: normal;
     letter-spacing: 1px;
     color: black;
+    text-align: center;
+}
+
+.top-admin-table {
+    background-color: rgba(200, 224, 151, 0.5);
+    box-shadow: 0 0 50px rgba(0, 0, 0, .1);
+    margin: 10px;
+    height: 40px;
 }
 
