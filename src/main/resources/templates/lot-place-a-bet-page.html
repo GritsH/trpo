@@ -91,7 +91,7 @@
                 <th> Bidding date </th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="bottom-table">
             <tr th:each="history : ${lotBidHistory}">
                 <td><span th:text="${history.bidderEmail}"> BidderId </span></td>
                 <td><span th:text="${history.price}"> price </span></td>
