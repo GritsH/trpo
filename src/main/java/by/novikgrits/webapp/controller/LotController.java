@@ -2,7 +2,6 @@ package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.Auction;
 import by.novikgrits.webapp.model.BidHistory;
-import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.service.AuctionsService;
 import by.novikgrits.webapp.service.BidHistoryService;
 import by.novikgrits.webapp.service.LotService;
@@ -11,12 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller

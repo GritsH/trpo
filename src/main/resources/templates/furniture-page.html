@@ -46,7 +46,8 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/furniture}" enctype="multipart/form-data" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/furniture}" enctype="multipart/form-data"
+              method="post">
             <div class="create-lot-photo">
                 <label class="input-file">
                     <input class="image-photo" type="file" name="image" accept="image/*">
@@ -67,7 +68,7 @@
                 <div class="create-lot-input">
                     <label>material: </label>
                     <input class="furniture-material" id="furnitureMaterial" type="text"
-                           th:field="*{newFurniture.material}"required/>
+                           th:field="*{newFurniture.material}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading starting date: </label>

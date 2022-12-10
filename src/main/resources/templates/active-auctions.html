@@ -57,7 +57,7 @@
     </div>
     <div class="right-container">
         <div class="panel-active-auctions" th:each="auction : ${allActiveAuctions}">
-            <div class="box-for-auction" >
+            <div class="box-for-auction">
                 <div class="for-img-auction">
                     <img class="image-photo" th:src="*{'data:image/*;base64,' + auction.pic}">
                 </div>

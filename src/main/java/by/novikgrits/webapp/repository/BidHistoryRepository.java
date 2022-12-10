@@ -27,7 +27,7 @@ public class BidHistoryRepository {
     }
 
     public void save(BidHistory bidHistory) {
-        jdbcTemplate.update(INSERT_CMD, bidHistory.getLotId(), bidHistory.getPrice(),bidHistory.getBiddingDate(),
+        jdbcTemplate.update(INSERT_CMD, bidHistory.getLotId(), bidHistory.getPrice(), bidHistory.getBiddingDate(),
                 bidHistory.getBidderEmail());
     }
 

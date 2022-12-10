@@ -46,7 +46,8 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/medical-equipment}" enctype="multipart/form-data" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/medical-equipment}" enctype="multipart/form-data"
+              method="post">
             <div class="create-lot-photo">
                 <label class="input-file">
                     <input class="image-photo" type="file" name="image" accept="image/*">
@@ -87,7 +88,8 @@
                 </div>
                 <div class="create-lot-input">
                     <label>starting price: </label>
-                    <input class="start-price" id="startPrice" type="number" th:field="*{newLot.startingPrice}" required/>
+                    <input class="start-price" id="startPrice" type="number" th:field="*{newLot.startingPrice}"
+                           required/>
                 </div>
                 <div class="create-lot-input">
                     <label>auction step: </label>

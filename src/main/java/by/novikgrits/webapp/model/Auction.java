@@ -2,8 +2,6 @@ package by.novikgrits.webapp.model;
 
 import by.novikgrits.webapp.model.item.Item;
 
-import java.util.Base64;
-
 public class Auction {
     private Lot lot;
     private Item item;
@@ -28,6 +26,7 @@ public class Auction {
     public void setItem(Item item) {
         this.item = item;
     }
+
     public String getPic() {
         return pic;
     }

@@ -1,8 +1,6 @@
 package by.novikgrits.webapp.model;
 
 import java.sql.Blob;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class LotPhoto {
     private Integer id;

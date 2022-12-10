@@ -33,16 +33,14 @@ function validateAllInputs() {
 
     if (!emailValid) {
         document.querySelector('.error-email').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.getElementById('emailInput').style.border = "2px solid red";
         document.querySelector('.error-email').classList.add('hidden');
 
     }
     if (!passwordValid) {
         document.querySelector('.error-password').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.getElementById('passwordInput').style.border = "2px solid red";
         document.querySelector('.error-password').classList.add('hidden');
 

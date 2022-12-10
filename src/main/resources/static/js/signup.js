@@ -45,29 +45,25 @@ function validateAllInputs() {
 
     if (!emailValid) {
         document.querySelector('.error-email').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.querySelector('.error-email').classList.add('hidden');
     }
 
     if (!passwordValid) {
         document.querySelector('.error-password').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.querySelector('.error-password').classList.add('hidden');
     }
 
     if (!phoneNumberValid) {
         document.querySelector('.error-signup-phone').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.querySelector('.error-signup-phone').classList.add('hidden');
     }
 
     if (!passportValid) {
         document.querySelector('.error-signup-passport').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.querySelector('.error-signup-passport').classList.add('hidden');
     }
     return false;
