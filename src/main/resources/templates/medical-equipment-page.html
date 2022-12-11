@@ -66,12 +66,12 @@
                 </div>
                 <div class="create-lot-input">
                     <label>medical type: </label>
-                    <select th:field="*{newMedicalEquipment.type}" class="medical-speciality-select"
+                    <select th:field="*{newMedicalEquipment.medicalSpeciality}" class="medical-speciality-select"
                             id="MedicalEquipment" name="medicalEquipment">
                         <option value="">select a speciality</option>
                         <option
                                 th:each="speciality : ${medicalSpecialities}"
-                                th:value="${speciality.typeDescription}"
+                                th:value="${speciality}"
                                 th:text="${speciality.typeDescription}"></option>
                     </select>
                 </div>
