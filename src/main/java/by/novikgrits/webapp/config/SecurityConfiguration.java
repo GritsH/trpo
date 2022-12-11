@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
@@ -28,10 +27,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/login", "/logout", "/signup", "/", "/main", "/active-auctions", "/active-auctions/category/**", "/categories")
+                .antMatchers("/login", "/logout", "/signup", "/", "/main", "/active-auctions", "/active-auctions/category/**", "/categories", "/information", "/about-us")
                 .permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/active-auctions/lot/**", "/charge/**", "/checkout", "/create/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/active-auctions/lot/**", "/admin/**").hasRole("ADMIN")
+                .antMatchers("/active-auctions/lot/**", "/charge/**", "/checkout", "/create/**").hasAnyRole("USER")
                 .and()
                 .formLogin().loginPage("/login").successHandler(authenticationSuccessHandler())
                 .and()

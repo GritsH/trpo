@@ -21,7 +21,7 @@ public class UserService {
         this.userRoleRepository = userRoleRepository;
     }
 
-    public void save(User user){
+    public void save(User user) {
         userRepository.save(user);
     }
 

@@ -47,7 +47,8 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/jewelry}" enctype="multipart/form-data" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/jewelry}" enctype="multipart/form-data"
+              method="post">
             <div class="create-lot-photo">
                 <label class="input-file">
                     <input class="image-photo" type="file" name="image" accept="image/*">
@@ -72,7 +73,7 @@
                 <div class="create-lot-input">
                     <label>precious stones: </label>
                     <div class="jewelry-precious-stones" name="jewelryPreciousStone" id="jewelryPreciousStone"
-                            th:field="*{newJewelry.hasPreciousStones}">
+                         th:field="*{newJewelry.hasPreciousStones}">
                         <input type="radio" class="jewelry-stones-choice"
                                name="jewelryPreciousStonesChoice" id="stonesYes" value="true">yes</input>
                         <input type="radio" class="jewelry-stones-choice"

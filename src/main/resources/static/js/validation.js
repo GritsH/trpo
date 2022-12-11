@@ -14,7 +14,7 @@ export function validatePhoneNumber(phoneNumber) {
 
 export function validatePassport(passport) {
     //const regexPassport = new RegExp('/^[A-Z]{2}\[0-9]{7}$/');
-    const regexPassport  = /^[A-Z]{2}\d{7}$/;
+    const regexPassport = /^[A-Z]{2}\d{7}$/;
 
     return passport.match(regexPassport);
 }

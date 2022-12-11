@@ -12,7 +12,7 @@ public class BidHistoryRowMapper implements RowMapper<BidHistory> {
         BidHistory bidHistory = new BidHistory();
 
         bidHistory.setId(rs.getInt("id"));
-        bidHistory.setBiddingDate(rs.getDate("bidding_date").toLocalDate());
+        bidHistory.setBiddingDate(rs.getTimestamp("bidding_date").toString().replace("T", " "));
         bidHistory.setBidderEmail(rs.getString("bidder_email"));
         bidHistory.setLotId(rs.getInt("lot_id"));
         bidHistory.setPrice(rs.getDouble("price"));
