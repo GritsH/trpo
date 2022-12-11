@@ -49,6 +49,14 @@ public class BidHistoryService {
         return foundHistories;
     }
 
+    public List<BidHistory> findSortedByPrice() {
+        return bidHistoryRepository.findSortedByPrice();
+    }
+
+    public List<BidHistory> findSortedByBidderEmail() {
+        return bidHistoryRepository.findSortedByBidderEmail();
+    }
+
     public List<BidHistory> findLastHistoriesInLots() {
         return bidHistoryRepository.findLastBiddersInLots();
     }
