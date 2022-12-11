@@ -1,6 +1,12 @@
-import {validateCarEngineVolume, validateManufactureYear,} from "./validation.js";
+import {
+    validateCarEngineVolume, validateManufactureYear,
 
-import {setCarEngineVolumeEventListeners, setCarManufactureYearEventListeners} from "./common.js";
+} from "./validation.js";
+
+import {
+    setCarEngineVolumeEventListeners,
+    setCarManufactureYearEventListeners
+} from "./common.js";
 
 setEventListeners();
 
@@ -34,13 +40,15 @@ function validateAllInputs() {
 
     if (!carEngineVolumeValid) {
         document.querySelector('.error-car-engine-volume').classList.remove('hidden');
-    } else {
+    }
+    else {
         document.querySelector('.error-car-engine-volume').classList.add('hidden');
     }
 
     if (!carManufactureYearValid) {
         document.querySelector('.error-car-manufacture-year').classList.remove('hidden');
-    } else {
+    }
+    else {
         document.querySelector('.error-car-manufacture-year').classList.add('hidden');
     }
 

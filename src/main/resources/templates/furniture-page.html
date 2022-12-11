@@ -41,7 +41,7 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
@@ -64,6 +64,17 @@
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text"
                            th:field="*{newLot.briefInfo}" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>furniture type: </label>
+                    <select th:field="*{newFurniture.furnitureType}" class="furniture-speciality-select"
+                            id="furnitureEquipment" name="furnitureEquipment">
+                        <option value="">select a type</option>
+                        <option
+                                th:each="type : ${furnitureTypes}"
+                                th:value="${type.typeDescription}"
+                                th:text="${type.typeDescription}"></option>
+                    </select>
                 </div>
                 <div class="create-lot-input">
                     <label>material: </label>

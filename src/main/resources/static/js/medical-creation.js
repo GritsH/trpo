@@ -1,6 +1,10 @@
-import {validateManufactureYear,} from "./validation.js";
+import {
+    validateManufactureYear,
+} from "./validation.js";
 
-import {setMedicalManufactureYearEventListeners,} from "./common.js";
+import {
+    setMedicalManufactureYearEventListeners,
+} from "./common.js";
 
 setEventListeners();
 
@@ -31,7 +35,8 @@ function validateAllInputs() {
 
     if (!medicalManufactureYearValid) {
         document.querySelector('.error-medical-manufacture-year').classList.remove('hidden');
-    } else {
+    }
+    else {
         document.querySelector('.error-medical-manufacture-year').classList.add('hidden');
     }
 

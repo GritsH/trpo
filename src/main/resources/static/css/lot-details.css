@@ -4,6 +4,10 @@
     margin: 25px;
 }
 
+.header-title-categories {
+    background: #BBD25D;
+}
+
 .lot-information-box {
     display: flex;
     flex-direction: column;

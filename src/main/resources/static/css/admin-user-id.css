@@ -49,3 +49,8 @@ button:hover {
     flex-direction: column;
     margin: 20px;
 }
+
+.header-title-categories {
+    background: #BBD25D;
+}
+

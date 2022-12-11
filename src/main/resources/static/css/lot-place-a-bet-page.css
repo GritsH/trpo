@@ -5,6 +5,10 @@
     flex-direction: row;
 }
 
+.header-title-categories {
+    background: #BBD25D;
+}
+
 .left-container {
     width: 22%;
     height: 100%;
@@ -152,7 +156,7 @@ p {
     text-align: center;
 }
 
-.right-panel p {
+.right-panel p{
     font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-weight: normal;

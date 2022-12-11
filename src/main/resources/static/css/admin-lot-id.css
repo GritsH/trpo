@@ -49,3 +49,7 @@ button:hover {
     display: flex;
     align-items: center;
 }
+
+.header-title-categories {
+    background: #BBD25D;
+}

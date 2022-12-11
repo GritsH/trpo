@@ -41,13 +41,12 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/sport-equipment}" enctype="multipart/form-data"
-              method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/sport-equipment}" enctype="multipart/form-data" method="post">
             <div class="create-lot-photo">
                 <label class="input-file">
                     <input class="image-photo" type="file" name="image" accept="image/*">
@@ -73,7 +72,7 @@
                 <div class="create-lot-input">
                     <label>brand: </label>
                     <input class="sport-equipment-brand" id="sportEquipmentBrand" type="text"
-                           th:field="*{newSportEquipment.brand}" required/>
+                           th:field="*{newSportEquipment.brand}"required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading starting date: </label>
@@ -109,6 +108,5 @@
 </footer>
 <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
 <script th:src="@{/js/imageinput.js}"></script>
-<script th:src="@{/js/lot-creation-pages.js}"></script>
 </body>
 </html>

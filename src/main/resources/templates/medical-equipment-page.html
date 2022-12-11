@@ -41,7 +41,7 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
@@ -63,6 +63,17 @@
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text" th:field="*{newLot.briefInfo}" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>medical type: </label>
+                    <select th:field="*{newMedicalEquipment.type}" class="medical-speciality-select"
+                            id="MedicalEquipment" name="medicalEquipment">
+                        <option value="">select a speciality</option>
+                        <option
+                                th:each="speciality : ${medicalSpecialities}"
+                                th:value="${speciality.typeDescription}"
+                                th:text="${speciality.typeDescription}"></option>
+                    </select>
                 </div>
                 <div class="create-lot-input">
                     <label>brand: </label>

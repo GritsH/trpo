@@ -1,4 +1,7 @@
-import {setLivingSpaceEventListeners, setRoomAmountEventListeners,} from "./common.js";
+import {
+    setRoomAmountEventListeners,
+    setLivingSpaceEventListeners,
+} from "./common.js";
 
 setEventListeners();
 
@@ -32,13 +35,15 @@ function validateAllInputs() {
 
     if (!roomAmountValid) {
         document.querySelector('.error-room-amount').classList.remove('hidden');
-    } else {
+    }
+    else {
         document.querySelector('.error-room-amount').classList.add('hidden');
     }
 
     if (!livingSpaceValid) {
         document.querySelector('.error-living-space').classList.remove('hidden');
-    } else {
+    }
+    else {
         document.querySelector('.error-living-space').classList.add('hidden');
     }
 

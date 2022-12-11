@@ -1,7 +1,6 @@
 import {
     validateCarEngineVolume,
-    validateEmail,
-    validateManufactureYear,
+    validateEmail, validateManufactureYear,
     validatePassport,
     validatePassword,
     validatePhoneNumber
@@ -126,6 +125,20 @@ export function setLivingSpaceEventListeners() {
             livingSpaceError.classList.remove('hidden');
         } else {
             livingSpaceError.classList.add('hidden');
+        }
+    });
+}
+
+export function setMinBetEventListeners() {
+    const betInput = document.querySelector('.bet-field');
+    const betError = document.querySelector('.error-new-bet');
+    betInput.addEventListener('input', function (event) {
+        const newBet = event.target.value;
+        const step = document.getElementById('auction-step');
+        if (!(newBet > step)) {
+            betError.classList.remove('hidden');
+        } else {
+            betError.classList.add('hidden');
         }
     });
 }
