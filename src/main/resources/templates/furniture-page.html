@@ -65,6 +65,17 @@
                            th:field="*{newLot.briefInfo}" required/>
                 </div>
                 <div class="create-lot-input">
+                    <label>furniture type: </label>
+                    <select th:field="*{newFurniture.furnitureType}" class="furniture-speciality-select"
+                            id="furnitureEquipment" name="furnitureEquipment">
+                        <option value="">select a type</option>
+                        <option
+                                th:each="type : ${furnitureTypes}"
+                                th:value="${type.typeDescription}"
+                                th:text="${type.typeDescription}"></option>
+                    </select>
+                </div>
+                <div class="create-lot-input">
                     <label>material: </label>
                     <input class="furniture-material" id="furnitureMaterial" type="text"
                            th:field="*{newFurniture.material}"required/>
