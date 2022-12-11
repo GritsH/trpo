@@ -31,6 +31,6 @@ public class AdminUserPage {
         Integer userId = Integer.parseInt(id);
         userService.deleteUser(userId);
 
-        return "redirect:/admin-user-id";
+        return "redirect:/admin/users";
     }
 }
