@@ -19,6 +19,7 @@ public class UserRepository {
     private static final String SELECT_BY_EMAIL = "select * from user where email = ?";
     private static final String SELECT_BY_ID = "select * from user where id = ?";
     private static final String SELECT_ALL = "select * from user";
+    private static final String DELETE = "delete from user where id =?";
     private final JdbcTemplate jdbcTemplate;
     private final LotRepository lotRepository;
     private final BidHistoryRepository bidHistoryRepository;
@@ -72,6 +73,7 @@ public class UserRepository {
 
             lotRepository.deleteById(lot.getId());
         }
+        jdbcTemplate.update(DELETE, userId);
     }
 
 }
