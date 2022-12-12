@@ -1,8 +1,5 @@
 package by.novikgrits.webapp.model;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 public class BidHistory implements Comparable<BidHistory> {
     private Integer id;
     private Integer lotId;

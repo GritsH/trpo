@@ -15,8 +15,6 @@
     <div class="header-title">
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
-    <div class="header-title-categories">
-    </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
@@ -77,7 +75,8 @@
                 </div>
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
-                        <input class="bet-field" type="number" id="betPrice" name="betPrice" th:min="${foundAuction.lot.step}">
+                        <input class="bet-field" type="number" id="betPrice" name="betPrice"
+                               th:min="${foundAuction.lot.step}">
                         <p class="error-new-bet hidden" id="newBetError">new bet is less than current bet</p>
                         <button class="place-bet-button" type="submit">
                             place a bet
@@ -92,9 +91,9 @@
         <table class="table-bid-history">
             <thead>
             <tr class="top-table">
-                <th> BidderEmail </th>
-                <th> Price </th>
-                <th> Bidding date </th>
+                <th> BidderEmail</th>
+                <th> Price</th>
+                <th> Bidding date</th>
             </tr>
             </thead>
             <tbody class="bottom-table">

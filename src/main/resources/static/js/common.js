@@ -1,6 +1,7 @@
 import {
     validateCarEngineVolume,
-    validateEmail, validateManufactureYear,
+    validateEmail,
+    validateManufactureYear,
     validatePassport,
     validatePassword,
     validatePhoneNumber

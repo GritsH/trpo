@@ -33,8 +33,7 @@ function validateAllInputs() {
 
     if (!(newCurrentBet > step)) {
         document.querySelector('.error-new-bet').classList.remove('hidden');
-    }
-    else {
+    } else {
         document.querySelector('.error-new-bet').classList.add('hidden');
     }
 

@@ -15,8 +15,6 @@
     <div class="header-title">
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
-    <div class="header-title-categories">
-    </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
@@ -46,7 +44,8 @@
         </aside>
     </div>
     <div class="right-container">
-        <form class="create-lot-form" action="#" th:action="@{/create/sport-equipment}" enctype="multipart/form-data" method="post">
+        <form class="create-lot-form" action="#" th:action="@{/create/sport-equipment}" enctype="multipart/form-data"
+              method="post">
             <div class="create-lot-photo">
                 <label class="input-file">
                     <input class="image-photo" type="file" name="image" accept="image/*">
@@ -72,7 +71,7 @@
                 <div class="create-lot-input">
                     <label>brand: </label>
                     <input class="sport-equipment-brand" id="sportEquipmentBrand" type="text"
-                           th:field="*{newSportEquipment.brand}"required/>
+                           th:field="*{newSportEquipment.brand}" required/>
                 </div>
                 <div class="create-lot-input">
                     <label>trading starting date: </label>
