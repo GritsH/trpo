@@ -35,21 +35,23 @@
     </div>
     <div class="right-container">
         <div class="box-for-sort">
-            <select class="sort-select">
-                <option>by name</option>
-                <option>by price</option>
-            </select>
-            <button class="sort-button" type="button" id="sortButton">
-                sort
-            </button>
+            <form class="sort-form" action="#" th:action="@{/admin/main}" method="post">
+                <select class="sort-select" name="sort_type">
+                    <option value="by name">by name</option>
+                    <option value="by price">by price</option>
+                </select>
+                <button class="sort-button" type="submit" id="sortButton">
+                    sort
+                </button>
+            </form>
             <table class="admin-table-bid-history">
                 <thead>
                 <tr class="top-admin-table">
-                    <th> Id </th>
-                    <th> LotId </th>
-                    <th> Bidder Email </th>
-                    <th> Price </th>
-                    <th> Bidding date </th>
+                    <th class="table-id"> Id </th>
+                    <th class="table-lot-id"> LotId </th>
+                    <th class="table-email"> Bidder Email </th>
+                    <th class="table-price"> Price </th>
+                    <th class="table-date"> Bidding date </th>
                 </tr>
                 </thead>
                 <tbody>

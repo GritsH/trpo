@@ -75,3 +75,7 @@ button:hover {
     color: black;
     text-decoration: none;
 }
+
+.header-title-categories {
+    background: #BBD25D;
+}
