@@ -121,3 +121,31 @@
     height: 40px;
 }
 
+th {
+    margin: 10px;
+}
+
+th.table-id {
+    width: 10%;
+}
+
+th.table-lot-id {
+    width: 10%;
+}
+
+th.table-email {
+    width: 30%;
+}
+
+th.table-price {
+    width: 15%;
+}
+
+th.table-date {
+    width: 35%;
+}
+
+.header-title-categories {
+    background: #BBD25D;
+}
+

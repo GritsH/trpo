@@ -14,7 +14,7 @@ public class MedicalEquipmentRowMapper implements RowMapper<MedicalEquipment> {
 
         medicalEquipment.setId(rs.getInt("id"));
         medicalEquipment.setBrand(rs.getString("brand"));
-        medicalEquipment.setManufactureYear(rs.getDate("manufacture_year"));
+        medicalEquipment.setManufactureYear(rs.getInt("manufacture_year"));
         medicalEquipment.setLotId(rs.getInt("lot_id"));
         medicalEquipment.setMedicalSpeciality(MedicalSpeciality.getByName(rs.getString("type")));
 

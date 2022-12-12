@@ -1,18 +1,16 @@
 package by.novikgrits.webapp.model;
 
-import java.time.LocalDate;
-
 public class BidHistory implements Comparable<BidHistory> {
     private Integer id;
     private Integer lotId;
     private String bidderEmail;
     private Double price;
-    private LocalDate biddingDate;
+    private String biddingDate;
 
     public BidHistory() {
     }
 
-    public BidHistory(Integer lotId, String bidderEmail, Double price, LocalDate biddingDate) {
+    public BidHistory(Integer lotId, String bidderEmail, Double price, String biddingDate) {
         this.lotId = lotId;
         this.bidderEmail = bidderEmail;
         this.price = price;
@@ -35,7 +33,7 @@ public class BidHistory implements Comparable<BidHistory> {
         return price;
     }
 
-    public LocalDate getBiddingDate() {
+    public String getBiddingDate() {
         return biddingDate;
     }
 
@@ -51,7 +49,7 @@ public class BidHistory implements Comparable<BidHistory> {
         this.price = price;
     }
 
-    public void setBiddingDate(LocalDate biddingDate) {
+    public void setBiddingDate(String biddingDate) {
         this.biddingDate = biddingDate;
     }
 

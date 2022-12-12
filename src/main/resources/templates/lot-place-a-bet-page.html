@@ -15,8 +15,6 @@
     <div class="header-title">
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
-    <div class="header-title-categories">
-    </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
     </div>
@@ -41,7 +39,7 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
@@ -65,7 +63,7 @@
                         </div>
                         <div class="titles-for-lot">
                             <p class="lot-closing">auction step: </p>
-                            <p class="auction-step" th:text="${foundAuction.lot.step}">100 </p>
+                            <p id="auction-step" class="auction-step" th:text="${foundAuction.lot.step}">100 </p>
                         </div>
                         <div class="titles-for-lot">
                             <p class="lot-current-bet">current bet: </p>
@@ -77,7 +75,8 @@
                 </div>
                 <div class="bottom-panel-lot">
                     <div class="right-panel">
-                        <input class="bet-field" type="number" id="betPrice" name="betPrice">
+                        <input class="bet-field" type="number" id="betPrice" name="betPrice"
+                               th:min="${foundAuction.lot.step}">
                         <p class="error-new-bet hidden" id="newBetError">new bet is less than current bet</p>
                         <button class="place-bet-button" type="submit">
                             place a bet
@@ -112,6 +111,6 @@
         <p class="footer-text">Ⓒ‎2022</p>
     </div>
 </footer>
-
+<script type="module" th:src="@{/js/lot-creation.js}"></script>
 </body>
 </html>

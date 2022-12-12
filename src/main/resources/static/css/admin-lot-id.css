@@ -21,10 +21,9 @@ button:hover {
 
 .admin-lot-id-form {
     height: 40%;
-    width: border-box;
+    width: 800px;
     display: flex;
     flex-direction: column;
-    margin: 20px;
 }
 
 .panel-lot {
@@ -48,4 +47,18 @@ button:hover {
     margin: 95px;
     display: flex;
     align-items: center;
+}
+
+.header-title-categories {
+    background: #BBD25D;
+}
+
+.top-panel-lot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.header-title-categories {
+    background: #BBD25D;
 }

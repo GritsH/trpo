@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class ChargeController {
@@ -58,7 +58,7 @@ public class ChargeController {
         bidHistory.setLotId(lotId);
         bidHistory.setBidderEmail((String) session.getAttribute("current_user"));
         bidHistory.setPrice(betPrice);
-        bidHistory.setBiddingDate(LocalDate.now());
+        bidHistory.setBiddingDate(LocalDateTime.now().toString());
 
         bidHistoryService.addHistory(bidHistory);
 

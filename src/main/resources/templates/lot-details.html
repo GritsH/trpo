@@ -47,7 +47,7 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
@@ -59,28 +59,31 @@
                     <div class="for-img-auction">
                         <img class="image-photo" th:src="*{'data:image/*;base64,' + foundAuction.pic}">
                     </div>
-                    <div class="lot-information-box">
-                        <p class="title-for-lot-info">lot name: </p>
-                        <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
-                        <p class="title-for-lot-info">all information about the lot: </p>
-                        <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the
-                            lot</p>
-                        <p class="title-for-lot-info">lot category: </p>
-                        <p class="lot-category" th:text="${foundAuction.lot.itemType.typeDescription}">category</p>
-                        <p class="title-for-lot-info">lot starting date: </p>
-                        <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting
-                            date</p>
-                        <p class="title-for-lot-info">lot closing date: </p>
-                        <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing date</p>
-                        <p class="title-for-lot-info">lot auction step: </p>
-                        <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
-                    </div>
-                    <div class="lot-price-button">
-                        <button class="join-button" type="submit">
-                            JOIN
-                        </button>
-                        <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
-                        <p class="lot-byn">BYN</p>
+                    <div class="right-part-details">
+                        <div class="lot-information-box">
+                            <p class="title-for-lot-info">lot name: </p>
+                            <p class="lot-name" th:text="${foundAuction.lot.lotName}">lot name</p>
+                            <p class="title-for-lot-info">all information about the lot: </p>
+                            <p class="lot-info" th:text="${foundAuction.lot.briefInfo}">important information about the
+                                lot</p>
+                            <p class="title-for-lot-info">lot category: </p>
+                            <p class="lot-category" th:text="${foundAuction.lot.itemType.typeDescription}">category</p>
+                            <p class="title-for-lot-info">lot starting date: </p>
+                            <p class="lot-starting-date" th:text="${foundAuction.lot.startingDate}">trading starting
+                                date</p>
+                            <p class="title-for-lot-info">lot closing date: </p>
+                            <p class="lot-closing-date" th:text="${foundAuction.lot.closingDate}">trading closing
+                                date</p>
+                            <p class="title-for-lot-info">lot auction step: </p>
+                            <p class="lot-auction-step" th:text="${foundAuction.lot.step}">auction step</p>
+                        </div>
+                        <div class="lot-price-button">
+                            <button class="join-button" type="submit">
+                                JOIN
+                            </button>
+                            <p class="lot-price" th:text="${foundAuction.lot.currentPrice}">150</p>
+                            <p class="lot-byn">BYN</p>
+                        </div>
                     </div>
                 </div>
             </form>

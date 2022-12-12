@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Auction - Create lot Medical equipment</title>
-    <link rel="stylesheet" th:href="@{/css/pages.css}">
     <link rel="stylesheet" th:href="@{/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/pages.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -14,8 +14,6 @@
 <header class="header">
     <div class="header-title">
         <a class="header-title-text" th:href="@{/}">auction</a>
-    </div>
-    <div class="header-title-categories">
     </div>
     <div class="header-title-auth">
         <a th:href="@{/logout}" class="header-title-status"> log out</a>
@@ -41,7 +39,7 @@
                 <a class="aside-link" th:href="@{/information}">information</a>
             </div>
             <div class="aside-box">
-                <a class="aside-link" th:href="@{/about_us}">about us</a>
+                <a class="aside-link" th:href="@{/about-us}">about us</a>
             </div>
         </aside>
     </div>
@@ -63,6 +61,17 @@
                 <div class="create-lot-input">
                     <label>important information about the lot: </label>
                     <input class="all-lot-info" id="allLotInfo" type="text" th:field="*{newLot.briefInfo}" required/>
+                </div>
+                <div class="create-lot-input">
+                    <label>medical type: </label>
+                    <select th:field="*{newMedicalEquipment.medicalSpeciality}" class="medical-speciality-select"
+                            id="MedicalEquipment" name="medicalEquipment">
+                        <option value="">select a speciality</option>
+                        <option
+                                th:each="speciality : ${medicalSpecialities}"
+                                th:value="${speciality}"
+                                th:text="${speciality.typeDescription}"></option>
+                    </select>
                 </div>
                 <div class="create-lot-input">
                     <label>brand: </label>

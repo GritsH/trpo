@@ -99,7 +99,7 @@ button:hover {
 
 .furniture-speciality-select {
     text-align: left;
-    width: 45em;
+    width: 600px;
     height: 40px;
     border: none;
     font-family: 'Josefin Sans', sans-serif;
@@ -116,7 +116,7 @@ button:hover {
 
 .medical-speciality-select {
     text-align: left;
-    width: 45em;
+    width: 600px;
     height: 40px;
     border: none;
     font-family: 'Josefin Sans', sans-serif;
@@ -241,4 +241,31 @@ p {
     width: 140px;
     height: 120px;
     margin: 20px;
+}
+
+.lot-types {
+    position: relative;
+    display: inline-block;
+    width: 600px;
+    height: 40px;
+    background-color: #D9D9D9;
+}
+
+.speciality-select {
+    display: none;
+    background-color: #D9D9D9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-align: center;
+    width: 600px;
+    height: 40px;
+    border: none;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.header-title-categories {
+    background: #BBD25D;
 }

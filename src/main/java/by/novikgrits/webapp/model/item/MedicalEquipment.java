@@ -1,11 +1,10 @@
 package by.novikgrits.webapp.model.item;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class MedicalEquipment extends Item {
     private Integer lotId;
-    private Date manufactureYear;
+    private Integer manufactureYear;
     private String brand;
     private MedicalSpeciality medicalSpeciality;
 
@@ -25,11 +24,11 @@ public class MedicalEquipment extends Item {
         this.lotId = lotId;
     }
 
-    public Date getManufactureYear() {
+    public Integer getManufactureYear() {
         return manufactureYear;
     }
 
-    public void setManufactureYear(Date manufactureYear) {
+    public void setManufactureYear(Integer manufactureYear) {
         this.manufactureYear = manufactureYear;
     }
 

@@ -19,15 +19,18 @@ public class UserRepository {
     private static final String SELECT_BY_EMAIL = "select * from user where email = ?";
     private static final String SELECT_BY_ID = "select * from user where id = ?";
     private static final String SELECT_ALL = "select * from user";
+    private static final String DELETE = "delete from user where id =?";
     private final JdbcTemplate jdbcTemplate;
     private final LotRepository lotRepository;
     private final BidHistoryRepository bidHistoryRepository;
+    private final LotPhotoRepository lotPhotoRepository;
     private final ItemRepositoryProvider itemRepositoryProvider;
 
-    public UserRepository(JdbcTemplate jdbcTemplate, LotRepository lotRepository, BidHistoryRepository bidHistoryRepository, ItemRepositoryProvider itemRepositoryProvider) {
+    public UserRepository(JdbcTemplate jdbcTemplate, LotRepository lotRepository, BidHistoryRepository bidHistoryRepository, LotPhotoRepository lotPhotoRepository, ItemRepositoryProvider itemRepositoryProvider) {
         this.jdbcTemplate = jdbcTemplate;
         this.lotRepository = lotRepository;
         this.bidHistoryRepository = bidHistoryRepository;
+        this.lotPhotoRepository = lotPhotoRepository;
         this.itemRepositoryProvider = itemRepositoryProvider;
     }
 
@@ -63,11 +66,14 @@ public class UserRepository {
         for (Lot lot : allUserLots) {
             bidHistoryRepository.deleteByLotId(lot.getId());
 
+            lotPhotoRepository.deleteByLotId(lot.getId());
+
             ItemType itemType = lot.getItemType();
             itemRepositoryProvider.findRepoByType(itemType).deleteByLotId(lot.getId());
 
             lotRepository.deleteById(lot.getId());
         }
+        jdbcTemplate.update(DELETE, userId);
     }
 
 }
