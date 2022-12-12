@@ -95,3 +95,11 @@
     height: 120px;
     margin: 25px;
 }
+
+.right-part-details {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    align-items: center;
+    justify-content: space-evenly;
+}
