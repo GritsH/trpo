@@ -269,3 +269,14 @@ p {
 .header-title-categories {
     background: #BBD25D;
 }
+
+.error-bad-word {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    color: darkred;
+}

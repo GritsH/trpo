@@ -16,6 +16,8 @@
     <div class="header-title">
         <a class="header-title-text" th:href="@{/}">auction</a>
     </div>
+    <div class="header-title-categories">
+    </div>
     <div class="header-title-auth">
         <a class="header-title-status" th:text="${session.current_user} ?  ${session.current_user}: 'log in' "
            th:href="@{/login}"></a>
@@ -23,7 +25,6 @@
            th:href="@{/logout}">log out</a>
         <a class="header-title-status" th:href="@{/signup}">sign up</a>
     </div>
-
 </header>
 <main class="main">
     <p class="log-title">LOG IN</p>
