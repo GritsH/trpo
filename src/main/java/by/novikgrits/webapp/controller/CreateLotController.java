@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
@@ -49,7 +50,12 @@ public class CreateLotController {
 
     @PostMapping("/create/car")
     public String postCreateCar(@ModelAttribute Car newCar, @ModelAttribute Lot newLot, HttpSession session,
-                                @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/car";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -70,7 +76,12 @@ public class CreateLotController {
 
     @PostMapping("/create/real-estate")
     public String postCreateEstate(@ModelAttribute RealEstate newRealEstate, @ModelAttribute Lot newLot, HttpSession session,
-                                   @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                   @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/real-estate";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
 
@@ -91,7 +102,13 @@ public class CreateLotController {
 
     @PostMapping("/create/jewelry")
     public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Jewelry newJewelry, HttpSession session,
-                                    @RequestParam("jewelryPreciousStonesChoice") String hasStones, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                    @RequestParam("jewelryPreciousStonesChoice") String hasStones,
+                                    @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/jewelry";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -113,7 +130,12 @@ public class CreateLotController {
 
     @PostMapping("/create/clothes")
     public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Clothes newClothes, HttpSession session,
-                                    @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                    @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/clothes";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -136,7 +158,12 @@ public class CreateLotController {
 
     @PostMapping("/create/furniture")
     public String postCreateJewelry(@ModelAttribute Lot newLot, @ModelAttribute Furniture newFurniture, HttpSession session,
-                                    @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                    @RequestParam("image") MultipartFile multipartFile, RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/furniture";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
 
@@ -158,7 +185,13 @@ public class CreateLotController {
 
     @PostMapping("/create/building-equipment")
     public String postBuildingEqJewelry(@ModelAttribute Lot newLot, @ModelAttribute BuildingEquipment newBuildingEquipment,
-                                        HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                        HttpSession session, @RequestParam("image") MultipartFile multipartFile,
+                                        RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/building-equipment";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -179,7 +212,13 @@ public class CreateLotController {
 
     @PostMapping("/create/sport-equipment")
     public String postCreateSportEq(@ModelAttribute Lot newLot, @ModelAttribute SportEquipment newSportEquipment,
-                                    HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                    HttpSession session, @RequestParam("image") MultipartFile multipartFile,
+                                    RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/sport-equipment";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -202,7 +241,13 @@ public class CreateLotController {
 
     @PostMapping("/create/medical-equipment")
     public String postCreateMedicalEq(@ModelAttribute Lot newLot, @ModelAttribute MedicalEquipment newMedicalEquipment,
-                                      HttpSession session, @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                      HttpSession session, @RequestParam("image") MultipartFile multipartFile,
+                                      RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/medical-equipment";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -223,7 +268,13 @@ public class CreateLotController {
 
     @PostMapping("/create/other")
     public String postCreateOther(@ModelAttribute Lot newLot, @ModelAttribute OtherItem newOtherItem, HttpSession session,
-                                  @RequestParam("image") MultipartFile multipartFile) throws IOException, SQLException {
+                                  @RequestParam("image") MultipartFile multipartFile,
+                                  RedirectAttributes redirectAttributes) throws IOException, SQLException {
+        if (hasBadWords(newLot.getLotName()) || hasBadWords(newLot.getBriefInfo())) {
+            redirectAttributes.addFlashAttribute("hasBadWords", "Some fields contain bad words, please do not use them");
+            return "redirect:/create/other";
+        }
+
         String gmail = (String) session.getAttribute("current_user");
         currentUser = userService.findByEmail(gmail).get();
         newLot.setOwnerId(currentUser.getId());
@@ -233,5 +284,32 @@ public class CreateLotController {
 
         itemService.register(newLot, newOtherItem, newPhoto);
         return "redirect:/main";
+    }
+
+    private boolean hasBadWords(String input) {
+        String buff = input;
+        String inputForCheck = buff.toLowerCase();
+        String[] badWords = {"fuck", "shit", "motherfucker", "fucker",
+                "bitch", "sunnevabeach", "shithead", "dick", "slut",
+                "whore", "pussy", "butthole", "fuuuuuuuuuuuck", "fuuck", "fuuuck", "fuuuuck", "fuuuuuck",
+                "biitch", "biiitch", "biiiitch", "fuckk", "fuckkk", "ffuck", "fffuucckk", "ffuuuck", "fuuucckk",
+                "diick", "diiick", "diiiick", "diiiiiick", "ddick", "dddick", "ddiick", "dicck", "dicckk", "diccck",
+                "diicckk", "ddiicckk", "dddiiiccckkk", "dickk", "dickkk", "diicckk", "whooore", "whoore", "wwhhoorree",
+                "whoree", "wwwhhhooorrreee", "whoooore", "whoooooooore", "whooooreee", "whhhoooorreee", "sluut", "sluuut",
+                "sluuut", "sluuuuut", "sluuuuuuuuut", "ssluuuuut", "slllluuuuutttt", "ssssluuuut", "sssllluuuuuuutt",
+                "puussy", "puuuussy", "pusy", "ppuussssyyy", "pppuuusssyyy", "puuuuuussy", "puuuusssyy", "pppuuusssyyy",
+                "ppppuuuuussssyyyy", "pusyy", "pussyy", "ppusy", "pppuussy", "pppuusssyy", "puuuuuusssssyyyyyy",
+                "puuuuuusssy", "fuucker", "ffuucker", "fuuucker", "fuuuucker", "fuuuuucker", "fuuuuuckeeer", "fuckeeeer",
+                "fuckeer", "ffuucckkeerr", "fffuuuccckkkeeerrr", "fuuccker", "fucccker", "fucccckker",
+                "fffuuuuuuuccckkkeeeeer", "fuuuuuuuuuuucker", "fuckeeeeeeeeeerrr", "fuckerrr", "fuckkkeerr", "fucckkeerr",
+                "fuckerrrrrr", "fuuckeerr", "ffuuuuckeeeerr", "fffffuuuuucccccckeeeerr"};
+        boolean hasBadWords = false;
+        for (String word : badWords) {
+            if (inputForCheck.contains(word)) {
+                hasBadWords = true;
+                break;
+            }
+        }
+        return hasBadWords;
     }
 }
