@@ -5,6 +5,7 @@
     <title>Auction - Profile</title>
     <link rel="stylesheet" th:href="@{/css/site.css}">
     <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <link rel="stylesheet" th:href="@{/css/active-auctions.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,300;1,500&display=swap"
@@ -64,6 +65,29 @@
                     create lot
                 </a>
             </button>
+        </div>
+        <div>
+            <div class="panel-active-auctions" th:each="auction : ${usersAuctions}">
+                <div class="box-for-auction">
+                    <div class="for-img-auction">
+                        <img class="image-photo" th:src="*{'data:image/*;base64,' + auction.pic}">
+                    </div>
+                    <div class="right-box">
+                        <div class="lot-information">
+                            <p class="title-for-lot-info">lot name: </p>
+                            <p class="lot-name" th:text="${auction.lot.lotName}">lot name</p>
+                            <p class="title-for-lot-info">lot information: </p>
+                            <p class="lot-info" th:text="${auction.lot.briefInfo}">important information about the lot</p>
+                            <p class="title-for-lot-info">lot closing date: </p>
+                            <p class="lot-closing-date" th:text="${auction.lot.closingDate}">trading closing date</p>
+                            <p class="title-for-lot-info">lot current price: </p>
+                            <p class="lot-closing-date" th:text="${auction.lot.currentPrice}">trading closing date</p>
+                            <p class="title-for-lot-info">auction step: </p>
+                            <p class="lot-closing-date" th:text="${auction.lot.step}">trading closing date</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

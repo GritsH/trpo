@@ -1,9 +1,9 @@
 package by.novikgrits.webapp.controller;
 
 import by.novikgrits.webapp.model.Auction;
+import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.model.User;
 import by.novikgrits.webapp.model.item.ItemType;
-import by.novikgrits.webapp.model.Lot;
 import by.novikgrits.webapp.service.AuctionsService;
 import by.novikgrits.webapp.service.LotService;
 import by.novikgrits.webapp.service.UserService;
