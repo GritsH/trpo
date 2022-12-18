@@ -28,7 +28,7 @@ class BidHistoryServiceTest {
     @DisplayName("should add history")
     @Test
     void addHistory() {
-        BidHistory history = new BidHistory(1, "email", 1.0, LocalDate.now());
+        BidHistory history = new BidHistory(1, "email", 1.0, "2022-12-07T00:00:00");
 
         bidHistoryService.addHistory(history);
 
@@ -70,13 +70,49 @@ class BidHistoryServiceTest {
 
     @Test
     void findByBidderEmailAndLotId() {
+        List<BidHistory> repositoryResponse = new ArrayList<>();
+        BidHistory mockedHistory = mock(BidHistory.class);
+        repositoryResponse.add(mockedHistory);
+
+        when(bidHistoryRepository.findAllByBidderIdAndLotId("email", 1)).thenReturn(repositoryResponse);
+
+        List<BidHistory> result = bidHistoryService.findByBidderIdAndLotId("email", 1);
+
+        assertEquals(mockedHistory, result.get(0));
+
+        verify(bidHistoryRepository).findAllByBidderIdAndLotId("email", 1);
+        verifyNoMoreInteractions(bidHistoryRepository);
     }
 
     @Test
     void findByBidderEmail() {
+        List<BidHistory> repositoryResponse = new ArrayList<>();
+        BidHistory mockedHistory = mock(BidHistory.class);
+        repositoryResponse.add(mockedHistory);
+
+        when(bidHistoryRepository.findAllByBidderId("email")).thenReturn(repositoryResponse);
+
+        List<BidHistory> result = bidHistoryService.findByBidderId("email");
+
+        assertEquals(mockedHistory, result.get(0));
+
+        verify(bidHistoryRepository).findAllByBidderId("email");
+        verifyNoMoreInteractions(bidHistoryRepository);
     }
 
     @Test
     void findByLotId() {
+        List<BidHistory> repositoryResponse = new ArrayList<>();
+        BidHistory mockedHistory = mock(BidHistory.class);
+        repositoryResponse.add(mockedHistory);
+
+        when(bidHistoryRepository.findAllByLotId(1)).thenReturn(repositoryResponse);
+
+        List<BidHistory> result = bidHistoryService.findByLotId(1);
+
+        assertEquals(mockedHistory, result.get(0));
+
+        verify(bidHistoryRepository).findAllByLotId(1);
+        verifyNoMoreInteractions(bidHistoryRepository);
     }
 }
