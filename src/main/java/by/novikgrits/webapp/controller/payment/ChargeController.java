@@ -74,7 +74,7 @@ public class ChargeController {
 
         List<BidHistory> histories = bidHistoryService.findByLotId(lotId);
         if (histories.size() != 0) {
-            String prevBidder = histories.get(histories.size() - 2).getBidderEmail();
+            String prevBidder = histories.get(histories.size() - 1).getBidderEmail();
             if (prevBidder != null && !Objects.equals(prevBidder, user)) {
                 sendmail(prevBidder, lot);
             }
